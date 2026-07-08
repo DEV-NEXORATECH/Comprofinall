@@ -2,9 +2,6 @@ import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 
 const NetworkOrb = lazy(() => import('./components/NetworkOrb.jsx'));
-const CoverageMap3D = lazy(() => import('./components/CoverageMap3D.jsx'));
-const TeamNetwork3D = lazy(() => import('./components/TeamNetwork3D.jsx'));
-const IndustryEcosystem3D = lazy(() => import('./components/IndustryEcosystem3D.jsx'));
 
 const navLinks = [
   { label: { id: 'Beranda', en: 'Home' }, path: '/' },
@@ -925,14 +922,16 @@ function CoverageSection({ text }) {
       <section className="section alt pattern-section">
         <AbstractPattern className="services-line-pattern" />
         <div className="container coverage-grid">
-          <div className="coverage-map coverage-map-3d reveal is-visible">
-            <Suspense fallback={<div className="coverage-map-fallback" aria-hidden="true" />}>
-              <CoverageMap3D />
-            </Suspense>
-            <div className="map-label coverage-map-label">
-              <span>Bandung-based</span>
-              <strong>Indonesia-wide</strong>
-            </div>
+          <div className="coverage-map reveal is-visible" aria-hidden="true">
+            <iframe
+              title="Cakupan layanan Nexora di Indonesia"
+              src="https://www.google.com/maps?q=Indonesia&z=5&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <a className="map-label google-map-link" href="https://www.google.com/maps/place/Indonesia" target="_blank" rel="noreferrer">
+              {text.openMaps}
+            </a>
           </div>
         <div className="reveal is-visible">
           <span className="eyebrow">Coverage</span>
@@ -981,12 +980,35 @@ function Stat({ value, label }) {
 }
 
 function ServicesPreview({ language, text }) {
+  const featured = services[0];
+  const translated = language === 'en' ? serviceEnglish[0] : null;
   return (
     <section className="section alt pattern-section">
       <AbstractPattern className="services-line-pattern" />
       <div className="container">
         <SectionHead title={text.servicesPreviewTitle} copy={text.servicesPreviewCopy} />
-        <div className="grid three">{services.slice(0, 3).map((item, index) => <ServiceCard key={item.title} item={item} index={index} language={language} />)}</div>
+        <div className="services-showcase">
+          <article className="card service-feature-card reveal is-visible">
+            <div className="service-feature-menu">
+              {services.slice(0, 5).map((item) => <span key={item.title}>{item.title}</span>)}
+            </div>
+            <div className="service-feature-copy">
+              <div className="icon-box"><span className="material-symbols-outlined">{featured.icon}</span></div>
+              <h3>{featured.title}</h3>
+              <p>{translated?.copy || featured.copy}</p>
+              <Tags items={featured.tags} />
+            </div>
+            <div className="service-feature-visual" aria-hidden="true">
+              <span />
+              <i />
+              <i />
+              <i />
+            </div>
+          </article>
+          <div className="grid three service-mini-grid">
+            {services.slice(1, 4).map((item, index) => <ServiceCard key={item.title} item={item} index={index + 1} language={language} />)}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -1176,12 +1198,35 @@ function FaqList() {
 }
 
 function ServicesPage({ language, text }) {
+  const featured = services[0];
+  const translated = language === 'en' ? serviceEnglish[0] : null;
   return (
     <>
       <PageHero title={text.servicesPageTitle} copy={text.servicesPageCopy} primary />
       <section className="section page-section pattern-section">
         <AbstractPattern className="services-line-pattern" />
-        <div className="container"><div className="grid two">{services.map((item, index) => <ServiceCard item={item} index={index} language={language} key={item.title} />)}</div></div>
+        <div className="container">
+          <article className="card service-feature-card reveal is-visible">
+            <div className="service-feature-menu">
+              {services.map((item) => <span key={item.title}>{item.title}</span>)}
+            </div>
+            <div className="service-feature-copy">
+              <div className="icon-box"><span className="material-symbols-outlined">{featured.icon}</span></div>
+              <h3>{featured.title}</h3>
+              <p>{translated?.copy || featured.copy}</p>
+              <Tags items={featured.tags} />
+            </div>
+            <div className="service-feature-visual" aria-hidden="true">
+              <span />
+              <i />
+              <i />
+              <i />
+            </div>
+          </article>
+          <div className="grid three service-mini-grid">
+            {services.slice(1).map((item, index) => <ServiceCard item={item} index={index + 1} language={language} key={item.title} />)}
+          </div>
+        </div>
       </section>
       <Cta buttonLabel={text.cta} title={language === 'en' ? 'Ready for Digital Transformation?' : 'Siap untuk Transformasi Digital?'} copy={language === 'en' ? 'Discuss your project needs with our expert team and find the best IT solution for your company.' : 'Diskusikan kebutuhan proyek Anda dengan tim ahli kami dan temukan solusi IT terbaik untuk perusahaan Anda.'} />
     </>
@@ -1314,16 +1359,6 @@ function TeamSection({ language, text }) {
       <AbstractPattern className="services-line-pattern" />
       <div className="container">
         <SectionHead title={text.managementTitle} copy={text.managementCopy} />
-        <div className="team-network-panel reveal is-visible">
-          <Suspense fallback={<div className="team-network-fallback" aria-hidden="true" />}>
-            <TeamNetwork3D />
-          </Suspense>
-          <div className="team-network-copy">
-            <span className="eyebrow">Leadership System</span>
-            <h3>{text.leadershipTitle}</h3>
-            <p>{text.leadershipCopy}</p>
-          </div>
-        </div>
         <div className="grid two management-grid">
           {teamMembers.map((member) => (
             <article className="card team-card management-card reveal is-visible" key={member.name}>
@@ -1367,16 +1402,6 @@ function IndustryPage({ language, text }) {
       <section className="section page-section pattern-section">
         <AbstractPattern className="section-line-pattern" />
         <div className="container">
-          <div className="industry-ecosystem-panel reveal is-visible">
-            <Suspense fallback={<div className="industry-ecosystem-fallback" aria-hidden="true" />}>
-              <IndustryEcosystem3D />
-            </Suspense>
-            <div className="industry-ecosystem-copy">
-              <span className="eyebrow">Industry Ecosystem</span>
-              <h2>{text.industryPanelTitle}</h2>
-              <p>{text.industryPanelCopy}</p>
-            </div>
-          </div>
           <div className="grid three industry-grid">
             {industries.map(([icon, title, copy]) => (
               <article className="card reveal is-visible" key={title}>
