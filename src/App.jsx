@@ -1,28 +1,104 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useLanguage } from './context/LanguageContext';
-import SiteLayout from './layout/SiteLayout';
-import AppRoutes from './routes/AppRoutes';
-import { useMagneticButton } from './hooks/useMagneticButton';
-import { useScrollReveal } from './hooks/useScrollReveal';
-import { useTilt } from './hooks/useTilt';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom';
+
+const navLinks = [
+  { label: 'Beranda', path: '/' },
+  { label: 'Tentang Kami', path: '/about' },
+  { label: 'Services', path: '/services' },
+  { label: 'Portfolio', path: '/portfolio' },
+  { label: 'Industri', path: '/industry' },
+  { label: 'FAQ', path: '/faq' },
+  { label: 'Kontak', path: '/contact' },
+];
+
+const services = [
+  {
+    icon: 'code',
+    title: 'Custom Software Development',
+    copy: 'Pengembangan perangkat lunak khusus yang disesuaikan sepenuhnya dengan proses bisnis unik Anda. Mulai dari sistem ERP, CRM, hingga aplikasi enterprise kompleks.',
+    tags: ['Enterprise', 'Scalable', 'Secure'],
+  },
+  {
+    icon: 'language',
+    title: 'Website Company Profile',
+    copy: 'Representasi digital profesional untuk perusahaan Anda dengan desain responsif, performa tinggi, dan optimasi SEO.',
+    tags: ['Responsive', 'SEO Friendly', 'Modern UI'],
+  },
+  {
+    icon: 'api',
+    title: 'API Integration',
+    copy: 'Hubungkan berbagai sistem terpisah menjadi satu ekosistem yang rapi melalui REST API, webhook, dan integrasi pihak ketiga.',
+    tags: ['RESTful', 'GraphQL', 'Microservices'],
+  },
+  {
+    icon: 'support_agent',
+    title: 'Managed Service',
+    copy: 'Dukungan teknis, pemeliharaan sistem, pemantauan keamanan, dan cloud operation agar bisnis tetap berjalan stabil.',
+    tags: ['24/7 Support', 'Maintenance', 'Cloud Ops'],
+  },
+];
+
+const portfolios = [
+  {
+    category: 'Fintech',
+    image: '/moneyku.png',
+    tags: ['Fintech', 'API Integration'],
+    title: 'Modernisasi Core Banking System',
+    copy: 'Membangun ulang arsitektur monolitik menjadi microservices untuk meningkatkan throughput transaksi dan menekan downtime.',
+  },
+  {
+    category: 'Healthcare',
+    image: '/hris.png',
+    tags: ['Healthcare', 'Mobile App'],
+    title: 'Telemedicine App Skala Nasional',
+    copy: 'Aplikasi telekonsultasi dengan integrasi rekam medis elektronik yang aman, cepat, dan mudah digunakan.',
+  },
+  {
+    category: 'Logistics',
+    image: '/all role ai.png',
+    tags: ['Logistics', 'Custom Software'],
+    title: 'Sistem Manajemen Armada Berbasis AI',
+    copy: 'Optimasi rute dan tracking real-time untuk perusahaan logistik dengan kebutuhan operasional kompleks.',
+  },
+  {
+    category: 'Retail',
+    image: '/bisa-platform.png',
+    tags: ['Retail', 'E-Commerce Platform'],
+    title: 'Platform E-Commerce Enterprise',
+    copy: 'Platform headless e-commerce yang mampu menangani trafik tinggi dan terintegrasi dengan ERP/POS.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Berapa lama waktu pengerjaan proyek?',
+    answer: 'Waktu pengerjaan bergantung pada kompleksitas. Website standar biasanya 2-4 minggu, sedangkan sistem kustom kompleks bisa 2-6 bulan.',
+  },
+  {
+    question: 'Apakah ada layanan maintenance setelah proyek selesai?',
+    answer: 'Ada. Kami menyediakan pemeliharaan, monitoring, update keamanan, backup, dan pengembangan fitur lanjutan.',
+  },
+  {
+    question: 'Teknologi apa saja yang digunakan Nexora?',
+    answer: 'Kami memakai teknologi modern seperti React, Node.js, Go, Python, PostgreSQL, cloud infrastructure, Docker, dan CI/CD.',
+  },
+  {
+    question: 'Apakah bisa integrasi dengan sistem lama?',
+    answer: 'Bisa. Kami bisa membuat API bridge, migrasi data bertahap, dan integrasi tanpa mengganggu operasional utama.',
+  },
+];
+
+const contact = {
+  email: 'hello@nexoratech.com',
+  phone: '+62 21 1234 5678',
+  whatsapp: '+62 812 3456 7890',
+  address: 'Jl. Jend. Sudirman Kav. 52-53, Senayan, Kebayoran Baru, Jakarta Selatan 12190, Indonesia',
+  hours: 'Senin - Jumat, 09.00 - 18.00 WIB',
+};
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { locale } = useLanguage();
-  const navLinks = locale.nav.links;
-  useScrollReveal(location.pathname);
-  useTilt(location.pathname);
-  useMagneticButton(location.pathname);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -30,15 +106,586 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <SiteLayout
-      scrolled={scrolled}
-      menuOpen={menuOpen}
-      navLinks={navLinks}
-      onToggleMenu={() => setMenuOpen((value) => !value)}
-      onCloseMenu={() => setMenuOpen(false)}
-    >
-      <AppRoutes />
-    </SiteLayout>
+    <div className="site-shell">
+      <Navbar menuOpen={menuOpen} onToggle={() => setMenuOpen((value) => !value)} />
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/industry" element={<IndustryPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function Navbar({ menuOpen, onToggle }) {
+  return (
+    <header className="nav">
+      <div className="container nav-inner">
+        <Link className="brand" to="/">
+          <span className="brand-mark">N</span>
+          <span>Nexora Technology</span>
+        </Link>
+
+        <nav className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
+          {navLinks.map((item) => (
+            <NavLink key={item.path} className={({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`} to={item.path}>
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="nav-actions">
+          <Link className="button" to="/contact">Konsultasi Gratis</Link>
+          <button className="menu-toggle" type="button" aria-label="Buka menu" onClick={onToggle}>
+            <span className="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function HomePage() {
+  return (
+    <>
+      <section className="hero">
+        <div className="container hero-grid">
+          <div className="reveal is-visible">
+            <span className="eyebrow">Solusi IT Enterprise</span>
+            <h1 className="hero-title">Bangun Sistem. Percepat Bisnis.</h1>
+            <p className="hero-copy">
+              Nexora Technology membantu bisnis membangun website, sistem internal, dashboard, integrasi API, automasi digital,
+              dan keamanan teknologi yang rapi, scalable, dan siap berkembang.
+            </p>
+            <div className="hero-actions">
+              <Link className="button" to="/contact">Mulai Konsultasi</Link>
+              <Link className="button secondary" to="/services">Pelajari Layanan</Link>
+            </div>
+          </div>
+          <DashboardMockup />
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container about-grid">
+          <div className="reveal is-visible">
+            <div className="section-head left">
+              <h2 className="section-title">Tentang Nexora Technology</h2>
+              <p className="section-copy">
+                Kami adalah mitra teknologi yang membantu bisnis bertransformasi digital melalui sistem yang aman,
+                efisien, dan mudah dikembangkan.
+              </p>
+            </div>
+            <Link className="link-arrow" to="/about">
+              Pelajari lebih lanjut <span className="material-symbols-outlined">arrow_forward</span>
+            </Link>
+          </div>
+          <StatsCard />
+        </div>
+      </section>
+
+      <ServicesPreview />
+      <WhySection />
+      <PortfolioPreview />
+      <PricingSection />
+      <Testimonials />
+      <FaqSection compact />
+      <Cta title="Transformasikan Bisnis Anda Sekarang" copy="Kami menghadirkan solusi teknologi terdepan untuk meningkatkan efisiensi operasional dan mendorong inovasi perusahaan Anda ke level selanjutnya." />
+    </>
+  );
+}
+
+function DashboardMockup() {
+  const [style, setStyle] = useState({});
+
+  function onMove(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    setStyle({ transform: `rotateX(${y * -7}deg) rotateY(${x * 7}deg)` });
+  }
+
+  return (
+    <div className="dashboard-card reveal is-visible" style={style} onPointerMove={onMove} onPointerLeave={() => setStyle({})}>
+      <div className="mock-window">
+        <div className="mock-bar"><span /><span /><span /></div>
+        <div className="mock-body">
+          <div className="mock-sidebar"><i /><i /><i /><i /></div>
+          <div className="mock-panel">
+            <div className="chart">
+              <svg viewBox="0 0 420 160" aria-hidden="true">
+                <polyline fill="none" stroke="#0067bd" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" points="8,126 72,98 132,112 190,64 252,84 320,38 410,58" />
+                <polyline fill="none" stroke="#a6c8ff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" points="8,142 78,130 140,136 210,105 280,116 350,86 410,94" />
+              </svg>
+            </div>
+            <div className="metric-grid">
+              <Metric value="400%" label="Throughput" />
+              <Metric value="99%" label="Uptime" />
+              <Metric value="24/7" label="Support" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Metric({ value, label }) {
+  return <div className="metric"><strong>{value}</strong><span>{label}</span></div>;
+}
+
+function StatsCard() {
+  return (
+    <div className="stats-card reveal is-visible">
+      <Stat value="50+" label="Proyek Selesai" />
+      <Stat value="99%" label="Klien Puas" />
+      <Stat value="24/7" label="Dukungan" />
+      <Stat value="5+" label="Tahun Pengalaman" />
+    </div>
+  );
+}
+
+function Stat({ value, label }) {
+  return <div className="stat"><strong>{value}</strong><span>{label}</span></div>;
+}
+
+function ServicesPreview() {
+  return (
+    <section className="section alt">
+      <div className="container">
+        <SectionHead title="Layanan Unggulan Kami" copy="Keahlian mendalam dalam berbagai domain teknologi untuk mendukung kebutuhan spesifik industri Anda." />
+        <div className="grid three">{services.slice(0, 3).map((item) => <ServiceCard key={item.title} item={item} />)}</div>
+      </div>
+    </section>
+  );
+}
+
+function ServiceCard({ item }) {
+  return (
+    <article className="card reveal is-visible">
+      <div className="icon-box"><span className="material-symbols-outlined">{item.icon}</span></div>
+      <h3>{item.title}</h3>
+      <p>{item.copy}</p>
+      <Tags items={item.tags} />
+    </article>
+  );
+}
+
+function Tags({ items }) {
+  return <div className="tags">{items.map((item) => <span className="tag" key={item}>{item}</span>)}</div>;
+}
+
+function WhySection() {
+  const values = [
+    ['rocket_launch', 'Cepat & Tanggap', 'Pengembangan gesit tanpa mengorbankan kualitas.'],
+    ['verified_user', 'Aman & Andal', 'Keamanan data dan stabilitas sistem menjadi prioritas.'],
+    ['groups', 'Tim Ahli', 'Didukung profesional IT berpengalaman.'],
+    ['trending_up', 'Scalable', 'Sistem tumbuh mengikuti skala bisnis Anda.'],
+  ];
+
+  return (
+    <section className="section">
+      <div className="container">
+        <SectionHead title="Mengapa Memilih Kami?" />
+        <div className="grid four">
+          {values.map(([icon, title, copy]) => (
+            <article className="why-card reveal is-visible" key={title}>
+              <div className="icon-box"><span className="material-symbols-outlined">{icon}</span></div>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PortfolioPreview() {
+  return (
+    <section className="section alt">
+      <div className="container">
+        <SectionHead title="Karya Kami" copy="Beberapa contoh proyek sukses yang telah kami selesaikan." />
+        <div className="grid three">{portfolios.slice(0, 3).map((item) => <PortfolioCard item={item} key={item.title} />)}</div>
+      </div>
+    </section>
+  );
+}
+
+function PortfolioCard({ item }) {
+  return (
+    <article className="card portfolio-card reveal is-visible">
+      <div className="portfolio-image"><img src={item.image} alt={item.title} loading="lazy" /></div>
+      <div className="portfolio-content">
+        <Tags items={item.tags} />
+        <h3>{item.title}</h3>
+        <p>{item.copy}</p>
+        <Link className="link-arrow" to="/portfolio">Lihat Studi Kasus <span className="material-symbols-outlined">arrow_forward</span></Link>
+      </div>
+    </article>
+  );
+}
+
+function PricingSection() {
+  const plans = [
+    ['Startup', 'Mulai Rp 5JT', ['Website Company Profile', 'Basic SEO', '1 Bulan Support']],
+    ['Business', 'Mulai Rp 15JT', ['Custom Web App', 'Integrasi API Dasar', 'Dashboard Admin', '3 Bulan Support']],
+    ['Enterprise', 'Custom', ['Full Custom Architecture', 'Advanced Security', 'High Availability Setup', '24/7 Priority Support']],
+  ];
+
+  return (
+    <section className="section">
+      <div className="container">
+        <SectionHead title="Pilihan Harga yang Fleksibel" copy="Paket yang disesuaikan dengan skala bisnis Anda." />
+        <div className="grid three">
+          {plans.map(([name, price, items]) => (
+            <article className={`card pricing-card reveal is-visible ${name === 'Business' ? 'featured' : ''}`} key={name}>
+              {name === 'Business' && <span className="badge">Populer</span>}
+              <h3>{name}</h3>
+              <p>{name === 'Startup' ? 'Ideal untuk bisnis yang baru memulai.' : name === 'Business' ? 'Untuk bisnis yang sedang berkembang.' : 'Solusi kompleks untuk skala besar.'}</p>
+              <div className="price">{price}</div>
+              <ul>{items.map((item) => <li key={item}><span className="material-symbols-outlined">check</span>{item}</li>)}</ul>
+              <Link className={name === 'Business' ? 'button' : 'button ghost'} to="/contact">{name === 'Enterprise' ? 'Hubungi Kami' : 'Pilih Paket'}</Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  const items = [
+    ['Nexora sangat profesional dalam menangani kebutuhan IT perusahaan kami. Sistem yang dibangun stabil dan mudah digunakan.', 'Budi Santoso', 'CTO, PT Maju Bersama'],
+    ['Migrasi cloud berjalan lancar tanpa mengganggu operasional. Tim dukungan juga sangat responsif.', 'Siti Rahmawati', 'IT Manager, Tech Indonusa'],
+  ];
+
+  return (
+    <section className="section alt">
+      <div className="container">
+        <SectionHead title="Apa Kata Klien Kami" />
+        <div className="grid two">
+          {items.map(([quote, name, role]) => (
+            <article className="card testimonial reveal is-visible" key={name}>
+              <span className="material-symbols-outlined quote-mark">format_quote</span>
+              <p><em>"{quote}"</em></p>
+              <div className="client"><span className="avatar" /><div><strong>{name}</strong><br /><span>{role}</span></div></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FaqSection({ compact = false }) {
+  return (
+    <section className="section">
+      <div className="container">
+        <SectionHead title={compact ? 'Pertanyaan yang Sering Diajukan' : 'FAQ Nexora Technology'} copy={compact ? '' : 'Jawaban singkat sebelum memulai proyek teknologi bersama kami.'} />
+        <FaqList />
+      </div>
+    </section>
+  );
+}
+
+function FaqList() {
+  const [open, setOpen] = useState(0);
+  return (
+    <div className="faq-list">
+      {faqs.map((item, index) => (
+        <article className={`faq-item reveal is-visible ${open === index ? 'is-open' : ''}`} key={item.question}>
+          <button className="faq-question" type="button" onClick={() => setOpen(open === index ? -1 : index)}>
+            <span>{item.question}</span>
+            <span className="material-symbols-outlined">expand_more</span>
+          </button>
+          <div className="faq-answer">{item.answer}</div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function ServicesPage() {
+  return (
+    <>
+      <PageHero title="Layanan Unggulan Kami" copy="Solusi IT komprehensif yang dirancang untuk mendukung transformasi digital dan pertumbuhan bisnis Anda di era modern." primary />
+      <section className="section page-section">
+        <div className="container"><div className="grid two">{services.map((item) => <ServiceCard item={item} key={item.title} />)}</div></div>
+      </section>
+      <Cta />
+    </>
+  );
+}
+
+function PortfolioPage() {
+  const [filter, setFilter] = useState('All');
+  const filtered = useMemo(() => (filter === 'All' ? portfolios : portfolios.filter((item) => item.category === filter)), [filter]);
+
+  return (
+    <>
+      <PageHero title="Karya Unggulan Kami" copy="Transformasi digital nyata untuk berbagai industri. Jelajahi studi kasus bagaimana kami membantu perusahaan mencapai efisiensi dan skalabilitas." />
+      <section className="section page-section">
+        <div className="container">
+          <div className="filter-row">
+            {['All', 'Fintech', 'Healthcare', 'Logistics', 'Retail'].map((item) => (
+              <button className={`filter-button ${filter === item ? 'is-active' : ''}`} type="button" onClick={() => setFilter(item)} key={item}>{item}</button>
+            ))}
+          </div>
+          <div className="grid two">{filtered.map((item) => <PortfolioCard item={item} key={item.title} />)}</div>
+        </div>
+      </section>
+      <Cta title="Siap Mewujudkan Inovasi Teknologi Anda?" copy="Konsultasikan kebutuhan proyek Anda dengan tim ahli kami sekarang." />
+    </>
+  );
+}
+
+function AboutPage() {
+  return (
+    <>
+      <PageHero title="Tentang Nexora Technology" copy="Kami menggabungkan strategi, desain, dan engineering untuk membantu perusahaan membangun sistem digital yang lebih efisien." primary />
+      <section className="section">
+        <div className="container about-grid">
+          <div className="reveal is-visible">
+            <h2 className="section-title">Mitra Teknologi untuk Bisnis yang Bertumbuh</h2>
+            <p className="section-copy">Nexora Technology hadir untuk perusahaan yang membutuhkan partner teknis jangka panjang. Kami membangun fondasi digital yang dapat diukur, dirawat, dan ditingkatkan.</p>
+            <p className="section-copy">Pendekatan kami berpusat pada kebutuhan bisnis, keamanan, performa, dan pengalaman pengguna yang sederhana.</p>
+          </div>
+          <StatsCard />
+        </div>
+      </section>
+      <Cta title="Bangun Sistem yang Lebih Rapi" copy="Kami siap membantu merapikan proses bisnis Anda menjadi solusi digital yang praktis dan scalable." />
+    </>
+  );
+}
+
+function IndustryPage() {
+  const industries = [
+    ['account_balance', 'Fintech & Banking', 'Integrasi pembayaran, dashboard risiko, core system modernization, dan API finansial aman.'],
+    ['local_hospital', 'Healthcare', 'Sistem klinik, telemedicine, EMR, dan integrasi layanan kesehatan berbasis data.'],
+    ['local_shipping', 'Logistics', 'Tracking armada, optimasi rute, warehouse management, dan automasi operasional.'],
+    ['storefront', 'Retail & E-Commerce', 'Platform toko online, inventory, loyalty, dan integrasi ERP/POS.'],
+    ['factory', 'Manufacturing', 'Monitoring produksi, quality control, maintenance, dan dashboard operasional.'],
+    ['school', 'Education', 'Learning management system, portal akademik, dan dashboard performa pembelajaran.'],
+  ];
+
+  return (
+    <>
+      <PageHero title="Solusi untuk Berbagai Industri" copy="Setiap industri punya proses berbeda. Kami merancang sistem yang mengikuti alur kerja nyata, bukan memaksa bisnis mengikuti software." primary />
+      <section className="section page-section">
+        <div className="container">
+          <div className="grid three">
+            {industries.map(([icon, title, copy]) => (
+              <article className="card reveal is-visible" key={title}>
+                <div className="icon-box"><span className="material-symbols-outlined">{icon}</span></div>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Cta title="Butuh Solusi untuk Industri Anda?" copy="Ceritakan proses bisnis Anda, kami bantu petakan kebutuhan sistem dan roadmap implementasinya." />
+    </>
+  );
+}
+
+function FaqPage() {
+  return (
+    <>
+      <PageHero title="FAQ Nexora Technology" copy="Jawaban singkat untuk pertanyaan yang paling sering muncul sebelum memulai proyek teknologi." primary />
+      <FaqSection />
+      <Cta title="Masih Ada Pertanyaan?" copy="Tim kami siap bantu jelaskan opsi teknologi yang paling sesuai untuk kebutuhan bisnis Anda." />
+    </>
+  );
+}
+
+function ContactPage() {
+  const [note, setNote] = useState('');
+
+  return (
+    <>
+      <PageHero title="Kontak Nexora Technology" copy="Diskusikan kebutuhan website, sistem internal, integrasi API, atau automasi digital perusahaan Anda." primary />
+      <section className="section page-section">
+        <div className="container contact-grid">
+          <aside className="card contact-card reveal is-visible">
+            <h2>Hubungi Kami</h2>
+            <p>Isi form atau kontak langsung melalui email, telepon, dan alamat kantor berikut.</p>
+            <ContactList />
+          </aside>
+          <form className="card form reveal is-visible" onSubmit={(event) => {
+            event.preventDefault();
+            const data = new FormData(event.currentTarget);
+            setNote(`Terima kasih, ${data.get('name') || 'Kak'}. Tim Nexora akan segera menghubungi Anda.`);
+            event.currentTarget.reset();
+          }}>
+            <Field id="name" label="Nama" placeholder="Nama Anda" required />
+            <Field id="email" label="Email" type="email" placeholder="email@perusahaan.com" required />
+            <Field id="company" label="Perusahaan" placeholder="Nama perusahaan" />
+            <div className="field">
+              <label htmlFor="service">Layanan</label>
+              <select id="service" name="service">
+                {services.map((item) => <option key={item.title}>{item.title}</option>)}
+              </select>
+            </div>
+            <div className="field">
+              <label htmlFor="budget">Budget</label>
+              <select id="budget" name="budget">
+                <option>Rp 5JT - 15JT</option>
+                <option>Rp 15JT - 50JT</option>
+                <option>Rp 50JT+</option>
+                <option>Belum tahu</option>
+              </select>
+            </div>
+            <div className="field full">
+              <label htmlFor="message">Pesan</label>
+              <textarea id="message" name="message" placeholder="Ceritakan kebutuhan proyek Anda" required />
+            </div>
+            <div className="form-note">{note}</div>
+            <button className="button" type="submit">Kirim Pesan</button>
+          </form>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Field({ id, label, type = 'text', ...props }) {
+  return (
+    <div className="field">
+      <label htmlFor={id}>{label}</label>
+      <input id={id} name={id} type={type} {...props} />
+    </div>
+  );
+}
+
+function ContactList() {
+  const items = [
+    ['mail', 'Email', <a href={`mailto:${contact.email}`}>{contact.email}</a>],
+    ['phone', 'Telepon', <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>],
+    ['chat', 'WhatsApp', <a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noreferrer">{contact.whatsapp}</a>],
+    ['location_on', 'Alamat Kantor', contact.address],
+    ['schedule', 'Jam Operasional', contact.hours],
+  ];
+
+  return (
+    <div className="contact-list">
+      {items.map(([icon, title, value]) => (
+        <div className="contact-item" key={title}>
+          <span className="icon-box"><span className="material-symbols-outlined">{icon}</span></span>
+          <div><strong>{title}</strong><br /><span>{value}</span></div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function PageHero({ title, copy, primary = false }) {
+  return (
+    <section className="page-hero">
+      <div className="container reveal is-visible">
+        <h1 className={`section-title ${primary ? 'primary' : ''}`}>{title}</h1>
+        <p className="section-copy">{copy}</p>
+      </div>
+    </section>
+  );
+}
+
+function SectionHead({ title, copy = '' }) {
+  return (
+    <div className="section-head reveal is-visible">
+      <h2 className="section-title">{title}</h2>
+      {copy && <p className="section-copy">{copy}</p>}
+    </div>
+  );
+}
+
+function Cta({ title = 'Siap untuk Transformasi Digital?', copy = 'Diskusikan kebutuhan proyek Anda dengan tim ahli kami dan temukan solusi IT terbaik untuk perusahaan Anda.' }) {
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="cta reveal is-visible">
+          <h2>{title}</h2>
+          <p>{copy}</p>
+          <Link className="button" to="/contact">Konsultasi Gratis</Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-top">
+          <div className="footer-brand">
+            <Link className="brand footer-logo" to="/">
+              <span className="brand-mark">N</span>
+              <span>Nexora Technology</span>
+            </Link>
+            <p>Mitra teknologi andal untuk transformasi digital perusahaan. Kami menghadirkan sistem yang rapi, aman, dan siap berkembang.</p>
+            <div className="footer-socials">
+              <a href="mailto:hello@nexoratech.com" aria-label="Email Nexora"><span className="material-symbols-outlined">mail</span></a>
+              <a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" aria-label="WhatsApp Nexora"><span className="material-symbols-outlined">chat</span></a>
+              <a href="/contact" aria-label="Lokasi Nexora"><span className="material-symbols-outlined">location_on</span></a>
+            </div>
+          </div>
+
+          <div className="footer-card">
+            <h4>Perusahaan</h4>
+            <div className="footer-links">
+              <Link to="/about">Tentang Kami</Link>
+              <Link to="/services">Services</Link>
+              <Link to="/portfolio">Portfolio</Link>
+              <Link to="/industry">Industri</Link>
+              <Link to="/faq">FAQ</Link>
+            </div>
+          </div>
+
+          <div className="footer-card">
+            <h4>Layanan</h4>
+            <div className="footer-links">
+              {services.map((item) => <Link to="/services" key={item.title}>{item.title}</Link>)}
+            </div>
+          </div>
+
+          <div className="footer-card footer-contact">
+            <h4>Kontak & Alamat</h4>
+            <p><span className="material-symbols-outlined">location_on</span>{contact.address}</p>
+            <p><span className="material-symbols-outlined">mail</span><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+            <p><span className="material-symbols-outlined">phone</span><a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a></p>
+            <p><span className="material-symbols-outlined">schedule</span>{contact.hours}</p>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 Nexora Technology. All rights reserved.</span>
+          <span>Jakarta, Indonesia</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function NotFoundPage() {
+  return (
+    <section className="not-found">
+      <div className="container reveal is-visible">
+        <strong>404</strong>
+        <h1 className="section-title">Halaman tidak ditemukan</h1>
+        <p className="section-copy">Alamat yang Anda buka belum tersedia atau sudah dipindahkan.</p>
+        <Link className="button" to="/">Kembali ke Beranda</Link>
+      </div>
+    </section>
   );
 }
 
