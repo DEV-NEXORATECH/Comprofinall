@@ -711,60 +711,18 @@ h3 {
   min-height: 360px;
   border-radius: 18px;
   border: 1px solid #dbe5fa;
-  background:
-    radial-gradient(circle at 34% 45%, rgba(0, 89, 167, 0.08), transparent 18%),
-    radial-gradient(circle at 68% 30%, rgba(0, 89, 167, 0.07), transparent 16%),
-    rgba(255, 255, 255, 0.78);
+  background: var(--white);
   overflow: hidden;
 }
 
-.coverage-map::before {
-  content: "";
+.coverage-map iframe {
   position: absolute;
-  inset: 44px;
-  border: 1px solid rgba(0, 89, 167, 0.09);
-  border-radius: 52% 48% 45% 55%;
-  transform: rotate(-12deg);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.88) contrast(0.96);
 }
-
-.indonesia-map {
-  position: absolute;
-  inset: 34px 24px;
-  width: calc(100% - 48px);
-  height: calc(100% - 68px);
-  opacity: 0.78;
-}
-
-.indonesia-map path {
-  fill: rgba(0, 89, 167, 0.11);
-  stroke: rgba(0, 89, 167, 0.22);
-  stroke-width: 2;
-}
-
-.map-dot {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--primary-button);
-  box-shadow: 0 0 0 8px rgba(0, 103, 189, 0.12);
-}
-
-.dot-bandung { left: 45%; top: 56%; }
-.dot-jakarta { left: 39%; top: 52%; }
-.dot-surabaya { left: 58%; top: 61%; }
-.dot-medan { left: 19%; top: 34%; }
-
-.map-line {
-  position: absolute;
-  height: 1px;
-  background: rgba(0, 89, 167, 0.16);
-  transform-origin: left center;
-}
-
-.line-a { left: 45%; top: 58%; width: 104px; transform: rotate(9deg); }
-.line-b { left: 39%; top: 54%; width: 125px; transform: rotate(-29deg); }
-.line-c { left: 22%; top: 36%; width: 170px; transform: rotate(31deg); }
 
 .map-label {
   position: absolute;
@@ -777,6 +735,15 @@ h3 {
   padding: 10px 14px;
   font-weight: 800;
   font-size: 13px;
+}
+
+.google-map-link {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.google-map-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 89, 167, 0.12);
 }
 
 .why-nexora-card {
@@ -807,28 +774,29 @@ h3 {
 
 .vision-highlight {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
-  gap: 38px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 28px;
   align-items: center;
   border: 1px solid #dbe5fa;
   background: var(--white);
-  border-radius: 18px;
-  padding: clamp(32px, 5vw, 58px);
-  box-shadow: var(--shadow);
+  border-radius: 14px;
+  padding: clamp(26px, 4vw, 42px);
+  box-shadow: 0 12px 34px rgba(0, 47, 89, 0.08);
 }
 
 .vision-highlight h2 {
-  margin-top: 18px;
-  max-width: 920px;
+  margin-top: 14px;
+  max-width: 760px;
   color: var(--primary);
-  font-size: clamp(30px, 4.5vw, 54px);
-  line-height: 1.22;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.34;
+  letter-spacing: 0;
 }
 
 .vision-visual {
   position: relative;
-  min-height: 320px;
-  border-radius: 18px;
+  min-height: 250px;
+  border-radius: 14px;
   border: 1px solid var(--border);
   background: var(--surface-soft);
   overflow: hidden;
@@ -847,16 +815,16 @@ h3 {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 74px;
-  height: 74px;
+  width: 62px;
+  height: 62px;
   display: grid;
   place-items: center;
   transform: translate(-50%, -50%);
-  border-radius: 18px;
+  border-radius: 14px;
   background: var(--primary);
   color: var(--white);
-  font-size: 36px;
-  box-shadow: 0 18px 36px rgba(0, 66, 126, 0.22);
+  font-size: 32px;
+  box-shadow: 0 14px 28px rgba(0, 66, 126, 0.18);
 }
 
 .vision-node {
@@ -890,7 +858,7 @@ h3 {
 
 .mission-card {
   position: relative;
-  min-height: 320px;
+  min-height: 280px;
 }
 
 .mission-card:nth-child(4),
@@ -903,7 +871,7 @@ h3 {
   right: 22px;
   top: 18px;
   color: rgba(0, 89, 167, 0.12);
-  font-size: 42px;
+  font-size: 36px;
   line-height: 1;
   font-weight: 800;
 }

@@ -562,24 +562,16 @@ function CoverageSection() {
         <AbstractPattern className="services-line-pattern" />
         <div className="container coverage-grid">
           <div className="coverage-map reveal is-visible" aria-hidden="true">
-          <svg className="indonesia-map" viewBox="0 0 720 360" fill="none">
-            <path d="M55 132C93 105 145 107 181 129C147 150 101 153 55 132Z" />
-            <path d="M176 178C227 150 296 151 351 178C299 205 232 206 176 178Z" />
-            <path d="M318 123C360 101 414 103 451 126C411 146 359 146 318 123Z" />
-            <path d="M386 202C427 177 488 178 532 203C487 231 428 229 386 202Z" />
-            <path d="M520 146C572 112 652 116 690 154C637 187 572 181 520 146Z" />
-            <path d="M590 228C620 213 662 216 688 236C659 254 620 252 590 228Z" />
-            <path d="M265 250C314 235 376 241 420 265C370 286 305 279 265 250Z" />
-          </svg>
-          <span className="map-dot dot-bandung" />
-          <span className="map-dot dot-jakarta" />
-          <span className="map-dot dot-surabaya" />
-          <span className="map-dot dot-medan" />
-          <span className="map-line line-a" />
-          <span className="map-line line-b" />
-          <span className="map-line line-c" />
-          <div className="map-label">Bandung-based, Indonesia-wide</div>
-        </div>
+            <iframe
+              title="Lokasi Nexora Teknologi"
+              src="https://www.google.com/maps?q=Nexora%20Teknologi%20Jl.%20Depok%207%20No.%2016%20Bandung&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <a className="map-label google-map-link" href={contact.mapsUrl} target="_blank" rel="noreferrer">
+              Buka di Google Maps
+            </a>
+          </div>
         <div className="reveal is-visible">
           <span className="eyebrow">Coverage</span>
           <h2 className="section-title">Cakupan Wilayah Layanan</h2>
