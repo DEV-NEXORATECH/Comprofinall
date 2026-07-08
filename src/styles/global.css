@@ -261,25 +261,62 @@ img {
 }
 
 .line-pattern {
+  --pattern-base-x: 0px;
+  --pattern-base-y: 0px;
+  --pattern-drift-x: -12px;
+  --pattern-drift-y: 16px;
+  --pattern-rotate: 1.4deg;
+  --pattern-opacity-low: 0.26;
+  --pattern-opacity-high: 0.5;
   position: absolute;
   pointer-events: none;
   z-index: 0;
+  transform-origin: center;
+  animation: contourFloat 16s ease-in-out infinite, contourDepth 11s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.pattern-layer {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.pattern-layer-back {
+  opacity: 0.46;
+  transform: translate(28px, -24px) scale(1.16);
+}
+
+.pattern-layer-front {
+  opacity: 0.82;
 }
 
 .line-pattern path {
   stroke: rgba(0, 89, 167, 0.12);
   stroke-width: 1.35;
+  stroke-dasharray: 680;
+  stroke-dashoffset: 0;
+  animation: contourPulse 8s ease-in-out infinite;
 }
 
 .hero-line-pattern {
+  --pattern-base-x: var(--hero-pattern-x, 0px);
+  --pattern-base-y: var(--hero-pattern-y, 0px);
+  --pattern-drift-x: 16px;
+  --pattern-drift-y: -10px;
+  --pattern-opacity-low: 0.58;
+  --pattern-opacity-high: 0.9;
   width: min(46vw, 620px);
   height: auto;
   right: max(-90px, -5vw);
   top: 48px;
   opacity: 0.9;
+  transition: transform 220ms ease-out;
 }
 
 .services-line-pattern {
+  --pattern-drift-x: -10px;
+  --pattern-drift-y: -18px;
+  --pattern-rotate: -1deg;
   width: min(34vw, 430px);
   height: auto;
   right: -120px;
@@ -288,6 +325,9 @@ img {
 }
 
 .contact-line-pattern {
+  --pattern-drift-x: 18px;
+  --pattern-drift-y: 12px;
+  --pattern-rotate: 1deg;
   width: min(42vw, 520px);
   height: auto;
   left: -130px;
@@ -296,6 +336,9 @@ img {
 }
 
 .section-line-pattern {
+  --pattern-drift-x: 12px;
+  --pattern-drift-y: -12px;
+  --pattern-rotate: -1.2deg;
   width: min(32vw, 420px);
   height: auto;
   left: -120px;
@@ -304,6 +347,9 @@ img {
 }
 
 .global-line-pattern {
+  --pattern-drift-x: -16px;
+  --pattern-drift-y: 10px;
+  --pattern-rotate: 0.9deg;
   width: min(36vw, 460px);
   height: auto;
   right: -150px;
@@ -312,6 +358,11 @@ img {
 }
 
 .cta-line-pattern {
+  --pattern-drift-x: 14px;
+  --pattern-drift-y: 18px;
+  --pattern-rotate: -1deg;
+  --pattern-opacity-low: 0.26;
+  --pattern-opacity-high: 0.46;
   width: min(38vw, 520px);
   height: auto;
   right: -112px;
@@ -325,6 +376,10 @@ img {
 }
 
 .footer-line-pattern {
+  --pattern-drift-x: -8px;
+  --pattern-drift-y: 10px;
+  --pattern-rotate: 0.6deg;
+  animation-duration: 22s, 15s;
   width: min(34vw, 460px);
   height: auto;
   right: -130px;
@@ -419,22 +474,77 @@ h3 {
   gap: 14px;
 }
 
+.hero-visual {
+  position: relative;
+  min-height: 430px;
+  display: grid;
+  align-items: end;
+  perspective: 1300px;
+}
+
+.network-orb {
+  position: absolute;
+  right: -18px;
+  top: -22px;
+  z-index: 0;
+  width: min(42vw, 270px);
+  aspect-ratio: 1;
+  opacity: 0.92;
+  filter: drop-shadow(0 18px 34px rgba(0, 66, 126, 0.16));
+}
+
+.network-orb canvas {
+  display: block;
+}
+
+.network-orb-fallback {
+  border-radius: 50%;
+  border: 1px solid rgba(0, 89, 167, 0.16);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 103, 189, 0.18), transparent 12%),
+    radial-gradient(circle at 38% 32%, rgba(0, 103, 189, 0.12), transparent 8%),
+    radial-gradient(circle at 66% 36%, rgba(0, 103, 189, 0.12), transparent 9%);
+}
+
 .dashboard-card {
+  position: relative;
+  z-index: 2;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: var(--shadow);
+  box-shadow: 0 24px 60px rgba(0, 47, 89, 0.16);
   padding: 24px;
   min-height: 360px;
   transform-style: preserve-3d;
-  transition: transform 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  will-change: transform;
+}
+
+.dashboard-card::before,
+.dashboard-card::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 89, 167, 0.12);
+  background: rgba(255, 255, 255, 0.42);
+  transform: translate3d(18px, 18px, -42px);
+  z-index: -1;
+}
+
+.dashboard-card::after {
+  inset: 34px;
+  transform: translate3d(34px, 34px, -72px);
+  opacity: 0.7;
 }
 
 .mock-window {
+  transform: translateZ(34px);
   border-radius: 8px;
   overflow: hidden;
   background: #ffffff;
   border: 1px solid var(--border);
+  box-shadow: 0 16px 36px rgba(0, 47, 89, 0.09);
 }
 
 .mock-bar {
@@ -615,12 +725,14 @@ h3 {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 28px;
+  transform-style: preserve-3d;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  will-change: transform;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  transform: translate3d(0, -7px, 24px) rotateX(1.4deg) rotateY(-1.4deg);
+  box-shadow: 0 22px 46px rgba(0, 47, 89, 0.12);
   border-color: #d4e0f4;
 }
 
@@ -1589,6 +1701,51 @@ h3 {
   font-family: Poppins, sans-serif;
 }
 
+@keyframes contourFloat {
+  0%,
+  100% {
+    transform: translate3d(var(--pattern-base-x), var(--pattern-base-y), 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(
+      calc(var(--pattern-base-x) + var(--pattern-drift-x)),
+      calc(var(--pattern-base-y) + var(--pattern-drift-y)),
+      0
+    ) rotate(var(--pattern-rotate));
+  }
+}
+
+@keyframes contourDepth {
+  0%,
+  100% {
+    opacity: var(--pattern-opacity-low);
+  }
+  50% {
+    opacity: var(--pattern-opacity-high);
+  }
+}
+
+@keyframes contourPulse {
+  0%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 34;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 @media (max-width: 1080px) {
   .nav-links,
   .nav-actions .button {
@@ -1682,6 +1839,17 @@ h3 {
 
   .hero-grid {
     gap: 36px;
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+  .network-orb {
+    width: 220px;
+    right: -40px;
+    top: -30px;
+    opacity: 0.72;
   }
 
   .hero-line-pattern {

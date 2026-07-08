@@ -1,5 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom';
+
+const NetworkOrb = lazy(() => import('./components/NetworkOrb.jsx'));
 
 const navLinks = [
   { label: { id: 'Beranda', en: 'Home' }, path: '/' },
@@ -495,9 +497,26 @@ function Navbar({ language, menuOpen, onLanguageChange, onToggle, text }) {
 }
 
 function HomePage() {
+  const [patternStyle, setPatternStyle] = useState({});
+
+  function onHeroMove(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 14;
+    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 10;
+    setPatternStyle({
+      '--hero-pattern-x': `${x.toFixed(2)}px`,
+      '--hero-pattern-y': `${y.toFixed(2)}px`,
+    });
+  }
+
   return (
     <>
-      <section className="hero">
+      <section
+        className="hero"
+        style={patternStyle}
+        onPointerMove={onHeroMove}
+        onPointerLeave={() => setPatternStyle({})}
+      >
         <AbstractPattern className="hero-line-pattern" />
         <div className="container hero-grid">
           <div className="reveal is-visible">
@@ -513,7 +532,12 @@ function HomePage() {
               <Link className="button secondary" to="/services">Lihat Layanan</Link>
             </div>
           </div>
-          <DashboardMockup />
+          <div className="hero-visual reveal is-visible">
+            <Suspense fallback={<div className="network-orb network-orb-fallback" aria-hidden="true" />}>
+              <NetworkOrb />
+            </Suspense>
+            <DashboardMockup />
+          </div>
         </div>
       </section>
 
@@ -565,12 +589,25 @@ function DashboardMockup() {
 function AbstractPattern({ className = '' }) {
   return (
     <svg className={`line-pattern ${className}`} viewBox="0 0 520 420" fill="none" aria-hidden="true">
+      <g className="pattern-layer pattern-layer-back">
+        <PatternPaths />
+      </g>
+      <g className="pattern-layer pattern-layer-front">
+        <PatternPaths />
+      </g>
+    </svg>
+  );
+}
+
+function PatternPaths() {
+  return (
+    <>
       <path d="M32 334C83 266 143 269 190 210C239 149 225 72 296 50C374 25 453 80 485 148C523 230 463 310 394 337C320 366 269 316 205 336C139 357 108 407 32 334Z" />
       <path d="M70 314C112 259 162 258 201 208C241 157 232 94 292 75C355 55 420 101 448 157C479 224 431 289 374 313C313 339 270 296 216 314C163 332 134 370 70 314Z" />
       <path d="M108 293C142 251 181 247 211 206C243 163 238 115 287 99C337 83 389 120 412 165C436 218 399 269 354 289C305 310 271 276 226 291C185 305 161 333 108 293Z" />
       <path d="M147 270C172 241 198 234 222 204C246 174 243 136 282 123C320 110 359 139 376 173C394 212 368 248 334 264C298 281 273 256 237 267C207 276 187 295 147 270Z" />
       <path d="M186 246C204 229 215 220 232 202C249 184 250 157 276 148C302 140 329 157 342 181C355 208 338 230 314 241C288 253 273 238 248 244C226 250 210 260 186 246Z" />
-    </svg>
+    </>
   );
 }
 
