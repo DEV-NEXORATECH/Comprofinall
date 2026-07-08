@@ -185,11 +185,11 @@ const techStack = [
 const coverageModels = ['Onsite', 'Remote', 'Hybrid', 'Project-Based'];
 
 const whyNexora = [
-  'Business-driven, bukan hanya coding.',
-  'Sistem aman, scalable, dan mudah dikembangkan.',
-  'Pendekatan end-to-end dari analisis sampai support.',
-  'Cocok untuk UMKM sampai enterprise.',
-  'Transparan dalam progress, scope, dan delivery.',
+  { icon: 'business_center', text: 'Business-driven, bukan hanya coding.' },
+  { icon: 'security', text: 'Sistem aman, scalable, dan mudah dikembangkan.' },
+  { icon: 'route', text: 'Pendekatan end-to-end dari analisis sampai support.' },
+  { icon: 'storefront', text: 'Cocok untuk UMKM sampai enterprise.' },
+  { icon: 'visibility', text: 'Transparan dalam progress, scope, dan delivery.' },
 ];
 
 const missions = [
@@ -304,18 +304,22 @@ const teamMembers = [
 const functionalTeams = [
   {
     name: 'Dev Team',
+    icon: 'terminal',
     role: 'Tim pengembangan sistem, aplikasi, backend, frontend, integrasi, dan maintenance teknis. Di struktur tertulis 5 freelance.',
   },
   {
     name: 'Finance',
+    icon: 'payments',
     role: 'Mengelola kebutuhan keuangan, pembayaran, budgeting, invoice, dan administrasi finansial.',
   },
   {
     name: 'HR & Admin',
+    icon: 'badge',
     role: 'Mengelola administrasi internal, data tim, kebutuhan SDM, dan support operasional.',
   },
   {
     name: 'Sales Reps',
+    icon: 'handshake',
     role: 'Tim sales lapangan/representatif untuk mencari peluang, pendekatan klien, follow-up, dan membantu proses deal. Di struktur tertulis 6 freelance.',
   },
 ];
@@ -598,9 +602,9 @@ function WhyNexoraSection() {
         <SectionHead title="Mengapa Nexora?" copy="Kami memandang teknologi sebagai bagian dari strategi bisnis, bukan sekadar pekerjaan coding." />
         <div className="grid five why-nexora-grid">
           {whyNexora.map((item) => (
-            <article className="card why-nexora-card reveal is-visible" key={item}>
-              <span className="material-symbols-outlined">task_alt</span>
-              <p>{item}</p>
+            <article className="card why-nexora-card reveal is-visible" key={item.text}>
+              <span className="material-symbols-outlined">{item.icon}</span>
+              <p>{item.text}</p>
             </article>
           ))}
         </div>
@@ -957,7 +961,7 @@ function TeamSection() {
           <div className="grid four">
             {functionalTeams.map((team) => (
               <article className="card functional-card reveal is-visible" key={team.name}>
-                <div className="icon-box"><span className="material-symbols-outlined">groups</span></div>
+                <div className="icon-box"><span className="material-symbols-outlined">{team.icon}</span></div>
                 <h3>{team.name}</h3>
                 <p>{team.role}</p>
               </article>
