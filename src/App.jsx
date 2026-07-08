@@ -2,13 +2,62 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { label: 'Beranda', path: '/' },
-  { label: 'Tentang Kami', path: '/about' },
-  { label: 'Services', path: '/services' },
-  { label: 'Portfolio', path: '/portfolio' },
-  { label: 'Industri', path: '/industry' },
-  { label: 'Kontak', path: '/contact' },
+  { label: { id: 'Beranda', en: 'Home' }, path: '/' },
+  { label: { id: 'Tentang Kami', en: 'About Us' }, path: '/about' },
+  { label: { id: 'Services', en: 'Services' }, path: '/services' },
+  { label: { id: 'Portfolio', en: 'Portfolio' }, path: '/portfolio' },
+  { label: { id: 'Industri', en: 'Industries' }, path: '/industry' },
+  { label: { id: 'Kontak', en: 'Contact' }, path: '/contact' },
 ];
+
+const copy = {
+  id: {
+    cta: 'Konsultasi Gratis',
+    openMenu: 'Buka menu',
+    aboutHeroTitle: 'Tentang Nexora Technology',
+    aboutHeroCopy: 'Kami menggabungkan strategi, desain, dan engineering untuk membantu perusahaan membangun sistem digital yang lebih efisien.',
+    aboutTitle: 'Mitra Teknologi untuk Bisnis yang Bertumbuh',
+    aboutCopyOne: 'Nexora Technology hadir untuk perusahaan yang membutuhkan partner teknis jangka panjang. Kami membangun fondasi digital yang dapat diukur, dirawat, dan ditingkatkan.',
+    aboutCopyTwo: 'Pendekatan kami berpusat pada kebutuhan bisnis, keamanan, performa, dan pengalaman pengguna yang sederhana.',
+    managementTitle: 'Tim Manajemen Nexora',
+    managementCopy: 'Struktur manajemen yang memimpin strategi, teknologi, operasional, dan pengembangan bisnis Nexora.',
+    functionalTitle: 'Tim Pendukung / Fungsional',
+    functionalCopy: 'Unit pendukung yang memastikan delivery, administrasi, keuangan, marketing, dan pertumbuhan bisnis berjalan rapi.',
+    aboutCtaTitle: 'Bangun Sistem yang Lebih Rapi',
+    aboutCtaCopy: 'Kami siap membantu merapikan proses bisnis Anda menjadi solusi digital yang praktis dan scalable.',
+    footerCopy: 'Mitra teknologi andal untuk transformasi digital perusahaan. Kami menghadirkan sistem yang rapi, aman, dan siap berkembang.',
+    footerCompany: 'Perusahaan',
+    footerServices: 'Layanan',
+    footerContact: 'Kontak & Alamat',
+    footerMaps: 'Lihat di Google Maps',
+    notFoundTitle: 'Halaman tidak ditemukan',
+    notFoundCopy: 'Alamat yang Anda buka belum tersedia atau sudah dipindahkan.',
+    notFoundButton: 'Kembali ke Beranda',
+  },
+  en: {
+    cta: 'Free Consultation',
+    openMenu: 'Open menu',
+    aboutHeroTitle: 'About Nexora Technology',
+    aboutHeroCopy: 'We combine strategy, design, and engineering to help companies build more efficient digital systems.',
+    aboutTitle: 'Technology Partner for Growing Businesses',
+    aboutCopyOne: 'Nexora Technology supports companies that need a long-term technical partner. We build digital foundations that can be measured, maintained, and improved.',
+    aboutCopyTwo: 'Our approach centers on business needs, security, performance, and simple user experiences.',
+    managementTitle: 'Nexora Management Team',
+    managementCopy: 'The leadership structure that guides Nexora strategy, technology, operations, and business development.',
+    functionalTitle: 'Supporting / Functional Team',
+    functionalCopy: 'Supporting units that keep delivery, administration, finance, marketing, and business growth running smoothly.',
+    aboutCtaTitle: 'Build a Cleaner System',
+    aboutCtaCopy: 'We are ready to help turn your business processes into practical and scalable digital solutions.',
+    footerCopy: 'A reliable technology partner for enterprise digital transformation. We deliver systems that are structured, secure, and ready to scale.',
+    footerCompany: 'Company',
+    footerServices: 'Services',
+    footerContact: 'Contact & Address',
+    footerMaps: 'View on Google Maps',
+    notFoundTitle: 'Page not found',
+    notFoundCopy: 'The address you opened is not available yet or has been moved.',
+    notFoundButton: 'Back to Home',
+  },
+};
 
 const services = [
   {
@@ -272,32 +321,40 @@ const faqs = [
 
 const teamMembers = [
   {
-    name: 'Syaifani Auliana Havid',
+    name: 'Fannii Aulia Havid',
     role: 'Chief Executive Officer / CEO',
     photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-    expertise:
-      'Berpengalaman di bidang financial management, organizational governance, dan strategic partnership development. Memimpin arah strategis, pertumbuhan bisnis, visi komersial, dan pengambilan keputusan perusahaan.',
+    expertise: {
+      id: 'Berpengalaman di bidang financial management, organizational governance, dan strategic partnership development. Memimpin arah strategis, pertumbuhan bisnis, visi komersial, dan pengambilan keputusan perusahaan.',
+      en: 'Experienced in financial management, organizational governance, and strategic partnership development. Leads the company strategy, business growth, commercial vision, and executive decision-making.',
+    },
   },
   {
     name: 'Raul Mahya Komaran',
     role: 'Chief Technology Officer / CTO',
     photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-    expertise:
-      'Background di Informatics Engineering dan sedang menempuh Master of Computer Science. Berpengalaman sebagai Backend Developer, Full-Stack Developer, Software Engineer, Project Manager, R&D Specialist, dan IT Specialist. Menguasai Laravel, .NET, Golang, Node.js, Python, SQL Server, PostgreSQL, MongoDB, Power BI, ETL, dan Odoo ERP.',
+    expertise: {
+      id: 'Background di Informatics Engineering dan sedang menempuh Master of Computer Science. Berpengalaman sebagai Backend Developer, Full-Stack Developer, Software Engineer, Project Manager, R&D Specialist, dan IT Specialist. Menguasai Laravel, .NET, Golang, Node.js, Python, SQL Server, PostgreSQL, MongoDB, Power BI, ETL, dan Odoo ERP.',
+      en: 'Background in Informatics Engineering and currently pursuing a Master of Computer Science. Experienced as a Backend Developer, Full-Stack Developer, Software Engineer, Project Manager, R&D Specialist, and IT Specialist. Skilled in Laravel, .NET, Golang, Node.js, Python, SQL Server, PostgreSQL, MongoDB, Power BI, ETL, and Odoo ERP.',
+    },
   },
   {
     name: 'Rinaldy Gunawan',
     role: 'Chief Operating Officer / COO',
     photo: 'https://randomuser.me/api/portraits/men/46.jpg',
-    expertise:
-      'Memiliki keahlian di bidang technology engineering dan user-centric digital design. Bertanggung jawab mengatur operasional perusahaan, workflow proyek, koordinasi tim IT dan kreatif, kualitas delivery, serta ketepatan implementasi proyek.',
+    expertise: {
+      id: 'Memiliki keahlian di bidang technology engineering dan user-centric digital design. Bertanggung jawab mengatur operasional perusahaan, workflow proyek, koordinasi tim IT dan kreatif, kualitas delivery, serta ketepatan implementasi proyek.',
+      en: 'Skilled in technology engineering and user-centric digital design. Responsible for company operations, project workflows, IT and creative team coordination, delivery quality, and implementation accuracy.',
+    },
   },
   {
-    name: 'Muhammad Giffari Havid',
+    name: 'M. Giffari Havid',
     role: 'Head of Sales & Business Development',
     photo: 'https://randomuser.me/api/portraits/men/68.jpg',
-    expertise:
-      'Background Sarjana Ekonomi dengan pengalaman lebih dari 12 tahun di bidang sales dan business development. Fokus pada strategi penetrasi pasar, komersialisasi produk, hubungan kemitraan jangka panjang, dan analisis kelayakan investasi teknologi.',
+    expertise: {
+      id: 'Background Sarjana Ekonomi dengan pengalaman lebih dari 12 tahun di bidang sales dan business development. Fokus pada strategi penetrasi pasar, komersialisasi produk, hubungan kemitraan jangka panjang, dan analisis kelayakan investasi teknologi.',
+      en: 'Economics background with more than 12 years of experience in sales and business development. Focuses on market penetration strategy, product commercialization, long-term partnerships, and technology investment feasibility analysis.',
+    },
   },
 ];
 
@@ -305,22 +362,42 @@ const functionalTeams = [
   {
     name: 'Dev Team',
     icon: 'terminal',
-    role: 'Tim pengembangan sistem, aplikasi, backend, frontend, integrasi, dan maintenance teknis. Di struktur tertulis 5 freelance.',
+    role: {
+      id: 'Tim pengembangan sistem, aplikasi, backend, frontend, integrasi, dan maintenance teknis. Di struktur tertulis 5 freelance.',
+      en: 'System, application, backend, frontend, integration, and technical maintenance team. The structure includes 5 freelance members.',
+    },
   },
   {
     name: 'Finance',
     icon: 'payments',
-    role: 'Mengelola kebutuhan keuangan, pembayaran, budgeting, invoice, dan administrasi finansial.',
+    role: {
+      id: 'Mengelola kebutuhan keuangan, pembayaran, budgeting, invoice, dan administrasi finansial.',
+      en: 'Manages finance needs, payments, budgeting, invoices, and financial administration.',
+    },
   },
   {
     name: 'HR & Admin',
     icon: 'badge',
-    role: 'Mengelola administrasi internal, data tim, kebutuhan SDM, dan support operasional.',
+    role: {
+      id: 'Mengelola administrasi internal, data tim, kebutuhan SDM, dan support operasional.',
+      en: 'Manages internal administration, team data, HR needs, and operational support.',
+    },
   },
   {
     name: 'Sales Reps',
     icon: 'handshake',
-    role: 'Tim sales lapangan/representatif untuk mencari peluang, pendekatan klien, follow-up, dan membantu proses deal. Di struktur tertulis 6 freelance.',
+    role: {
+      id: 'Tim sales lapangan/representatif untuk mencari peluang, pendekatan klien, follow-up, dan membantu proses deal. Di struktur tertulis 6 freelance.',
+      en: 'Field sales representatives who find opportunities, approach clients, follow up, and support deal processes. The structure includes 6 freelance members.',
+    },
+  },
+  {
+    name: 'Marketing',
+    icon: 'campaign',
+    role: {
+      id: 'Mengelola strategi pemasaran, konten brand, campaign digital, materi promosi, dan awareness Nexora di berbagai kanal.',
+      en: 'Manages marketing strategy, brand content, digital campaigns, promotional materials, and Nexora awareness across channels.',
+    },
   },
 ];
 
@@ -338,35 +415,47 @@ const whatsappUrl = `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`;
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [language, setLanguage] = useState(() => localStorage.getItem('nexora-language') || 'id');
   const location = useLocation();
+  const text = copy[language];
 
   useEffect(() => {
     setMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
+  useEffect(() => {
+    localStorage.setItem('nexora-language', language);
+  }, [language]);
+
   return (
     <div className="site-shell">
-      <Navbar menuOpen={menuOpen} onToggle={() => setMenuOpen((value) => !value)} />
+      <Navbar
+        language={language}
+        menuOpen={menuOpen}
+        onLanguageChange={setLanguage}
+        onToggle={() => setMenuOpen((value) => !value)}
+        text={text}
+      />
       <main className="main">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="/about" element={<AboutPage language={language} text={text} />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/industry" element={<IndustryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage text={text} />} />
         </Routes>
       </main>
-      <Footer />
+      <Footer language={language} text={text} />
     </div>
   );
 }
 
-function Navbar({ menuOpen, onToggle }) {
+function Navbar({ language, menuOpen, onLanguageChange, onToggle, text }) {
   return (
     <header className="nav">
       <div className="container nav-inner">
@@ -377,14 +466,26 @@ function Navbar({ menuOpen, onToggle }) {
         <nav className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
           {navLinks.map((item) => (
             <NavLink key={item.path} className={({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`} to={item.path}>
-              {item.label}
+              {item.label[language]}
             </NavLink>
           ))}
         </nav>
 
         <div className="nav-actions">
-          <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Konsultasi Gratis</a>
-          <button className="menu-toggle" type="button" aria-label="Buka menu" onClick={onToggle}>
+          <div className="language-toggle" aria-label="Pilih bahasa">
+            {['id', 'en'].map((item) => (
+              <button
+                className={language === item ? 'is-active' : ''}
+                key={item}
+                type="button"
+                onClick={() => onLanguageChange(item)}
+              >
+                {item.toUpperCase()}
+              </button>
+            ))}
+          </div>
+          <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">{text.cta}</a>
+          <button className="menu-toggle" type="button" aria-label={text.openMenu} onClick={onToggle}>
             <span className="material-symbols-outlined">menu</span>
           </button>
         </div>
@@ -567,13 +668,13 @@ function CoverageSection() {
         <div className="container coverage-grid">
           <div className="coverage-map reveal is-visible" aria-hidden="true">
             <iframe
-              title="Lokasi Nexora Teknologi"
-              src="https://www.google.com/maps?q=Nexora%20Teknologi%20Jl.%20Depok%207%20No.%2016%20Bandung&output=embed"
+              title="Cakupan layanan Nexora di Indonesia"
+              src="https://www.google.com/maps?q=Indonesia&z=5&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            <a className="map-label google-map-link" href={contact.mapsUrl} target="_blank" rel="noreferrer">
-              Buka di Google Maps
+            <a className="map-label google-map-link" href="https://www.google.com/maps/place/Indonesia" target="_blank" rel="noreferrer">
+              Lihat Peta Indonesia
             </a>
           </div>
         <div className="reveal is-visible">
@@ -870,24 +971,24 @@ function PortfolioPage() {
   );
 }
 
-function AboutPage() {
+function AboutPage({ language, text }) {
   return (
     <>
-      <PageHero title="Tentang Nexora Technology" copy="Kami menggabungkan strategi, desain, dan engineering untuk membantu perusahaan membangun sistem digital yang lebih efisien." primary />
+      <PageHero title={text.aboutHeroTitle} copy={text.aboutHeroCopy} primary />
       <section className="section pattern-section">
         <AbstractPattern className="section-line-pattern" />
         <div className="container about-grid">
           <div className="reveal is-visible">
-            <h2 className="section-title">Mitra Teknologi untuk Bisnis yang Bertumbuh</h2>
-            <p className="section-copy">Nexora Technology hadir untuk perusahaan yang membutuhkan partner teknis jangka panjang. Kami membangun fondasi digital yang dapat diukur, dirawat, dan ditingkatkan.</p>
-            <p className="section-copy">Pendekatan kami berpusat pada kebutuhan bisnis, keamanan, performa, dan pengalaman pengguna yang sederhana.</p>
+            <h2 className="section-title">{text.aboutTitle}</h2>
+            <p className="section-copy">{text.aboutCopyOne}</p>
+            <p className="section-copy">{text.aboutCopyTwo}</p>
           </div>
           <StatsCard />
         </div>
       </section>
       <VisionMissionSection />
-      <TeamSection />
-      <Cta title="Bangun Sistem yang Lebih Rapi" copy="Kami siap membantu merapikan proses bisnis Anda menjadi solusi digital yang praktis dan scalable." />
+      <TeamSection language={language} text={text} />
+      <Cta title={text.aboutCtaTitle} copy={text.aboutCtaCopy} buttonLabel={text.cta} />
     </>
   );
 }
@@ -908,14 +1009,30 @@ function VisionMissionSection() {
               </h2>
             </div>
             <div className="vision-visual" aria-hidden="true">
-              <span className="vision-node node-a" />
-              <span className="vision-node node-b" />
-              <span className="vision-node node-c" />
-              <span className="vision-node node-d" />
-              <span className="vision-line vision-line-a" />
-              <span className="vision-line vision-line-b" />
-              <span className="vision-line vision-line-c" />
-              <span className="material-symbols-outlined">hub</span>
+              <div className="system-node system-node-main">
+                <span className="material-symbols-outlined">hub</span>
+                <strong>Nexora</strong>
+              </div>
+              <div className="system-node system-node-top">
+                <span className="material-symbols-outlined">verified_user</span>
+                <span>Tata Kelola</span>
+              </div>
+              <div className="system-node system-node-right">
+                <span className="material-symbols-outlined">trending_up</span>
+                <span>Pertumbuhan</span>
+              </div>
+              <div className="system-node system-node-bottom">
+                <span className="material-symbols-outlined">monitoring</span>
+                <span>Kontrol</span>
+              </div>
+              <div className="system-node system-node-left">
+                <span className="material-symbols-outlined">automation</span>
+                <span>Efisiensi</span>
+              </div>
+              <span className="system-flow flow-a" />
+              <span className="system-flow flow-b" />
+              <span className="system-flow flow-c" />
+              <span className="system-flow flow-d" />
             </div>
           </div>
         </div>
@@ -940,30 +1057,30 @@ function VisionMissionSection() {
   );
 }
 
-function TeamSection() {
+function TeamSection({ language, text }) {
   return (
     <section className="section alt pattern-section">
       <AbstractPattern className="services-line-pattern" />
       <div className="container">
-        <SectionHead title="Tim Manajemen Nexora" copy="Struktur manajemen yang memimpin strategi, teknologi, operasional, dan pengembangan bisnis Nexora." />
+        <SectionHead title={text.managementTitle} copy={text.managementCopy} />
         <div className="grid two management-grid">
           {teamMembers.map((member) => (
             <article className="card team-card management-card reveal is-visible" key={member.name}>
               <img className="team-photo" src={member.photo} alt={member.name} loading="lazy" />
               <h3>{member.name}</h3>
               <p>{member.role}</p>
-              <div className="team-expertise">{member.expertise}</div>
+              <div className="team-expertise">{member.expertise[language]}</div>
             </article>
           ))}
         </div>
         <div className="functional-team-block">
-          <SectionHead title="Tim Pendukung / Fungsional" copy="Unit pendukung yang memastikan delivery, administrasi, keuangan, dan pertumbuhan bisnis berjalan rapi." />
-          <div className="grid four">
+          <SectionHead title={text.functionalTitle} copy={text.functionalCopy} />
+          <div className="grid five">
             {functionalTeams.map((team) => (
               <article className="card functional-card reveal is-visible" key={team.name}>
                 <div className="icon-box"><span className="material-symbols-outlined">{team.icon}</span></div>
                 <h3>{team.name}</h3>
-                <p>{team.role}</p>
+                <p>{team.role[language]}</p>
               </article>
             ))}
           </div>
@@ -1121,21 +1238,21 @@ function SectionHead({ title, copy = '' }) {
   );
 }
 
-function Cta({ title = 'Siap untuk Transformasi Digital?', copy = 'Diskusikan kebutuhan proyek Anda dengan tim ahli kami dan temukan solusi IT terbaik untuk perusahaan Anda.' }) {
+function Cta({ title = 'Siap untuk Transformasi Digital?', copy = 'Diskusikan kebutuhan proyek Anda dengan tim ahli kami dan temukan solusi IT terbaik untuk perusahaan Anda.', buttonLabel = 'Konsultasi Gratis' }) {
   return (
     <section className="section">
       <div className="container">
         <div className="cta reveal is-visible">
           <h2>{title}</h2>
           <p>{copy}</p>
-          <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Konsultasi Gratis</a>
+          <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">{buttonLabel}</a>
         </div>
       </div>
     </section>
   );
 }
 
-function Footer() {
+function Footer({ language, text }) {
   return (
     <footer className="footer">
       <div className="container">
@@ -1144,7 +1261,7 @@ function Footer() {
             <Link className="brand footer-logo" to="/">
               <img className="brand-logo footer-brand-logo" src="/logonexora-navbar.png" alt="Nexora Technology" />
             </Link>
-            <p>Mitra teknologi andal untuk transformasi digital perusahaan. Kami menghadirkan sistem yang rapi, aman, dan siap berkembang.</p>
+            <p>{text.footerCopy}</p>
             <div className="footer-socials">
               <a href="mailto:ITConsultant@nexora-technology.id" aria-label="Email Nexora"><span className="material-symbols-outlined">mail</span></a>
               <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp Nexora"><span className="material-symbols-outlined">chat</span></a>
@@ -1153,17 +1270,17 @@ function Footer() {
           </div>
 
           <div className="footer-card">
-            <h4>Perusahaan</h4>
+            <h4>{text.footerCompany}</h4>
             <div className="footer-links">
-              <Link to="/about">Tentang Kami</Link>
+              <Link to="/about">{navLinks[1].label[language]}</Link>
               <Link to="/services">Services</Link>
               <Link to="/portfolio">Portfolio</Link>
-              <Link to="/industry">Industri</Link>
+              <Link to="/industry">{navLinks[4].label[language]}</Link>
             </div>
           </div>
 
           <div className="footer-card">
-            <h4>Layanan</h4>
+            <h4>{text.footerServices}</h4>
             <div className="footer-links">
               {services.map((item) => <Link to="/services" key={item.title}>{item.title}</Link>)}
             </div>
@@ -1177,14 +1294,14 @@ function Footer() {
           </div>
 
           <div className="footer-card footer-contact">
-            <h4>Kontak & Alamat</h4>
+            <h4>{text.footerContact}</h4>
             <p><span className="material-symbols-outlined">location_on</span><span><strong>{contact.company}</strong><br />{contact.address}</span></p>
             <p><span className="material-symbols-outlined">mail</span><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
             <p><span className="material-symbols-outlined">phone</span><a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a></p>
             <p><span className="material-symbols-outlined">schedule</span>{contact.hours}</p>
             <a className="button footer-map-button" href={contact.mapsUrl} target="_blank" rel="noreferrer">
               <span className="material-symbols-outlined">map</span>
-              Lihat di Google Maps
+              {text.footerMaps}
             </a>
           </div>
         </div>
@@ -1197,14 +1314,14 @@ function Footer() {
   );
 }
 
-function NotFoundPage() {
+function NotFoundPage({ text }) {
   return (
     <section className="not-found">
       <div className="container reveal is-visible">
         <strong>404</strong>
-        <h1 className="section-title">Halaman tidak ditemukan</h1>
-        <p className="section-copy">Alamat yang Anda buka belum tersedia atau sudah dipindahkan.</p>
-        <Link className="button" to="/">Kembali ke Beranda</Link>
+        <h1 className="section-title">{text.notFoundTitle}</h1>
+        <p className="section-copy">{text.notFoundCopy}</p>
+        <Link className="button" to="/">{text.notFoundButton}</Link>
       </div>
     </section>
   );
