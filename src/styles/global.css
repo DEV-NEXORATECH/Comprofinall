@@ -303,6 +303,35 @@ img {
   opacity: 0.34;
 }
 
+.global-line-pattern {
+  width: min(36vw, 460px);
+  height: auto;
+  right: -150px;
+  top: 26px;
+  opacity: 0.32;
+}
+
+.cta-line-pattern {
+  width: min(38vw, 520px);
+  height: auto;
+  right: -112px;
+  top: -96px;
+  opacity: 0.42;
+}
+
+.cta-line-pattern path,
+.footer-line-pattern path {
+  stroke: rgba(255, 255, 255, 0.18);
+}
+
+.footer-line-pattern {
+  width: min(34vw, 460px);
+  height: auto;
+  right: -130px;
+  top: 22px;
+  opacity: 0.5;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -1236,6 +1265,8 @@ h3 {
 }
 
 .cta {
+  position: relative;
+  overflow: hidden;
   width: min(100%, 1120px);
   margin: 0 auto;
   border-radius: 24px;
@@ -1246,15 +1277,24 @@ h3 {
 }
 
 .cta h2 {
+  position: relative;
+  z-index: 1;
   font-size: clamp(30px, 4vw, 48px);
 }
 
 .cta p {
+  position: relative;
+  z-index: 1;
   color: rgba(255, 255, 255, 0.86);
   font-size: 18px;
   max-width: 700px;
   margin: 16px auto 28px;
   line-height: 1.7;
+}
+
+.cta .button {
+  position: relative;
+  z-index: 1;
 }
 
 .contact-grid {
@@ -1379,11 +1419,18 @@ h3 {
 }
 
 .footer {
+  position: relative;
+  overflow: hidden;
   background:
     radial-gradient(circle at top left, rgba(166, 200, 255, 0.28), transparent 30%),
     linear-gradient(135deg, #002f59 0%, #00427e 55%, #0b67b3 100%);
   color: var(--white);
   padding: 64px 0 24px;
+}
+
+.footer > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .footer-top,
@@ -1647,7 +1694,10 @@ h3 {
   .services-line-pattern,
   .contact-line-pattern,
   .section-line-pattern,
-  .page-hero-line-pattern {
+  .page-hero-line-pattern,
+  .global-line-pattern,
+  .cta-line-pattern,
+  .footer-line-pattern {
     width: 300px;
     opacity: 0.35;
   }
@@ -1668,6 +1718,24 @@ h3 {
   .page-hero-line-pattern {
     right: -190px;
     top: 18px;
+  }
+
+  .global-line-pattern {
+    right: -190px;
+    top: 20px;
+  }
+
+  .cta-line-pattern {
+    width: 360px;
+    right: -190px;
+    top: -120px;
+    opacity: 0.34;
+  }
+
+  .footer-line-pattern {
+    right: -190px;
+    top: 18px;
+    opacity: 0.28;
   }
 
   .dashboard-card {

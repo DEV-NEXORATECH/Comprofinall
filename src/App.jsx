@@ -1240,9 +1240,11 @@ function SectionHead({ title, copy = '' }) {
 
 function Cta({ title = 'Siap untuk Transformasi Digital?', copy = 'Diskusikan kebutuhan proyek Anda dengan tim ahli kami dan temukan solusi IT terbaik untuk perusahaan Anda.', buttonLabel = 'Konsultasi Gratis' }) {
   return (
-    <section className="section">
+    <section className="section pattern-section">
+      <AbstractPattern className="global-line-pattern" />
       <div className="container">
         <div className="cta reveal is-visible">
+          <AbstractPattern className="cta-line-pattern" />
           <h2>{title}</h2>
           <p>{copy}</p>
           <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">{buttonLabel}</a>
@@ -1255,6 +1257,7 @@ function Cta({ title = 'Siap untuk Transformasi Digital?', copy = 'Diskusikan ke
 function Footer({ language, text }) {
   return (
     <footer className="footer">
+      <AbstractPattern className="footer-line-pattern" />
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
@@ -1316,7 +1319,8 @@ function Footer({ language, text }) {
 
 function NotFoundPage({ text }) {
   return (
-    <section className="not-found">
+    <section className="not-found pattern-section">
+      <AbstractPattern className="global-line-pattern" />
       <div className="container reveal is-visible">
         <strong>404</strong>
         <h1 className="section-title">{text.notFoundTitle}</h1>
