@@ -92,11 +92,13 @@ const contact = {
   company: 'Nexora Teknologi',
   email: 'hello@nexoratech.com',
   phone: '+62 21 1234 5678',
-  whatsapp: '+62 812 3456 7890',
+  whatsapp: '+62 851-7700-0356',
   address: 'Jl. Depok 7 No. 16, Bandung, Jawa Barat',
   hours: 'Senin - Jumat, 09.00 - 18.00 WIB',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Nexora%20Teknologi%20Jl.%20Depok%207%20No.%2016%20Bandung',
 };
+
+const whatsappUrl = `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`;
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -145,7 +147,7 @@ function Navbar({ menuOpen, onToggle }) {
         </nav>
 
         <div className="nav-actions">
-          <Link className="button" to="/contact">Konsultasi Gratis</Link>
+          <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Konsultasi Gratis</a>
           <button className="menu-toggle" type="button" aria-label="Buka menu" onClick={onToggle}>
             <span className="material-symbols-outlined">menu</span>
           </button>
@@ -169,7 +171,7 @@ function HomePage() {
               dan keamanan teknologi yang rapi, scalable, dan siap berkembang.
             </p>
             <div className="hero-actions">
-              <Link className="button" to="/contact">Mulai Konsultasi</Link>
+              <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Mulai Konsultasi</a>
               <Link className="button secondary" to="/services">Pelajari Layanan</Link>
             </div>
           </div>
@@ -327,7 +329,8 @@ function WhySection() {
 
 function PortfolioPreview() {
   return (
-    <section className="section alt">
+    <section className="section alt pattern-section">
+      <AbstractPattern className="services-line-pattern" />
       <div className="container">
         <SectionHead title="Karya Kami" copy="Beberapa contoh proyek sukses yang telah kami selesaikan." />
         <div className="grid three">{portfolios.slice(0, 3).map((item) => <PortfolioCard item={item} key={item.title} />)}</div>
@@ -385,7 +388,8 @@ function Testimonials() {
   ];
 
   return (
-    <section className="section alt">
+    <section className="section alt pattern-section">
+      <AbstractPattern className="section-line-pattern" />
       <div className="container">
         <SectionHead title="Apa Kata Klien Kami" />
         <div className="grid two">
@@ -404,7 +408,8 @@ function Testimonials() {
 
 function FaqSection({ compact = false }) {
   return (
-    <section className="section">
+    <section className="section pattern-section">
+      <AbstractPattern className="section-line-pattern" />
       <div className="container">
         <SectionHead title={compact ? 'Pertanyaan yang Sering Diajukan' : 'FAQ Nexora Technology'} copy={compact ? '' : 'Jawaban singkat sebelum memulai proyek teknologi bersama kami.'} />
         <FaqList />
@@ -450,7 +455,8 @@ function PortfolioPage() {
   return (
     <>
       <PageHero title="Karya Unggulan Kami" copy="Transformasi digital nyata untuk berbagai industri. Jelajahi studi kasus bagaimana kami membantu perusahaan mencapai efisiensi dan skalabilitas." />
-      <section className="section page-section">
+      <section className="section page-section pattern-section">
+        <AbstractPattern className="section-line-pattern" />
         <div className="container">
           <div className="filter-row">
             {['All', 'Fintech', 'Healthcare', 'Logistics', 'Retail'].map((item) => (
@@ -469,7 +475,8 @@ function AboutPage() {
   return (
     <>
       <PageHero title="Tentang Nexora Technology" copy="Kami menggabungkan strategi, desain, dan engineering untuk membantu perusahaan membangun sistem digital yang lebih efisien." primary />
-      <section className="section">
+      <section className="section pattern-section">
+        <AbstractPattern className="section-line-pattern" />
         <div className="container about-grid">
           <div className="reveal is-visible">
             <h2 className="section-title">Mitra Teknologi untuk Bisnis yang Bertumbuh</h2>
@@ -497,7 +504,8 @@ function IndustryPage() {
   return (
     <>
       <PageHero title="Solusi untuk Berbagai Industri" copy="Setiap industri punya proses berbeda. Kami merancang sistem yang mengikuti alur kerja nyata, bukan memaksa bisnis mengikuti software." primary />
-      <section className="section page-section">
+      <section className="section page-section pattern-section">
+        <AbstractPattern className="section-line-pattern" />
         <div className="container">
           <div className="grid three">
             {industries.map(([icon, title, copy]) => (
@@ -613,6 +621,7 @@ function ContactList() {
 function PageHero({ title, copy, primary = false }) {
   return (
     <section className="page-hero">
+      <AbstractPattern className="page-hero-line-pattern" />
       <div className="container reveal is-visible">
         <h1 className={`section-title ${primary ? 'primary' : ''}`}>{title}</h1>
         <p className="section-copy">{copy}</p>
@@ -637,7 +646,7 @@ function Cta({ title = 'Siap untuk Transformasi Digital?', copy = 'Diskusikan ke
         <div className="cta reveal is-visible">
           <h2>{title}</h2>
           <p>{copy}</p>
-          <Link className="button" to="/contact">Konsultasi Gratis</Link>
+          <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Konsultasi Gratis</a>
         </div>
       </div>
     </section>
@@ -651,13 +660,12 @@ function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <Link className="brand footer-logo" to="/">
-              <span className="brand-mark">N</span>
-              <span>Nexora Technology</span>
+              <img className="brand-logo footer-brand-logo" src="/logonexora-navbar.png" alt="Nexora Technology" />
             </Link>
             <p>Mitra teknologi andal untuk transformasi digital perusahaan. Kami menghadirkan sistem yang rapi, aman, dan siap berkembang.</p>
             <div className="footer-socials">
               <a href="mailto:hello@nexoratech.com" aria-label="Email Nexora"><span className="material-symbols-outlined">mail</span></a>
-              <a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" aria-label="WhatsApp Nexora"><span className="material-symbols-outlined">chat</span></a>
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp Nexora"><span className="material-symbols-outlined">chat</span></a>
               <a href="/contact" aria-label="Lokasi Nexora"><span className="material-symbols-outlined">location_on</span></a>
             </div>
           </div>

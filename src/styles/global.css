@@ -104,9 +104,9 @@ img {
 }
 
 .brand-logo {
-  width: 190px;
+  width: 230px;
   height: auto;
-  max-height: 48px;
+  max-height: 58px;
   object-fit: contain;
 }
 
@@ -264,6 +264,14 @@ img {
   left: -130px;
   top: 44px;
   opacity: 0.5;
+}
+
+.section-line-pattern {
+  width: min(32vw, 420px);
+  height: auto;
+  left: -120px;
+  bottom: 24px;
+  opacity: 0.34;
 }
 
 .hero {
@@ -923,8 +931,23 @@ h3 {
 }
 
 .page-hero {
+  position: relative;
+  overflow: hidden;
   padding: 86px 0 54px;
   text-align: center;
+}
+
+.page-hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-line-pattern {
+  width: min(38vw, 500px);
+  height: auto;
+  right: -110px;
+  top: 16px;
+  opacity: 0.36;
 }
 
 .page-section {
@@ -993,6 +1016,13 @@ h3 {
 
 .footer-logo {
   color: var(--white);
+}
+
+.footer-brand-logo {
+  width: 230px;
+  max-height: 58px;
+  filter: brightness(0) invert(1);
+  opacity: 0.96;
 }
 
 .footer-logo .brand-mark {
@@ -1159,8 +1189,13 @@ h3 {
   }
 
   .brand-logo {
-    width: 150px;
-    max-height: 40px;
+    width: 178px;
+    max-height: 48px;
+  }
+
+  .footer-brand-logo {
+    width: 190px;
+    max-height: 52px;
   }
 
   .hero,
@@ -1181,7 +1216,9 @@ h3 {
   }
 
   .services-line-pattern,
-  .contact-line-pattern {
+  .contact-line-pattern,
+  .section-line-pattern,
+  .page-hero-line-pattern {
     width: 300px;
     opacity: 0.35;
   }
@@ -1192,6 +1229,16 @@ h3 {
 
   .contact-line-pattern {
     left: -180px;
+  }
+
+  .section-line-pattern {
+    left: -190px;
+    bottom: 12px;
+  }
+
+  .page-hero-line-pattern {
+    right: -190px;
+    top: 18px;
   }
 
   .dashboard-card {
