@@ -89,11 +89,13 @@ const faqs = [
 ];
 
 const contact = {
+  company: 'Nexora Teknologi',
   email: 'hello@nexoratech.com',
   phone: '+62 21 1234 5678',
   whatsapp: '+62 812 3456 7890',
-  address: 'Jl. Jend. Sudirman Kav. 52-53, Senayan, Kebayoran Baru, Jakarta Selatan 12190, Indonesia',
+  address: 'Jl. Depok 7 No. 16, Bandung, Jawa Barat',
   hours: 'Senin - Jumat, 09.00 - 18.00 WIB',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Nexora%20Teknologi%20Jl.%20Depok%207%20No.%2016%20Bandung',
 };
 
 function App() {
@@ -131,8 +133,7 @@ function Navbar({ menuOpen, onToggle }) {
     <header className="nav">
       <div className="container nav-inner">
         <Link className="brand" to="/">
-          <span className="brand-mark">N</span>
-          <span>Nexora Technology</span>
+          <img className="brand-logo" src="/logonexora-navbar.png" alt="Nexora Technology" />
         </Link>
 
         <nav className={`nav-links ${menuOpen ? 'is-open' : ''}`}>
@@ -158,6 +159,7 @@ function HomePage() {
   return (
     <>
       <section className="hero">
+        <AbstractPattern className="hero-line-pattern" />
         <div className="container hero-grid">
           <div className="reveal is-visible">
             <span className="eyebrow">Solusi IT Enterprise</span>
@@ -239,6 +241,18 @@ function DashboardMockup() {
   );
 }
 
+function AbstractPattern({ className = '' }) {
+  return (
+    <svg className={`line-pattern ${className}`} viewBox="0 0 520 420" fill="none" aria-hidden="true">
+      <path d="M32 334C83 266 143 269 190 210C239 149 225 72 296 50C374 25 453 80 485 148C523 230 463 310 394 337C320 366 269 316 205 336C139 357 108 407 32 334Z" />
+      <path d="M70 314C112 259 162 258 201 208C241 157 232 94 292 75C355 55 420 101 448 157C479 224 431 289 374 313C313 339 270 296 216 314C163 332 134 370 70 314Z" />
+      <path d="M108 293C142 251 181 247 211 206C243 163 238 115 287 99C337 83 389 120 412 165C436 218 399 269 354 289C305 310 271 276 226 291C185 305 161 333 108 293Z" />
+      <path d="M147 270C172 241 198 234 222 204C246 174 243 136 282 123C320 110 359 139 376 173C394 212 368 248 334 264C298 281 273 256 237 267C207 276 187 295 147 270Z" />
+      <path d="M186 246C204 229 215 220 232 202C249 184 250 157 276 148C302 140 329 157 342 181C355 208 338 230 314 241C288 253 273 238 248 244C226 250 210 260 186 246Z" />
+    </svg>
+  );
+}
+
 function Metric({ value, label }) {
   return <div className="metric"><strong>{value}</strong><span>{label}</span></div>;
 }
@@ -260,7 +274,8 @@ function Stat({ value, label }) {
 
 function ServicesPreview() {
   return (
-    <section className="section alt">
+    <section className="section alt pattern-section">
+      <AbstractPattern className="services-line-pattern" />
       <div className="container">
         <SectionHead title="Layanan Unggulan Kami" copy="Keahlian mendalam dalam berbagai domain teknologi untuk mendukung kebutuhan spesifik industri Anda." />
         <div className="grid three">{services.slice(0, 3).map((item) => <ServiceCard key={item.title} item={item} />)}</div>
@@ -419,7 +434,8 @@ function ServicesPage() {
   return (
     <>
       <PageHero title="Layanan Unggulan Kami" copy="Solusi IT komprehensif yang dirancang untuk mendukung transformasi digital dan pertumbuhan bisnis Anda di era modern." primary />
-      <section className="section page-section">
+      <section className="section page-section pattern-section">
+        <AbstractPattern className="services-line-pattern" />
         <div className="container"><div className="grid two">{services.map((item) => <ServiceCard item={item} key={item.title} />)}</div></div>
       </section>
       <Cta />
@@ -515,7 +531,8 @@ function ContactPage() {
   return (
     <>
       <PageHero title="Kontak Nexora Technology" copy="Diskusikan kebutuhan website, sistem internal, integrasi API, atau automasi digital perusahaan Anda." primary />
-      <section className="section page-section">
+      <section className="section page-section contact-pattern-section">
+        <AbstractPattern className="contact-line-pattern" />
         <div className="container contact-grid">
           <aside className="card contact-card reveal is-visible">
             <h2>Hubungi Kami</h2>
@@ -573,7 +590,7 @@ function ContactList() {
     ['mail', 'Email', <a href={`mailto:${contact.email}`}>{contact.email}</a>],
     ['phone', 'Telepon', <a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a>],
     ['chat', 'WhatsApp', <a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noreferrer">{contact.whatsapp}</a>],
-    ['location_on', 'Alamat Kantor', contact.address],
+    ['location_on', 'Alamat Kantor', <><strong className="contact-company">{contact.company}</strong>{contact.address}</>],
     ['schedule', 'Jam Operasional', contact.hours],
   ];
 
@@ -585,6 +602,10 @@ function ContactList() {
           <div><strong>{title}</strong><br /><span>{value}</span></div>
         </div>
       ))}
+      <a className="button secondary maps-button" href={contact.mapsUrl} target="_blank" rel="noreferrer">
+        <span className="material-symbols-outlined">map</span>
+        Buka Lokasi di Google Maps
+      </a>
     </div>
   );
 }
@@ -661,10 +682,14 @@ function Footer() {
 
           <div className="footer-card footer-contact">
             <h4>Kontak & Alamat</h4>
-            <p><span className="material-symbols-outlined">location_on</span>{contact.address}</p>
+            <p><span className="material-symbols-outlined">location_on</span><span><strong>{contact.company}</strong><br />{contact.address}</span></p>
             <p><span className="material-symbols-outlined">mail</span><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
             <p><span className="material-symbols-outlined">phone</span><a href={`tel:${contact.phone.replace(/\s/g, '')}`}>{contact.phone}</a></p>
             <p><span className="material-symbols-outlined">schedule</span>{contact.hours}</p>
+            <a className="button footer-map-button" href={contact.mapsUrl} target="_blank" rel="noreferrer">
+              <span className="material-symbols-outlined">map</span>
+              Lihat di Google Maps
+            </a>
           </div>
         </div>
         <div className="footer-bottom">
