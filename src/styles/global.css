@@ -588,6 +588,10 @@ h3 {
   margin: 12px 0 0;
 }
 
+.card p {
+  overflow-wrap: anywhere;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -605,6 +609,30 @@ h3 {
   font-weight: 800;
 }
 
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 20px 0 0;
+  list-style: none;
+}
+
+.feature-list li {
+  border-radius: 4px;
+  background: var(--primary-soft);
+  color: #3d608c;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.section-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
 .why-card {
   text-align: center;
   padding: 12px;
@@ -613,6 +641,24 @@ h3 {
 .why-card .icon-box {
   margin-inline: auto;
   border-radius: 999px;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-avatar {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
 }
 
 .portfolio-grid {
@@ -975,7 +1021,7 @@ h3 {
 .footer-top,
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.85fr 1fr 1.25fr;
+  grid-template-columns: 1.15fr 0.75fr 0.95fr 0.95fr 1.2fr;
   gap: 26px;
   align-items: stretch;
 }

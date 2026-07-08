@@ -15,26 +15,101 @@ const services = [
   {
     icon: 'code',
     title: 'Custom Software Development',
-    copy: 'Pengembangan perangkat lunak khusus yang disesuaikan sepenuhnya dengan proses bisnis unik Anda. Mulai dari sistem ERP, CRM, hingga aplikasi enterprise kompleks.',
-    tags: ['Enterprise', 'Scalable', 'Secure'],
+    copy: 'Jasa pembuatan aplikasi sesuai kebutuhan bisnis, mulai dari website company profile, web application, mobile application, dashboard internal, sistem operasional, portal customer/vendor/employee, sistem approval internal, hingga aplikasi custom sesuai flow bisnis client.',
+    tags: ['Web App', 'Mobile App', 'Dashboard Internal'],
   },
   {
-    icon: 'language',
-    title: 'Website Company Profile',
-    copy: 'Representasi digital profesional untuk perusahaan Anda dengan desain responsif, performa tinggi, dan optimasi SEO.',
-    tags: ['Responsive', 'SEO Friendly', 'Modern UI'],
+    icon: 'strategy',
+    title: 'Strategic IT Consulting',
+    copy: 'Jasa konsultasi untuk membantu perusahaan menentukan arah teknologi, termasuk IT roadmap, analisis kebutuhan sistem, digital transformation plan, business process improvement, technology architecture planning, pemilihan software, dan assessment sistem existing.',
+    tags: ['IT Roadmap', 'Architecture', 'Assessment'],
   },
   {
     icon: 'api',
-    title: 'API Integration',
-    copy: 'Hubungkan berbagai sistem terpisah menjadi satu ekosistem yang rapi melalui REST API, webhook, dan integrasi pihak ketiga.',
-    tags: ['RESTful', 'GraphQL', 'Microservices'],
+    title: 'Enterprise System Integration',
+    copy: 'Jasa integrasi antar sistem supaya data tidak terpisah-pisah, seperti integrasi API, ERP, HRIS, Finance, CRM, middleware integration, single source of truth data, integrasi sistem lama dan baru, serta otomatisasi pertukaran data antar divisi.',
+    tags: ['API Integration', 'ERP/HRIS/CRM', 'Middleware'],
+  },
+  {
+    icon: 'sync_alt',
+    title: 'Digital Transformation Services',
+    copy: 'Jasa membantu bisnis yang masih manual agar berubah menjadi digital, termasuk digitalisasi proses kerja dari Excel, WhatsApp, atau proses manual, workflow approval digital, dashboard monitoring real-time, automasi laporan, tracking pekerjaan, notifikasi, dan reminder.',
+    tags: ['Workflow Digital', 'Real-Time Dashboard', 'Automation'],
   },
   {
     icon: 'support_agent',
-    title: 'Managed Service',
-    copy: 'Dukungan teknis, pemeliharaan sistem, pemantauan keamanan, dan cloud operation agar bisnis tetap berjalan stabil.',
-    tags: ['24/7 Support', 'Maintenance', 'Cloud Ops'],
+    title: 'Post-Launch Support / Managed Service',
+    copy: 'Jasa maintenance setelah sistem selesai dibuat, mencakup maintenance aplikasi, bug fixing, monitoring server atau sistem, backup database, update fitur minor, support operasional, serta SLA support bulanan atau tahunan.',
+    tags: ['Maintenance', 'Bug Fixing', 'SLA Support'],
+  },
+  {
+    icon: 'security',
+    title: 'IT Governance & Security',
+    copy: 'Layanan tata kelola dan keamanan teknologi untuk transformasi yang aman dan terukur, termasuk security assessment, hardening aplikasi, role based access control, audit log system, data protection, SOP IT governance, dan risk mitigation system.',
+    tags: ['Security Assessment', 'RBAC', 'Risk Mitigation'],
+  },
+];
+
+const products = [
+  {
+    icon: 'hub',
+    title: 'ERP / Business Management System',
+    summary: 'Sistem untuk mengelola operasional bisnis secara terpusat.',
+    features: ['Master data', 'Sales', 'Purchase', 'Inventory', 'Finance', 'Report', 'Approval', 'Dashboard owner'],
+  },
+  {
+    icon: 'point_of_sale',
+    title: 'POS System',
+    summary: 'Aplikasi kasir untuk UMKM, toko, retail, cafe, dan bisnis penjualan.',
+    features: ['Kasir', 'Produk', 'Stok', 'Cabang', 'Supplier', 'Customer', 'Laporan penjualan', 'Pembayaran', 'Diskon', 'Pajak'],
+  },
+  {
+    icon: 'badge',
+    title: 'HRIS / Employee Management',
+    summary: 'Sistem untuk kebutuhan HR perusahaan.',
+    features: ['Data karyawan', 'Absensi', 'Cuti', 'Payroll', 'Approval', 'Struktur organisasi', 'Kontrak kerja', 'Report HR'],
+  },
+  {
+    icon: 'groups',
+    title: 'CRM / Customer Management',
+    summary: 'Sistem untuk mengelola customer dan sales pipeline.',
+    features: ['Data customer', 'Lead management', 'Follow up sales', 'Pipeline deal', 'Reminder follow up', 'Riwayat komunikasi', 'Report sales'],
+  },
+  {
+    icon: 'confirmation_number',
+    title: 'Ticketing / Request Management System',
+    summary: 'Sistem untuk pengajuan internal, keluhan, request, approval, dan tracking pekerjaan.',
+    features: ['Buat ticket', 'Approval berjenjang', 'PIC pengerjaan', 'SLA', 'Komentar', 'Timeline progress', 'Notifikasi', 'Dashboard status'],
+  },
+  {
+    icon: 'inventory',
+    title: 'Procurement / Vendor Management',
+    summary: 'Sistem untuk pengadaan barang dan pengelolaan vendor.',
+    features: ['Purchase request', 'Approval pembelian', 'Vendor database', 'Quotation', 'Purchase order', 'Tracking pengadaan', 'Report procurement'],
+  },
+  {
+    icon: 'qr_code_2',
+    title: 'Asset Management System',
+    summary: 'Sistem untuk tracking aset perusahaan.',
+    features: ['Data aset', 'QR/barcode asset', 'Assignment ke user', 'Lokasi aset', 'Maintenance aset', 'Mutasi aset', 'Audit aset', 'Disposal aset'],
+  },
+  {
+    icon: 'monitoring',
+    title: 'Business Intelligence Dashboard',
+    summary: 'Dashboard untuk monitoring data bisnis secara real-time.',
+    features: ['Dashboard management', 'KPI monitoring', 'Grafik penjualan', 'Grafik operasional', 'Export report', 'Data analytics', 'Executive summary'],
+  },
+  {
+    icon: 'language',
+    title: 'Company Profile Website',
+    summary: 'Website profesional untuk branding perusahaan.',
+    features: ['Home', 'About', 'Services', 'Portfolio', 'Leadership', 'Contact', 'Maps', 'Form konsultasi', 'WhatsApp CTA'],
+  },
+  {
+    icon: 'smartphone',
+    title: 'Mobile App Solution',
+    summary: 'Aplikasi mobile untuk kebutuhan customer, employee, driver, sales, atau operasional lapangan.',
+    features: ['Login user', 'Upload dokumen/foto', 'Tracking status', 'Notifikasi', 'Approval mobile', 'Form digital', 'Dashboard ringkas'],
   },
 ];
 
@@ -88,6 +163,13 @@ const faqs = [
   },
 ];
 
+const teamMembers = [
+  { name: 'FAnni', role: 'Business & Product Strategy' },
+  { name: 'Raul', role: 'Technology Lead' },
+  { name: 'Rei', role: 'UI/UX & Frontend' },
+  { name: 'Ghifar', role: 'Backend & Integration' },
+];
+
 const contact = {
   company: 'Nexora Teknologi',
   email: 'hello@nexoratech.com',
@@ -117,6 +199,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/industry" element={<IndustryPage />} />
           <Route path="/faq" element={<FaqPage />} />
@@ -198,6 +281,7 @@ function HomePage() {
       </section>
 
       <ServicesPreview />
+      <ProductsPreview />
       <WhySection />
       <PortfolioPreview />
       <PricingSection />
@@ -283,6 +367,36 @@ function ServicesPreview() {
         <div className="grid three">{services.slice(0, 3).map((item) => <ServiceCard key={item.title} item={item} />)}</div>
       </div>
     </section>
+  );
+}
+
+function ProductsPreview() {
+  return (
+    <section className="section pattern-section">
+      <AbstractPattern className="section-line-pattern" />
+      <div className="container">
+        <SectionHead title="Products / Solutions" copy="Pilihan sistem siap-kembang untuk UMKM sampai perusahaan, dari operasional harian sampai dashboard manajemen." />
+        <div className="grid three">{products.slice(0, 6).map((item) => <ProductCard item={item} compact key={item.title} />)}</div>
+        <div className="section-action">
+          <Link className="button secondary" to="/products">Lihat Semua Products</Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductCard({ item, compact = false }) {
+  const shownFeatures = compact ? item.features.slice(0, 4) : item.features;
+
+  return (
+    <article className="card product-card reveal is-visible">
+      <div className="icon-box"><span className="material-symbols-outlined">{item.icon}</span></div>
+      <h3>{item.title}</h3>
+      <p>{item.summary}</p>
+      <ul className="feature-list">
+        {shownFeatures.map((feature) => <li key={feature}>{feature}</li>)}
+      </ul>
+    </article>
   );
 }
 
@@ -411,7 +525,7 @@ function FaqSection({ compact = false }) {
     <section className="section pattern-section">
       <AbstractPattern className="section-line-pattern" />
       <div className="container">
-        <SectionHead title={compact ? 'Pertanyaan yang Sering Diajukan' : 'FAQ Nexora Technology'} copy={compact ? '' : 'Jawaban singkat sebelum memulai proyek teknologi bersama kami.'} />
+        {compact && <SectionHead title="Pertanyaan yang Sering Diajukan" />}
         <FaqList />
       </div>
     </section>
@@ -444,6 +558,21 @@ function ServicesPage() {
         <div className="container"><div className="grid two">{services.map((item) => <ServiceCard item={item} key={item.title} />)}</div></div>
       </section>
       <Cta />
+    </>
+  );
+}
+
+function ProductsPage() {
+  return (
+    <>
+      <PageHero title="Products / Solutions Nexora" copy="Daftar produk dan solusi yang dapat diterapkan untuk UMKM, retail, operasional internal, hingga perusahaan yang membutuhkan sistem terpusat." primary />
+      <section className="section page-section pattern-section">
+        <AbstractPattern className="section-line-pattern" />
+        <div className="container">
+          <div className="grid two">{products.map((item) => <ProductCard item={item} key={item.title} />)}</div>
+        </div>
+      </section>
+      <Cta title="Butuh Produk yang Disesuaikan?" copy="Pilih solusi dasar yang paling dekat dengan kebutuhan Anda, lalu kami bantu sesuaikan flow, role, dan laporan sesuai proses bisnis." />
     </>
   );
 }
@@ -486,8 +615,29 @@ function AboutPage() {
           <StatsCard />
         </div>
       </section>
+      <TeamSection />
       <Cta title="Bangun Sistem yang Lebih Rapi" copy="Kami siap membantu merapikan proses bisnis Anda menjadi solusi digital yang praktis dan scalable." />
     </>
+  );
+}
+
+function TeamSection() {
+  return (
+    <section className="section alt pattern-section">
+      <AbstractPattern className="services-line-pattern" />
+      <div className="container">
+        <SectionHead title="Tim Nexora" copy="Orang-orang di balik solusi teknologi yang kami bangun untuk bisnis Anda." />
+        <div className="grid four">
+          {teamMembers.map((member) => (
+            <article className="card team-card reveal is-visible" key={member.name}>
+              <div className="team-avatar">{member.name.charAt(0)}</div>
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -685,6 +835,13 @@ function Footer() {
             <h4>Layanan</h4>
             <div className="footer-links">
               {services.map((item) => <Link to="/services" key={item.title}>{item.title}</Link>)}
+            </div>
+          </div>
+
+          <div className="footer-card footer-products">
+            <h4>Products / Solutions</h4>
+            <div className="footer-links">
+              {products.slice(0, 6).map((item) => <Link to="/products" key={item.title}>{item.title.replace(' / Business Management System', '').replace(' / Employee Management', '').replace(' / Customer Management', '')}</Link>)}
             </div>
           </div>
 
