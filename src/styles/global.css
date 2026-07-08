@@ -11,7 +11,7 @@
   --border: #e2e8f0;
   --footer: #a6c8ff;
   --shadow: 0 16px 42px rgba(0, 47, 89, 0.09);
-  font-family: Poppins, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Open Sauce One", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
@@ -84,9 +84,9 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sauce One", sans-serif;
   font-size: 24px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--primary);
   white-space: nowrap;
 }
@@ -100,7 +100,7 @@ img {
   display: grid;
   place-items: center;
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .brand-logo {
@@ -120,7 +120,7 @@ img {
   position: relative;
   padding: 26px 0 22px;
   color: #545a5e;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
   transition: color 180ms ease;
 }
@@ -172,7 +172,7 @@ img {
   color: var(--muted);
   font: inherit;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
   transition: background 160ms ease, color 160ms ease;
 }
@@ -204,7 +204,7 @@ img {
   border-radius: 4px;
   background: var(--primary-button);
   color: var(--white);
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
   transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
@@ -228,6 +228,15 @@ img {
 .button.secondary:hover {
   background: var(--surface-soft);
   box-shadow: none;
+}
+
+.button.dark {
+  background: #002f59;
+  color: var(--white);
+}
+
+.button.dark:hover {
+  background: #001f3d;
 }
 
 .button.ghost {
@@ -438,7 +447,7 @@ img {
   background: var(--primary-soft);
   color: var(--primary);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -446,7 +455,7 @@ img {
 h1,
 h2,
 h3 {
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sauce One", sans-serif;
   margin: 0;
   letter-spacing: 0;
 }
@@ -457,6 +466,7 @@ h3 {
   font-size: clamp(46px, 6.2vw, 72px);
   line-height: 1.04;
   color: var(--text);
+  font-weight: 800;
 }
 
 .hero-copy {
@@ -648,10 +658,27 @@ h3 {
   text-align: left;
 }
 
+.services-showcase + .section-head,
+.service-feature-card,
+.service-pricing-card,
+.product-card,
+.portfolio-card,
+.management-card,
+.functional-card,
+.contact-card,
+.form {
+  text-align: left;
+}
+
+.grid .card {
+  text-align: left;
+}
+
 .section-title {
   color: var(--text);
   font-size: clamp(28px, 3.4vw, 44px);
   line-height: 1.14;
+  font-weight: 800;
 }
 
 .section-title.primary {
@@ -663,6 +690,7 @@ h3 {
   color: var(--muted);
   font-size: clamp(16px, 1.25vw, 18px);
   line-height: 1.7;
+  font-weight: 400;
 }
 
 .about-grid {
@@ -690,13 +718,14 @@ h3 {
   display: block;
   color: var(--primary);
   font-size: 34px;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sauce One", sans-serif;
+  font-weight: 800;
 }
 
 .stat span {
   color: var(--muted);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .grid {
@@ -754,6 +783,7 @@ h3 {
 .card h3 {
   font-size: clamp(20px, 1.8vw, 24px);
   line-height: 1.25;
+  font-weight: 700;
 }
 
 .card p {
@@ -761,6 +791,7 @@ h3 {
   font-size: 15px;
   line-height: 1.68;
   margin: 12px 0 0;
+  font-weight: 400;
 }
 
 .card p {
@@ -781,7 +812,7 @@ h3 {
   color: #3d608c;
   padding: 6px 10px;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .feature-list {
@@ -799,18 +830,18 @@ h3 {
   color: #3d608c;
   padding: 6px 10px;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .services-showcase {
   display: grid;
-  gap: 24px;
+  gap: 34px;
 }
 
 .service-feature-card {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr) minmax(260px, 0.85fr);
-  gap: 28px;
+  grid-template-columns: 220px minmax(0, 1fr) minmax(280px, 0.85fr);
+  gap: 0;
   align-items: stretch;
   padding: 0;
   overflow: hidden;
@@ -819,18 +850,28 @@ h3 {
 .service-feature-menu {
   display: grid;
   align-content: start;
-  gap: 8px;
+  gap: 12px;
   background: #f0f7ff;
   border-right: 1px solid var(--border);
-  padding: 26px 22px;
+  padding: 34px 24px;
+}
+
+.service-feature-menu strong {
+  color: #3d608c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .service-feature-menu span {
-  border-radius: 6px;
-  padding: 10px 12px;
+  border-radius: 8px;
+  padding: 12px 14px;
   color: var(--primary);
-  font-size: 13px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .service-feature-menu span:first-child {
@@ -840,12 +881,13 @@ h3 {
 }
 
 .service-feature-copy {
-  padding: 34px 0;
+  padding: 54px 42px;
 }
 
 .service-feature-copy h3 {
   color: var(--primary);
   font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
 }
 
 .service-feature-copy p {
@@ -856,7 +898,7 @@ h3 {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 300px;
+  min-height: 380px;
   background:
     radial-gradient(circle at center, rgba(0, 103, 189, 0.18), transparent 34%),
     linear-gradient(135deg, #eff7ff 0%, #dceeff 100%);
@@ -885,6 +927,95 @@ h3 {
 
 .service-mini-grid {
   margin-top: 0;
+}
+
+.service-pricing-block {
+  margin-top: 12px;
+}
+
+.service-pricing-block .section-head {
+  margin-bottom: 30px;
+}
+
+.service-pricing-card {
+  position: relative;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-pricing-card.is-featured {
+  border-color: var(--primary-button);
+  box-shadow: 0 18px 40px rgba(0, 89, 167, 0.11);
+}
+
+.pricing-badge {
+  position: absolute;
+  left: 50%;
+  top: -13px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: var(--primary-button);
+  color: var(--white);
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.service-price {
+  margin-top: 16px;
+  color: var(--primary);
+}
+
+.service-price strong {
+  font-size: clamp(26px, 2.6vw, 34px);
+}
+
+.service-price span {
+  margin-left: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.service-pricing-card ul {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 24px 0;
+  list-style: none;
+}
+
+.service-pricing-card li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.service-pricing-card li .material-symbols-outlined {
+  color: var(--primary-button);
+  font-size: 18px;
+}
+
+.service-pricing-card .button {
+  margin-top: auto;
+  width: 100%;
+}
+
+.service-action-bar {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.1fr;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.service-action-bar .button {
+  min-height: 58px;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 .value-card,
@@ -926,7 +1057,7 @@ h3 {
   color: var(--primary);
   padding: 9px 13px;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .capability-grid {
@@ -1095,7 +1226,7 @@ h3 {
   background: rgba(255, 255, 255, 0.9);
   color: var(--primary);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   box-shadow: 0 12px 24px rgba(0, 47, 89, 0.08);
 }
 
@@ -1177,7 +1308,7 @@ h3 {
   color: rgba(0, 89, 167, 0.12);
   font-size: 36px;
   line-height: 1;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .section-action {
@@ -1217,9 +1348,9 @@ h3 {
   place-items: center;
   background: var(--primary-soft);
   color: var(--primary);
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sauce One", sans-serif;
   font-size: 30px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .team-photo {
@@ -1238,7 +1369,7 @@ h3 {
 
 .team-card > p {
   color: var(--primary);
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .team-expertise {
@@ -1305,7 +1436,7 @@ h3 {
   gap: 8px;
   margin-top: 18px;
   color: var(--primary-button);
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .filter-row {
@@ -1322,7 +1453,7 @@ h3 {
   color: var(--muted);
   border-radius: 999px;
   padding: 9px 16px;
-  font-weight: 800;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -1359,14 +1490,14 @@ h3 {
   padding: 7px 12px;
   border-radius: 0 8px 0 8px;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .price {
   margin: 24px 0;
   font-size: 30px;
   font-weight: 800;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sauce One", sans-serif;
 }
 
 .pricing-card ul {
@@ -1788,7 +1919,7 @@ h3 {
   color: var(--primary-soft);
   font-size: clamp(90px, 20vw, 210px);
   line-height: 0.8;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sauce One", sans-serif;
 }
 
 @keyframes contourFloat {
@@ -1903,6 +2034,10 @@ h3 {
 
   .service-feature-visual {
     min-height: 240px;
+  }
+
+  .service-action-bar {
+    grid-template-columns: 1fr;
   }
 
   .capability-grid {

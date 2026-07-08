@@ -61,6 +61,19 @@ const copy = {
     caseStudy: 'Lihat Studi Kasus',
     servicesPageTitle: 'Layanan Unggulan Kami',
     servicesPageCopy: 'Solusi IT komprehensif yang dirancang untuk mendukung transformasi digital dan pertumbuhan bisnis Anda di era modern.',
+    serviceMenuLabel: 'Services',
+    servicePricingTitle: 'Pricing Plans',
+    servicePricingCopy: 'Paket fleksibel untuk memulai konsultasi, workflow, dan implementasi sistem sesuai skala kebutuhan.',
+    pricingBasic: 'Basic',
+    pricingProfessional: 'Professional',
+    pricingEnterprise: 'Enterprise',
+    pricingCustom: 'Custom',
+    pricingMonthly: '/bulan',
+    discussPlan: 'Diskusikan Paket',
+    contactUs: 'Hubungi Kami',
+    discussProductScope: 'Discuss Product Scope',
+    customizeWorkflow: 'Customize Workflow',
+    talkConsultant: 'Talk to Product Consultant',
     productsPageCopy: 'Daftar produk dan solusi yang dapat diterapkan untuk UMKM, retail, operasional internal, hingga perusahaan yang membutuhkan sistem terpusat.',
     productsCtaTitle: 'Butuh Produk yang Disesuaikan?',
     productsCtaCopy: 'Pilih solusi dasar yang paling dekat dengan kebutuhan Anda, lalu kami bantu sesuaikan flow, role, dan laporan sesuai proses bisnis.',
@@ -148,6 +161,19 @@ const copy = {
     caseStudy: 'View Case Study',
     servicesPageTitle: 'Featured Services',
     servicesPageCopy: 'Comprehensive IT solutions designed to support digital transformation and business growth in the modern era.',
+    serviceMenuLabel: 'Services',
+    servicePricingTitle: 'Pricing Plans',
+    servicePricingCopy: 'Flexible packages to start consulting, workflow design, and system implementation according to your scale.',
+    pricingBasic: 'Basic',
+    pricingProfessional: 'Professional',
+    pricingEnterprise: 'Enterprise',
+    pricingCustom: 'Custom',
+    pricingMonthly: '/month',
+    discussPlan: 'Discuss This Plan',
+    contactUs: 'Contact Us',
+    discussProductScope: 'Discuss Product Scope',
+    customizeWorkflow: 'Customize Workflow',
+    talkConsultant: 'Talk to Product Consultant',
     productsPageCopy: 'Products and solutions for MSMEs, retail, internal operations, and companies that need centralized systems.',
     productsCtaTitle: 'Need a Customized Product?',
     productsCtaCopy: 'Choose the closest base solution, then we help adjust the flow, roles, and reports to your business process.',
@@ -990,6 +1016,7 @@ function ServicesPreview({ language, text }) {
         <div className="services-showcase">
           <article className="card service-feature-card reveal is-visible">
             <div className="service-feature-menu">
+              <strong>{text.serviceMenuLabel}</strong>
               {services.slice(0, 5).map((item) => <span key={item.title}>{item.title}</span>)}
             </div>
             <div className="service-feature-copy">
@@ -1208,6 +1235,7 @@ function ServicesPage({ language, text }) {
         <div className="container">
           <article className="card service-feature-card reveal is-visible">
             <div className="service-feature-menu">
+              <strong>{text.serviceMenuLabel}</strong>
               {services.map((item) => <span key={item.title}>{item.title}</span>)}
             </div>
             <div className="service-feature-copy">
@@ -1226,10 +1254,80 @@ function ServicesPage({ language, text }) {
           <div className="grid three service-mini-grid">
             {services.slice(1).map((item, index) => <ServiceCard item={item} index={index + 1} language={language} key={item.title} />)}
           </div>
+          <ServicePricingPlans text={text} />
+          <ServiceActionBar text={text} />
         </div>
       </section>
-      <Cta buttonLabel={text.cta} title={language === 'en' ? 'Ready for Digital Transformation?' : 'Siap untuk Transformasi Digital?'} copy={language === 'en' ? 'Discuss your project needs with our expert team and find the best IT solution for your company.' : 'Diskusikan kebutuhan proyek Anda dengan tim ahli kami dan temukan solusi IT terbaik untuk perusahaan Anda.'} />
     </>
+  );
+}
+
+function ServicePricingPlans({ text }) {
+  const plans = [
+    {
+      name: text.pricingBasic,
+      price: 'Rp 800.000',
+      copy: 'For starting digital operations with a light scope.',
+      items: ['Initial setup', 'Core features', 'Email support'],
+    },
+    {
+      name: text.pricingProfessional,
+      price: 'Rp 1.500.000',
+      copy: 'For teams that need a more complete workflow.',
+      items: ['Everything in Basic', 'Advanced dashboard', 'Priority support'],
+      featured: true,
+    },
+    {
+      name: text.pricingEnterprise,
+      price: text.pricingCustom,
+      copy: 'For integrations and larger-scale needs.',
+      items: ['Custom integration', 'Multi-branch/team', 'Dedicated support'],
+    },
+  ];
+
+  return (
+    <div className="service-pricing-block reveal is-visible">
+      <SectionHead title={text.servicePricingTitle} copy={text.servicePricingCopy} />
+      <div className="grid three service-pricing-grid">
+        {plans.map((plan) => (
+          <article className={`card service-pricing-card ${plan.featured ? 'is-featured' : ''}`} key={plan.name}>
+            {plan.featured && <span className="pricing-badge">Most Popular</span>}
+            <h3>{plan.name}</h3>
+            <div className="service-price">
+              <strong>{plan.price}</strong>
+              {plan.price !== text.pricingCustom && <span>{text.pricingMonthly}</span>}
+            </div>
+            <p>{plan.copy}</p>
+            <ul>
+              {plan.items.map((item) => <li key={item}><span className="material-symbols-outlined">check</span>{item}</li>)}
+            </ul>
+            <a className={plan.featured ? 'button' : 'button secondary'} href={whatsappUrl} target="_blank" rel="noreferrer">
+              {plan.price === text.pricingCustom ? text.contactUs : text.discussPlan}
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ServiceActionBar({ text }) {
+  return (
+    <div className="service-action-bar reveal is-visible">
+      <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">
+        {text.discussProductScope}
+        <span className="material-symbols-outlined">arrow_forward</span>
+      </a>
+      <Link className="button secondary" to="/contact">
+        {text.customizeWorkflow}
+        <span className="material-symbols-outlined">progress_activity</span>
+      </Link>
+      <a className="button dark" href={whatsappUrl} target="_blank" rel="noreferrer">
+        <span className="material-symbols-outlined">shield</span>
+        {text.talkConsultant}
+      </a>
+    </div>
   );
 }
 

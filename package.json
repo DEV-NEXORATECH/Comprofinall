@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/open-sauce-one": "^5.2.5",
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
     "framer-motion": "^12.42.2",
