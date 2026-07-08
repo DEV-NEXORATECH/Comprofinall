@@ -4,10 +4,10 @@ import { Link, Navigate, NavLink, Route, Routes, useLocation } from 'react-route
 const navLinks = [
   { label: 'Beranda', path: '/' },
   { label: 'Tentang Kami', path: '/about' },
+  { label: 'Visi & Misi', path: '/vision' },
   { label: 'Services', path: '/services' },
   { label: 'Portfolio', path: '/portfolio' },
   { label: 'Industri', path: '/industry' },
-  { label: 'FAQ', path: '/faq' },
   { label: 'Kontak', path: '/contact' },
 ];
 
@@ -113,6 +113,114 @@ const products = [
   },
 ];
 
+const ideologyValues = [
+  {
+    icon: 'verified_user',
+    title: 'Integrity & Governance',
+    copy: 'Solusi digital harus dibangun dengan tata kelola yang jelas, transparan, aman, dan dapat dipertanggungjawabkan.',
+  },
+  {
+    icon: 'engineering',
+    title: 'Engineering Excellence',
+    copy: 'Kami mengutamakan arsitektur sistem yang rapi, scalable, mudah dirawat, dan siap berkembang mengikuti kebutuhan bisnis.',
+  },
+  {
+    icon: 'tips_and_updates',
+    title: 'Business-Driven Innovation',
+    copy: 'Inovasi teknologi harus menjawab masalah bisnis nyata: efisiensi, kontrol, akurasi data, keamanan, dan pertumbuhan.',
+  },
+  {
+    icon: 'task_alt',
+    title: 'Operational Ownership',
+    copy: 'Nexora hadir sebagai partner jangka panjang yang ikut memahami proses, risiko, dan kebutuhan operasional klien.',
+  },
+];
+
+const playgroundPillars = [
+  {
+    icon: 'storefront',
+    title: 'SaaS untuk UMKM',
+    copy: 'POS, inventory, akuntansi sederhana, CRM ringan, absensi, dan dashboard bisnis untuk membantu operasional harian lebih tertata.',
+  },
+  {
+    icon: 'developer_board',
+    title: 'Produk Kustom',
+    copy: 'Aplikasi web, mobile, ERP, workflow system, dashboard BI, API, backend, dan sistem enterprise yang dibangun sesuai flow bisnis.',
+  },
+  {
+    icon: 'forum',
+    title: 'IT Consulting, Training & Discussion',
+    copy: 'Roadmap transformasi digital, onboarding sistem, data analytics, automation, governance, dan cyber security dasar.',
+  },
+];
+
+const capabilities = [
+  'Software Engineering',
+  'Backend Development',
+  'Full-Stack Development',
+  'Project Management',
+  'R&D Technology',
+  'IT Specialist',
+  'Sales & Business Development',
+  'Financial Management',
+  'Organizational Governance',
+  'Digital Design',
+  'Business Process',
+];
+
+const techStack = [
+  'Laravel',
+  '.NET',
+  'Golang',
+  'Node.js',
+  'Python',
+  'SQL Server',
+  'PostgreSQL',
+  'MongoDB',
+  'Power BI',
+  'ETL',
+  'API Integration',
+  'Odoo ERP',
+];
+
+const coverageModels = ['Onsite', 'Remote', 'Hybrid', 'Project-Based'];
+
+const whyNexora = [
+  'Business-driven, bukan hanya coding.',
+  'Sistem aman, scalable, dan mudah dikembangkan.',
+  'Pendekatan end-to-end dari analisis sampai support.',
+  'Cocok untuk UMKM sampai enterprise.',
+  'Transparan dalam progress, scope, dan delivery.',
+];
+
+const missions = [
+  {
+    icon: 'target',
+    title: 'Solusi Kustom yang Selaras Bisnis',
+    copy: 'Membangun solusi teknologi kustom yang adaptif dan selaras dengan tujuan bisnis serta tata kelola internal klien.',
+  },
+  {
+    icon: 'account_tree',
+    title: 'Digitalisasi Proses Bisnis',
+    copy: 'Mengoptimalkan proses bisnis melalui digitalisasi yang efektif untuk meminimalkan risiko kebocoran finansial dan meningkatkan produktivitas harian.',
+  },
+  {
+    icon: 'shield_lock',
+    title: 'Arsitektur Aman dan Scalable',
+    copy: 'Menyediakan arsitektur sistem informasi yang aman, andal, scalable, dan siap dikembangkan mengikuti pertumbuhan bisnis jangka panjang.',
+  },
+  {
+    icon: 'query_stats',
+    title: 'Konsultasi dan Data Akurat',
+    copy: 'Memberikan konsultasi strategis, pendampingan teknis berkelanjutan, serta data akurat untuk membantu manajemen mengambil keputusan secara cepat dan tepat.',
+  },
+  {
+    icon: 'trending_up',
+    title: 'Katalis Ekosistem Digital',
+    copy: 'Menjadi katalisator dalam menciptakan ekosistem industri digital Indonesia yang lebih transparan, inovatif, kompetitif, dan bernilai tinggi.',
+  },
+];
+
 const portfolios = [
   {
     category: 'Fintech',
@@ -164,15 +272,58 @@ const faqs = [
 ];
 
 const teamMembers = [
-  { name: 'FAnni', role: 'Business & Product Strategy' },
-  { name: 'Raul', role: 'Technology Lead' },
-  { name: 'Rei', role: 'UI/UX & Frontend' },
-  { name: 'Ghifar', role: 'Backend & Integration' },
+  {
+    name: 'Syaifani Auliana Havid',
+    role: 'Chief Executive Officer / CEO',
+    photo: 'https://randomuser.me/api/portraits/women/44.jpg',
+    expertise:
+      'Berpengalaman di bidang financial management, organizational governance, dan strategic partnership development. Memimpin arah strategis, pertumbuhan bisnis, visi komersial, dan pengambilan keputusan perusahaan.',
+  },
+  {
+    name: 'Raul Mahya Komaran',
+    role: 'Chief Technology Officer / CTO',
+    photo: 'https://randomuser.me/api/portraits/men/32.jpg',
+    expertise:
+      'Background di Informatics Engineering dan sedang menempuh Master of Computer Science. Berpengalaman sebagai Backend Developer, Full-Stack Developer, Software Engineer, Project Manager, R&D Specialist, dan IT Specialist. Menguasai Laravel, .NET, Golang, Node.js, Python, SQL Server, PostgreSQL, MongoDB, Power BI, ETL, dan Odoo ERP.',
+  },
+  {
+    name: 'Rinaldy Gunawan',
+    role: 'Chief Operating Officer / COO',
+    photo: 'https://randomuser.me/api/portraits/men/46.jpg',
+    expertise:
+      'Memiliki keahlian di bidang technology engineering dan user-centric digital design. Bertanggung jawab mengatur operasional perusahaan, workflow proyek, koordinasi tim IT dan kreatif, kualitas delivery, serta ketepatan implementasi proyek.',
+  },
+  {
+    name: 'Muhammad Giffari Havid',
+    role: 'Head of Sales & Business Development',
+    photo: 'https://randomuser.me/api/portraits/men/68.jpg',
+    expertise:
+      'Background Sarjana Ekonomi dengan pengalaman lebih dari 12 tahun di bidang sales dan business development. Fokus pada strategi penetrasi pasar, komersialisasi produk, hubungan kemitraan jangka panjang, dan analisis kelayakan investasi teknologi.',
+  },
+];
+
+const functionalTeams = [
+  {
+    name: 'Dev Team',
+    role: 'Tim pengembangan sistem, aplikasi, backend, frontend, integrasi, dan maintenance teknis. Di struktur tertulis 5 freelance.',
+  },
+  {
+    name: 'Finance',
+    role: 'Mengelola kebutuhan keuangan, pembayaran, budgeting, invoice, dan administrasi finansial.',
+  },
+  {
+    name: 'HR & Admin',
+    role: 'Mengelola administrasi internal, data tim, kebutuhan SDM, dan support operasional.',
+  },
+  {
+    name: 'Sales Reps',
+    role: 'Tim sales lapangan/representatif untuk mencari peluang, pendekatan klien, follow-up, dan membantu proses deal. Di struktur tertulis 6 freelance.',
+  },
 ];
 
 const contact = {
   company: 'Nexora Teknologi',
-  email: 'hello@nexoratech.com',
+  email: 'ITConsultant@nexora-technology.id',
   phone: '+62 21 1234 5678',
   whatsapp: '+62 851-7700-0356',
   address: 'Jl. Depok 7 No. 16, Bandung, Jawa Barat',
@@ -198,11 +349,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/vision" element={<VisionMissionPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/industry" element={<IndustryPage />} />
-          <Route path="/faq" element={<FaqPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFoundPage />} />
@@ -250,44 +401,25 @@ function HomePage() {
             <span className="eyebrow">Solusi IT Enterprise</span>
             <h1 className="hero-title">Bangun Sistem. Percepat Bisnis.</h1>
             <p className="hero-copy">
-              Nexora Technology membantu bisnis membangun website, sistem internal, dashboard, integrasi API, automasi digital,
-              dan keamanan teknologi yang rapi, scalable, dan siap berkembang.
+              Nexora Technology adalah extended IT partner yang membantu bisnis membangun sistem digital,
+              meningkatkan efisiensi operasional, memperkuat tata kelola, dan mempercepat transformasi digital
+              secara aman, terukur, dan berkelanjutan.
             </p>
             <div className="hero-actions">
-              <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Mulai Konsultasi</a>
-              <Link className="button secondary" to="/services">Pelajari Layanan</Link>
+              <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Konsultasi Sekarang</a>
+              <Link className="button secondary" to="/services">Lihat Layanan</Link>
             </div>
           </div>
           <DashboardMockup />
         </div>
       </section>
 
-      <section className="section">
-        <div className="container about-grid">
-          <div className="reveal is-visible">
-            <div className="section-head left">
-              <h2 className="section-title">Tentang Nexora Technology</h2>
-              <p className="section-copy">
-                Kami adalah mitra teknologi yang membantu bisnis bertransformasi digital melalui sistem yang aman,
-                efisien, dan mudah dikembangkan.
-              </p>
-            </div>
-            <Link className="link-arrow" to="/about">
-              Pelajari lebih lanjut <span className="material-symbols-outlined">arrow_forward</span>
-            </Link>
-          </div>
-          <StatsCard />
-        </div>
-      </section>
-
-      <ServicesPreview />
-      <ProductsPreview />
-      <WhySection />
-      <PortfolioPreview />
-      <PricingSection />
-      <Testimonials />
-      <FaqSection compact />
-      <Cta title="Transformasikan Bisnis Anda Sekarang" copy="Kami menghadirkan solusi teknologi terdepan untuk meningkatkan efisiensi operasional dan mendorong inovasi perusahaan Anda ke level selanjutnya." />
+      <IdeologySection />
+      <PlaygroundSection />
+      <ExperienceSection />
+      <CoverageSection />
+      <WhyNexoraSection />
+      <Cta title="Transformasikan Bisnis Anda Sekarang" copy="Diskusikan kebutuhan sistem, workflow, data, integrasi, atau transformasi digital bisnis Anda bersama Nexora." />
     </>
   );
 }
@@ -341,6 +473,141 @@ function AbstractPattern({ className = '' }) {
 
 function Metric({ value, label }) {
   return <div className="metric"><strong>{value}</strong><span>{label}</span></div>;
+}
+
+function IdeologySection() {
+  return (
+    <section className="section pattern-section">
+      <AbstractPattern className="section-line-pattern" />
+      <div className="container">
+        <div className="section-head reveal is-visible">
+          <span className="eyebrow">Nexora Mindset</span>
+          <h2 className="section-title">Ideologi Nexora</h2>
+          <p className="section-copy">
+            Nexora percaya bahwa teknologi bukan hanya alat operasional, tetapi fondasi untuk pertumbuhan bisnis.
+            Setiap solusi digital harus memberikan dampak nyata: efisiensi, kontrol, akurasi data, keamanan, dan pertumbuhan.
+          </p>
+          <p className="section-copy">
+            Kami hadir sebagai partner teknologi jangka panjang, bukan sekadar vendor pembuat aplikasi. Fokus kami adalah
+            menyelesaikan masalah bisnis melalui sistem yang aman, scalable, dan sesuai kebutuhan klien.
+          </p>
+        </div>
+        <div className="grid four">
+          {ideologyValues.map((item) => (
+            <article className="card value-card reveal is-visible" key={item.title}>
+              <div className="icon-box"><span className="material-symbols-outlined">{item.icon}</span></div>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PlaygroundSection() {
+  return (
+    <section className="section alt pattern-section">
+      <AbstractPattern className="services-line-pattern" />
+      <div className="container">
+        <SectionHead title="Ruang Main Nexora" copy="Area bisnis Nexora dirancang untuk membantu perusahaan dari tahap digitalisasi awal sampai kebutuhan sistem enterprise." />
+        <div className="grid three">
+          {playgroundPillars.map((item) => (
+            <article className="card pillar-card reveal is-visible" key={item.title}>
+              <div className="icon-box"><span className="material-symbols-outlined">{item.icon}</span></div>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExperienceSection() {
+  return (
+    <section className="section pattern-section">
+      <AbstractPattern className="section-line-pattern" />
+      <div className="container">
+        <div className="experience-grid">
+          <div className="section-head left reveal is-visible">
+            <span className="eyebrow">Experience & Capability</span>
+            <h2 className="section-title">Kapabilitas Tim Nexora</h2>
+            <p className="section-copy">
+              Nexora didukung oleh tim lintas fungsi yang memahami engineering, operasional, desain digital,
+              governance, sales, dan proses bisnis.
+            </p>
+          </div>
+          <div className="tech-panel reveal is-visible">
+            <h3>Technology Highlight</h3>
+            <div className="tech-tags">{techStack.map((item) => <span key={item}>{item}</span>)}</div>
+          </div>
+        </div>
+        <div className="capability-grid">
+          {capabilities.map((item) => (
+            <article className="capability-card reveal is-visible" key={item}>
+              <span className="material-symbols-outlined">check_circle</span>
+              <strong>{item}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CoverageSection() {
+  return (
+    <section className="section alt pattern-section">
+      <AbstractPattern className="services-line-pattern" />
+      <div className="container coverage-grid">
+        <div className="coverage-map reveal is-visible" aria-hidden="true">
+          <span className="map-dot dot-bandung" />
+          <span className="map-dot dot-jakarta" />
+          <span className="map-dot dot-surabaya" />
+          <span className="map-dot dot-medan" />
+          <span className="map-line line-a" />
+          <span className="map-line line-b" />
+          <span className="map-line line-c" />
+          <div className="map-label">Bandung-based, Indonesia-wide</div>
+        </div>
+        <div className="reveal is-visible">
+          <span className="eyebrow">Coverage</span>
+          <h2 className="section-title">Cakupan Wilayah Layanan</h2>
+          <p className="section-copy">
+            Kantor Nexora berada di Bandung, Jawa Barat, dan layanan kami dapat menjangkau UMKM,
+            perusahaan menengah, enterprise, institusi pendidikan, dan organisasi di berbagai wilayah Indonesia.
+          </p>
+          <p className="section-copy">
+            Model kerja fleksibel: onsite, remote, hybrid, dan project-based. Nexora dapat mendampingi klien dari
+            konsultasi, analisis kebutuhan, desain sistem, development, testing, deployment, hingga support pasca-rilis.
+          </p>
+          <div className="coverage-models">{coverageModels.map((item) => <span key={item}>{item}</span>)}</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyNexoraSection() {
+  return (
+    <section className="section pattern-section">
+      <AbstractPattern className="section-line-pattern" />
+      <div className="container">
+        <SectionHead title="Mengapa Nexora?" copy="Kami memandang teknologi sebagai bagian dari strategi bisnis, bukan sekadar pekerjaan coding." />
+        <div className="grid five why-nexora-grid">
+          {whyNexora.map((item) => (
+            <article className="card why-nexora-card reveal is-visible" key={item}>
+              <span className="material-symbols-outlined">task_alt</span>
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function StatsCard() {
@@ -621,20 +888,83 @@ function AboutPage() {
   );
 }
 
+function VisionMissionPage() {
+  return (
+    <>
+      <PageHero title="Visi & Misi Nexora" copy="Arah besar Nexora sebagai Extended IT Partner bagi bisnis di Indonesia." primary />
+      <section className="section page-section vision-section">
+        <AbstractPattern className="page-hero-line-pattern" />
+        <div className="container">
+          <div className="vision-highlight reveal is-visible">
+            <div>
+              <span className="eyebrow">Visi Nexora</span>
+              <h2>
+                Menjadi Extended IT Partner strategis utama di Indonesia yang membantu pelaku bisnis mencapai
+                keunggulan operasional, pengendalian risiko yang kuat, dan pertumbuhan bisnis berkelanjutan melalui
+                transformasi digital yang berdampak nyata.
+              </h2>
+            </div>
+            <div className="vision-visual" aria-hidden="true">
+              <span className="vision-node node-a" />
+              <span className="vision-node node-b" />
+              <span className="vision-node node-c" />
+              <span className="vision-node node-d" />
+              <span className="vision-line vision-line-a" />
+              <span className="vision-line vision-line-b" />
+              <span className="vision-line vision-line-c" />
+              <span className="material-symbols-outlined">hub</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section alt pattern-section">
+        <AbstractPattern className="services-line-pattern" />
+        <div className="container">
+          <SectionHead title="Misi Nexora" copy="Lima komitmen utama dalam membangun solusi teknologi yang berdampak nyata untuk bisnis." />
+          <div className="grid mission-grid">
+            {missions.map((mission, index) => (
+              <article className="card mission-card reveal is-visible" key={mission.title}>
+                <div className="mission-number">{String(index + 1).padStart(2, '0')}</div>
+                <div className="icon-box"><span className="material-symbols-outlined">{mission.icon}</span></div>
+                <h3>{mission.title}</h3>
+                <p>{mission.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Cta title="Bangun Transformasi Digital yang Berdampak" copy="Nexora siap menjadi partner IT jangka panjang untuk menyusun strategi, membangun sistem, dan mendampingi operasional teknologi bisnis Anda." />
+    </>
+  );
+}
+
 function TeamSection() {
   return (
     <section className="section alt pattern-section">
       <AbstractPattern className="services-line-pattern" />
       <div className="container">
-        <SectionHead title="Tim Nexora" copy="Orang-orang di balik solusi teknologi yang kami bangun untuk bisnis Anda." />
-        <div className="grid four">
+        <SectionHead title="Tim Manajemen Nexora" copy="Struktur manajemen yang memimpin strategi, teknologi, operasional, dan pengembangan bisnis Nexora." />
+        <div className="grid two management-grid">
           {teamMembers.map((member) => (
-            <article className="card team-card reveal is-visible" key={member.name}>
-              <div className="team-avatar">{member.name.charAt(0)}</div>
+            <article className="card team-card management-card reveal is-visible" key={member.name}>
+              <img className="team-photo" src={member.photo} alt={member.name} loading="lazy" />
               <h3>{member.name}</h3>
               <p>{member.role}</p>
+              <div className="team-expertise">{member.expertise}</div>
             </article>
           ))}
+        </div>
+        <div className="functional-team-block">
+          <SectionHead title="Tim Pendukung / Fungsional" copy="Unit pendukung yang memastikan delivery, administrasi, keuangan, dan pertumbuhan bisnis berjalan rapi." />
+          <div className="grid four">
+            {functionalTeams.map((team) => (
+              <article className="card functional-card reveal is-visible" key={team.name}>
+                <div className="icon-box"><span className="material-symbols-outlined">groups</span></div>
+                <h3>{team.name}</h3>
+                <p>{team.role}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -814,7 +1144,7 @@ function Footer() {
             </Link>
             <p>Mitra teknologi andal untuk transformasi digital perusahaan. Kami menghadirkan sistem yang rapi, aman, dan siap berkembang.</p>
             <div className="footer-socials">
-              <a href="mailto:hello@nexoratech.com" aria-label="Email Nexora"><span className="material-symbols-outlined">mail</span></a>
+              <a href="mailto:ITConsultant@nexora-technology.id" aria-label="Email Nexora"><span className="material-symbols-outlined">mail</span></a>
               <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp Nexora"><span className="material-symbols-outlined">chat</span></a>
               <a href="/contact" aria-label="Lokasi Nexora"><span className="material-symbols-outlined">location_on</span></a>
             </div>
@@ -824,10 +1154,10 @@ function Footer() {
             <h4>Perusahaan</h4>
             <div className="footer-links">
               <Link to="/about">Tentang Kami</Link>
+              <Link to="/vision">Visi & Misi</Link>
               <Link to="/services">Services</Link>
               <Link to="/portfolio">Portfolio</Link>
               <Link to="/industry">Industri</Link>
-              <Link to="/faq">FAQ</Link>
             </div>
           </div>
 
