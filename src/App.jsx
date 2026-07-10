@@ -606,40 +606,112 @@ const missions = [
 
 const portfolios = [
   {
-    category: 'Fintech',
-    icon: 'account_balance',
-    result: 'Transaksi lebih stabil',
-    image: '/moneyku.png',
-    tags: ['Fintech', 'API Integration'],
-    title: 'Modernisasi Core Banking System',
-    copy: 'Membangun ulang arsitektur monolitik menjadi microservices untuk meningkatkan throughput transaksi dan menekan downtime.',
-  },
-  {
-    category: 'Healthcare',
-    icon: 'local_hospital',
-    result: 'Akses layanan lebih cepat',
-    image: '/hris.png',
-    tags: ['Healthcare', 'Mobile App'],
-    title: 'Telemedicine App Skala Nasional',
-    copy: 'Aplikasi telekonsultasi dengan integrasi rekam medis elektronik yang aman, cepat, dan mudah digunakan.',
-  },
-  {
-    category: 'Logistics',
-    icon: 'local_shipping',
-    result: 'Rute dan tracking lebih akurat',
-    image: '/all role ai.png',
-    tags: ['Logistics', 'Custom Software'],
-    title: 'Sistem Manajemen Armada Berbasis AI',
-    copy: 'Optimasi rute dan tracking real-time untuk perusahaan logistik dengan kebutuhan operasional kompleks.',
-  },
-  {
-    category: 'Retail',
-    icon: 'storefront',
-    result: 'Penjualan dan inventory terhubung',
+    category: 'Project yang Pernah Dikerjakan',
+    icon: 'precision_manufacturing',
+    result: 'Operasional mining lebih terintegrasi',
     image: '/bisa-platform.png',
-    tags: ['Retail', 'E-Commerce Platform'],
-    title: 'Platform E-Commerce Enterprise',
-    copy: 'Platform headless e-commerce yang mampu menangani trafik tinggi dan terintegrasi dengan ERP/POS.',
+    tags: ['ERP Mining', 'End-to-End System'],
+    title: 'ERP Mining End-to-End',
+    copy: 'Sistem ERP untuk kebutuhan operasional mining dari proses bisnis, data, approval, reporting, hingga monitoring end-to-end.',
+  },
+  {
+    category: 'Project yang Pernah Dikerjakan',
+    icon: 'school',
+    result: 'Belajar coding lebih terstruktur',
+    image: '/foto-berkemah.png',
+    tags: ['LMS', 'Coding Platform'],
+    title: 'LMS Coding Learning Platform',
+    copy: 'Platform pembelajaran coding dengan materi, kelas, progress belajar, dan pengalaman belajar digital yang lebih rapi.',
+  },
+  {
+    category: 'Project yang Pernah Dikerjakan',
+    icon: 'local_hospital',
+    result: 'Layanan hospital lebih mudah dikelola',
+    image: '/gmm.png',
+    tags: ['Hospital Web', 'Healthcare'],
+    title: 'Hospital Web Application',
+    copy: 'Aplikasi web untuk kebutuhan hospital dengan tampilan informatif, proses layanan yang lebih mudah, dan pengelolaan data yang tertata.',
+  },
+  {
+    category: 'Project yang Pernah Dikerjakan',
+    icon: 'work',
+    result: 'Rekrutmen lebih mudah dipantau',
+    image: '/andalan-karir.jpg',
+    tags: ['Career Site', 'Recruitment'],
+    title: 'Andalan Career Website',
+    copy: 'Website karir untuk Andalan yang membantu publikasi lowongan, employer branding, dan proses rekrutmen berjalan lebih profesional.',
+  },
+  {
+    category: 'Project yang Pernah Dikerjakan',
+    icon: 'dynamic_form',
+    result: 'Form internal lebih fleksibel',
+    image: '/ticketing-andalan.png',
+    tags: ['Form Builder', 'Ticketing'],
+    title: 'Andalan Form Builder & Ticketing',
+    copy: 'Sistem form builder dan ticketing untuk mendukung pengajuan, tracking, dan pengelolaan request internal secara digital.',
+  },
+  {
+    category: 'Project yang Pernah Dikerjakan',
+    icon: 'local_shipping',
+    result: 'Proses shipping cargo lebih terpantau',
+    image: '/cargo-gate.png',
+    tags: ['Shipping Cargo', 'Logistics System'],
+    title: 'Cargo Gate Shipping Application',
+    copy: 'Aplikasi shipping cargo untuk membantu pencatatan pengiriman, tracking status, dan pengelolaan proses cargo secara lebih rapi.',
+  },
+  {
+    category: 'Product',
+    icon: 'badge',
+    result: 'Data HR lebih terpusat',
+    image: '/hris.png',
+    tags: ['HRIS', 'Employee Management'],
+    title: 'HRIS Product',
+    copy: 'Produk HRIS untuk mengelola data karyawan, absensi, cuti, payroll, approval, kontrak kerja, dan laporan HR dalam satu sistem.',
+  },
+  {
+    category: 'Product',
+    icon: 'account_balance_wallet',
+    result: 'Keuangan lebih mudah dipantau',
+    image: '/moneyku.png',
+    tags: ['Finance App', 'Reporting'],
+    title: 'Moneyku Finance Application',
+    copy: 'Aplikasi keuangan untuk membantu pencatatan, monitoring, dan pelaporan finansial agar lebih praktis dan mudah dibaca.',
+  },
+  {
+    category: 'Product',
+    icon: 'receipt_long',
+    result: 'Perhitungan pajak lebih praktis',
+    image: '/hitung-pajak.png',
+    tags: ['Tax Calculator', 'Finance Tools'],
+    title: 'Hitung Pajak Application',
+    copy: 'Aplikasi untuk menghitung berbagai jenis pajak sehingga proses estimasi, simulasi, dan rekap pajak lebih mudah dilakukan.',
+  },
+  {
+    category: 'Product',
+    icon: 'point_of_sale',
+    result: 'Penjualan toko lebih rapi',
+    image: '/POS.png',
+    tags: ['Point of Sale', 'Retail'],
+    title: 'Point of Sale Application',
+    copy: 'Aplikasi POS untuk transaksi kasir, produk, stok, pembayaran, diskon, pajak, dan laporan penjualan harian.',
+  },
+  {
+    category: 'Product',
+    icon: 'account_tree',
+    result: 'SOP lebih mudah diikuti',
+    image: '/sop.png',
+    tags: ['SOP App', 'Workflow'],
+    title: 'SOP Management Application',
+    copy: 'Aplikasi SOP untuk membantu perusahaan menyusun, mengelola, dan mendistribusikan prosedur kerja secara digital.',
+  },
+  {
+    category: 'Company Profile',
+    icon: 'travel_explore',
+    result: 'Brand wisata lebih mudah ditemukan',
+    image: '/pasabar.png',
+    tags: ['Company Profile', 'Tourism'],
+    title: 'Pasabar Tourism Company Profile',
+    copy: 'Website company profile untuk kebutuhan wisata dengan tampilan informatif, visual destination, dan jalur kontak yang jelas.',
   },
 ];
 
@@ -1638,6 +1710,7 @@ function ProductsPage({ language, text }) {
 
 function PortfolioPage({ language, text }) {
   const [filter, setFilter] = useState('All');
+  const filters = useMemo(() => ['All', ...Array.from(new Set(portfolios.map((item) => item.category)))], []);
   const filtered = useMemo(() => (filter === 'All' ? portfolios : portfolios.filter((item) => item.category === filter)), [filter]);
   const featured = filter === 'All' ? filtered[0] : null;
   const gridItems = featured ? filtered.slice(1) : filtered;
@@ -1649,7 +1722,7 @@ function PortfolioPage({ language, text }) {
         <AbstractPattern className="section-line-pattern" />
         <div className="container">
           <div className="filter-row">
-            {['All', 'Fintech', 'Healthcare', 'Logistics', 'Retail'].map((item) => (
+            {filters.map((item) => (
               <button className={`filter-button ${filter === item ? 'is-active' : ''}`} type="button" onClick={() => setFilter(item)} key={item}>
                 <span>{item}</span>
                 <small>{item === 'All' ? portfolios.length : portfolios.filter((portfolio) => portfolio.category === item).length}</small>

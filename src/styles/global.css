@@ -947,7 +947,7 @@
   }
 
   .portfolio-page-grid {
-    @apply mt-8 grid grid-cols-3 gap-7;
+    @apply mt-8 grid grid-cols-3 gap-6;
   }
 
   .portfolio-stack {
@@ -959,11 +959,11 @@
   }
 
   .portfolio-image {
-    @apply relative grid min-h-[260px] place-items-center overflow-hidden bg-[#e9f5ff] p-8;
+    @apply relative grid min-h-[250px] place-items-center overflow-hidden bg-[#e9f5ff] p-7;
   }
 
   .portfolio-image img {
-    @apply h-full max-h-[220px] w-full object-contain transition duration-300;
+    @apply h-full max-h-[210px] w-full object-contain transition duration-300;
     filter: drop-shadow(0 24px 36px rgba(0, 66, 126, 0.16));
   }
 
@@ -984,7 +984,7 @@
   }
 
   .portfolio-content h3 {
-    @apply mt-4 text-[24px] font-extrabold leading-tight;
+    @apply mt-4 text-[22px] font-extrabold leading-tight;
   }
 
   .portfolio-result {
@@ -1050,7 +1050,7 @@
   }
 
   .portfolio-featured-visual img {
-    @apply relative z-[1] max-h-[300px] w-full object-contain;
+    @apply relative z-[1] max-h-[320px] w-full object-contain;
     animation: softFloat 6s ease-in-out infinite;
     filter: drop-shadow(0 30px 42px rgba(0, 66, 126, 0.18));
   }
@@ -1080,19 +1080,23 @@
   }
 
   .filter-row {
-    @apply mb-10 mt-[-18px] flex flex-wrap justify-center gap-3;
+    @apply mx-auto mb-11 mt-[-18px] flex w-fit max-w-full flex-wrap justify-center gap-1.5 rounded-[18px] border border-[#d7e7f8] bg-white/80 p-1.5 shadow-[0_18px_42px_rgba(0,47,89,0.07)] backdrop-blur;
   }
 
   .filter-button {
-    @apply inline-flex cursor-pointer items-center gap-3 rounded-full border border-[#d7e7f8] bg-white px-5 py-3 font-extrabold text-nexora-muted shadow-[0_10px_24px_rgba(0,47,89,0.05)] transition duration-200;
+    @apply inline-flex min-h-11 max-w-full cursor-pointer items-center gap-2.5 rounded-[13px] border border-transparent bg-transparent px-4 py-2.5 text-sm font-extrabold text-nexora-muted transition duration-200;
+  }
+
+  .filter-button span {
+    @apply max-w-[240px] truncate;
   }
 
   .filter-button small {
-    @apply grid h-6 min-w-6 place-items-center rounded-full bg-[#e8eeff] px-2 text-[11px] text-nexora-blue;
+    @apply grid h-5 min-w-5 place-items-center rounded-full bg-[#e8eeff] px-1.5 text-[10px] leading-none text-nexora-blue;
   }
 
   .filter-button.is-active {
-    @apply border-nexora-action bg-nexora-blue text-white shadow-[0_14px_28px_rgba(0,89,167,0.18)];
+    @apply border-nexora-action bg-nexora-blue text-white shadow-[0_12px_24px_rgba(0,89,167,0.18)];
   }
 
   .filter-button.is-active small {
@@ -1414,8 +1418,8 @@
 }
 
 .line-pattern path {
-  stroke: rgba(0, 89, 167, 0.12);
-  stroke-width: 1.35;
+  stroke: rgba(0, 89, 167, 0.26);
+  stroke-width: 1.65;
   stroke-dasharray: 680;
   stroke-dashoffset: 0;
   animation: contourPulse 8s ease-in-out infinite;
@@ -1441,7 +1445,7 @@
   width: min(46vw, 620px);
   right: max(-90px, -5vw);
   top: 48px;
-  opacity: 0.9;
+  opacity: 1;
   transition: transform 0.22s ease-out;
 }
 
@@ -1452,7 +1456,7 @@
   width: min(34vw, 430px);
   right: -120px;
   top: 34px;
-  opacity: 0.6;
+  opacity: 0.86;
 }
 
 .contact-line-pattern {
@@ -1461,21 +1465,21 @@
   width: min(42vw, 520px);
   left: -130px;
   top: 44px;
-  opacity: 0.5;
+  opacity: 0.68;
 }
 
 .section-line-pattern {
   width: min(32vw, 420px);
   left: -120px;
   bottom: 24px;
-  opacity: 0.34;
+  opacity: 0.62;
 }
 
 .global-line-pattern {
   width: min(36vw, 460px);
   right: -150px;
   top: 26px;
-  opacity: 0.32;
+  opacity: 0.6;
 }
 
 .cta-line-pattern {
@@ -1493,7 +1497,7 @@
   width: min(34vw, 460px);
   right: -130px;
   top: 22px;
-  opacity: 0.5;
+  opacity: 0.68;
 }
 
 @keyframes contourFloat {
