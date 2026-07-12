@@ -738,7 +738,7 @@ const teamMembers = [
   {
     name: 'Fannii Aulia Havid',
     role: 'Chief Executive Officer / CEO',
-    photo: 'https://randomuser.me/api/portraits/women/44.jpg',
+    photo: '/fanni-nexora.jpg',
     expertise: {
       id: 'Berpengalaman di bidang financial management, organizational governance, dan strategic partnership development. Memimpin arah strategis, pertumbuhan bisnis, visi komersial, dan pengambilan keputusan perusahaan.',
       en: 'Experienced in financial management, organizational governance, and strategic partnership development. Leads the company strategy, business growth, commercial vision, and executive decision-making.',
@@ -747,7 +747,7 @@ const teamMembers = [
   {
     name: 'Raul Mahya Komaran',
     role: 'Chief Technology Officer / CTO',
-    photo: 'https://randomuser.me/api/portraits/men/32.jpg',
+    photo: '/raul-nexora.jpg',
     expertise: {
       id: 'Background di Informatics Engineering dan sedang menempuh Master of Computer Science. Berpengalaman sebagai Backend Developer, Full-Stack Developer, Software Engineer, Project Manager, R&D Specialist, dan IT Specialist. Menguasai Laravel, .NET, Golang, Node.js, Python, SQL Server, PostgreSQL, MongoDB, Power BI, ETL, dan Odoo ERP.',
       en: 'Background in Informatics Engineering and currently pursuing a Master of Computer Science. Experienced as a Backend Developer, Full-Stack Developer, Software Engineer, Project Manager, R&D Specialist, and IT Specialist. Skilled in Laravel, .NET, Golang, Node.js, Python, SQL Server, PostgreSQL, MongoDB, Power BI, ETL, and Odoo ERP.',
@@ -756,7 +756,7 @@ const teamMembers = [
   {
     name: 'Rinaldy Gunawan',
     role: 'Chief Operating Officer / COO',
-    photo: 'https://randomuser.me/api/portraits/men/46.jpg',
+    photo: '/rei-nexora.jpg',
     expertise: {
       id: 'Memiliki keahlian di bidang technology engineering dan user-centric digital design. Bertanggung jawab mengatur operasional perusahaan, workflow proyek, koordinasi tim IT dan kreatif, kualitas delivery, serta ketepatan implementasi proyek.',
       en: 'Skilled in technology engineering and user-centric digital design. Responsible for company operations, project workflows, IT and creative team coordination, delivery quality, and implementation accuracy.',
@@ -765,7 +765,7 @@ const teamMembers = [
   {
     name: 'M. Giffari Havid',
     role: 'Head of Sales & Business Development',
-    photo: 'https://randomuser.me/api/portraits/men/68.jpg',
+    photo: '/ghifari-nexora.jpg',
     expertise: {
       id: 'Background Sarjana Ekonomi dengan pengalaman lebih dari 12 tahun di bidang sales dan business development. Fokus pada strategi penetrasi pasar, komersialisasi produk, hubungan kemitraan jangka panjang, dan analisis kelayakan investasi teknologi.',
       en: 'Economics background with more than 12 years of experience in sales and business development. Focuses on market penetration strategy, product commercialization, long-term partnerships, and technology investment feasibility analysis.',

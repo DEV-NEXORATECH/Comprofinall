@@ -13,9 +13,9 @@
     --white: #ffffff;
     --heading: #00427e;
     --text: #1d2733;
-    --body: #344054;
-    --muted: #667085;
-    --primary-muted: #3d608c;
+    --body: #1d2733;
+    --muted: #344054;
+    --primary-muted: #00427e;
     --border: #e2e8f0;
     --shadow: 0 16px 42px rgba(0, 47, 89, 0.09);
     font-family: "Open Sauce One", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -30,7 +30,7 @@
   }
 
   body {
-    @apply m-0 min-w-[320px] bg-[#f9f9ff] text-[#344054];
+    @apply m-0 min-w-[320px] bg-[#f9f9ff] text-[#1d2733];
   }
 
   button,
@@ -107,7 +107,7 @@
   }
 
   .nav-link {
-    @apply relative py-[26px] pb-[22px] text-sm font-semibold text-[#344054] transition-colors duration-200;
+    @apply relative py-[26px] pb-[22px] text-sm font-semibold text-[#1d2733] transition-colors duration-200;
   }
 
   .nav-link:hover,
@@ -133,7 +133,7 @@
   }
 
   .language-toggle button {
-    @apply h-[30px] min-w-9 cursor-pointer rounded-full border-0 bg-transparent text-xs font-bold text-slate-500 transition-colors duration-200;
+    @apply h-[30px] min-w-9 cursor-pointer rounded-full border-0 bg-transparent text-xs font-bold text-[#344054] transition-colors duration-200;
   }
 
   .language-toggle button.is-active {
@@ -238,7 +238,7 @@
   }
 
   .hero-copy {
-    @apply mt-[22px] max-w-[650px] text-[clamp(17px,1.4vw,20px)] leading-[1.72] text-nexora-muted;
+    @apply mt-[22px] max-w-[650px] text-[clamp(17px,1.4vw,20px)] leading-[1.72] text-[#1d2733];
   }
 
   .hero-actions {
@@ -339,7 +339,7 @@
   }
 
   .metric span {
-    @apply mt-1 block text-xs text-nexora-muted;
+    @apply mt-1 block text-xs text-[#344054];
   }
 
   .section-head {
@@ -359,7 +359,7 @@
   }
 
   .section-copy {
-    @apply mt-4 text-[clamp(16px,1.25vw,18px)] font-normal leading-[1.7] text-nexora-muted;
+    @apply mt-4 text-[clamp(16px,1.25vw,18px)] font-normal leading-[1.7] text-[#344054];
   }
 
   .grid {
@@ -426,7 +426,7 @@
   }
 
   .card p {
-    @apply mt-3 text-[15px] font-normal leading-[1.68] text-nexora-muted;
+    @apply mt-3 text-[15px] font-normal leading-[1.68] text-[#344054];
     overflow-wrap: anywhere;
   }
 
@@ -450,7 +450,7 @@
 
   .tag,
   .feature-list li {
-    @apply inline-flex rounded bg-[#e8eeff] px-2.5 py-1.5 text-[13px] font-semibold text-[#3d608c];
+    @apply inline-flex rounded bg-[#e8eeff] px-2.5 py-1.5 text-[13px] font-semibold text-nexora-blue;
   }
 
   .feature-list {
@@ -474,7 +474,7 @@
   }
 
   .stat span {
-    @apply text-[13px] font-semibold text-nexora-muted;
+    @apply text-[13px] font-semibold text-[#344054];
   }
 
   .services-showcase {
@@ -490,7 +490,7 @@
   }
 
   .service-feature-menu strong {
-    @apply mb-2 text-xs font-bold uppercase tracking-[0.16em] text-[#3d608c];
+    @apply mb-2 text-xs font-bold uppercase tracking-[0.16em] text-nexora-blue;
   }
 
   .service-feature-menu button {
@@ -515,7 +515,7 @@
   }
 
   .service-feature-copy h4 {
-    @apply mt-2.5 text-[15px] font-semibold text-[#3d608c];
+    @apply mt-2.5 text-[15px] font-semibold text-nexora-blue;
   }
 
   .service-feature-copy p {
@@ -678,7 +678,7 @@
   }
 
   .service-price span {
-    @apply ml-1 text-[13px] font-medium text-nexora-muted;
+    @apply ml-1 text-[13px] font-medium text-[#344054];
   }
 
   .service-pricing-card ul {
@@ -686,7 +686,7 @@
   }
 
   .service-pricing-card li {
-    @apply flex items-center gap-2 text-sm font-medium text-nexora-muted;
+    @apply flex items-center gap-2 text-sm font-medium text-[#344054];
   }
 
   .service-pricing-card li .material-symbols-outlined {
@@ -817,7 +817,7 @@
   }
 
   .mission-body p {
-    @apply mt-4 text-[15px] leading-[1.75] text-nexora-muted;
+    @apply mt-4 text-[15px] leading-[1.75] text-[#344054];
   }
 
   .vision-section {
@@ -846,7 +846,7 @@
   }
 
   .vision-copy p {
-    @apply mt-6 max-w-[620px] text-[17px] leading-8 text-nexora-muted;
+    @apply mt-6 max-w-[620px] text-[17px] leading-8 text-[#1d2733];
   }
 
   .vision-points {
@@ -854,7 +854,7 @@
   }
 
   .vision-points span {
-    @apply rounded-full border border-[#cfe0f5] bg-[#f8fbff] px-4 py-2 text-sm font-bold text-[#315b8a];
+    @apply rounded-full border border-[#cfe0f5] bg-[#f8fbff] px-4 py-2 text-sm font-bold text-nexora-blue;
   }
 
   .vision-visual {
@@ -988,7 +988,7 @@
   }
 
   .portfolio-result {
-    @apply mt-6 grid grid-cols-[auto_auto_1fr] items-center gap-2 rounded-xl border border-[#d7e7f8] bg-[#f8fbff] px-4 py-3 text-sm text-[#315b8a];
+    @apply mt-6 grid grid-cols-[auto_auto_1fr] items-center gap-2 rounded-xl border border-[#d7e7f8] bg-[#f8fbff] px-4 py-3 text-sm text-[#1d2733];
   }
 
   .portfolio-result .material-symbols-outlined {
@@ -1025,7 +1025,7 @@
   }
 
   .portfolio-featured p {
-    @apply mt-5 max-w-[620px] text-[17px] leading-8 text-nexora-muted;
+    @apply mt-5 max-w-[620px] text-[17px] leading-8 text-[#1d2733];
   }
 
   .portfolio-featured-tags {
@@ -1033,7 +1033,7 @@
   }
 
   .portfolio-featured-tags span {
-    @apply rounded-full border border-[#cfe0f5] bg-[#f8fbff] px-4 py-2 text-sm font-bold text-[#315b8a];
+    @apply rounded-full border border-[#cfe0f5] bg-[#f8fbff] px-4 py-2 text-sm font-bold text-nexora-blue;
   }
 
   .portfolio-featured-actions {
@@ -1064,7 +1064,7 @@
   }
 
   .portfolio-floating-metric span {
-    @apply text-xs font-bold uppercase tracking-[0.08em] text-nexora-muted;
+    @apply text-xs font-bold uppercase tracking-[0.08em] text-[#344054];
   }
 
   .portfolio-floating-metric.metric-a {
@@ -1084,7 +1084,7 @@
   }
 
   .filter-button {
-    @apply inline-flex min-h-11 max-w-full cursor-pointer items-center gap-2.5 rounded-[13px] border border-transparent bg-transparent px-4 py-2.5 text-sm font-extrabold text-nexora-muted transition duration-200;
+    @apply inline-flex min-h-11 max-w-full cursor-pointer items-center gap-2.5 rounded-[13px] border border-transparent bg-transparent px-4 py-2.5 text-sm font-extrabold text-[#344054] transition duration-200;
   }
 
   .filter-button span {
@@ -1129,7 +1129,7 @@
   }
 
   .pricing-card ul {
-    @apply mb-7 grid list-none gap-3 p-0 text-nexora-muted;
+    @apply mb-7 grid list-none gap-3 p-0 text-[#344054];
   }
 
   .pricing-card.featured ul,
@@ -1174,7 +1174,7 @@
   }
 
   .faq-answer {
-    @apply max-h-0 overflow-hidden px-6 leading-[1.7] text-nexora-muted transition-all duration-200;
+    @apply max-h-0 overflow-hidden px-6 leading-[1.7] text-[#344054] transition-all duration-200;
   }
 
   .faq-item.is-open .faq-answer {
@@ -1248,7 +1248,7 @@
   .field input,
   .field select,
   .field textarea {
-    @apply w-full rounded-md border border-slate-200 bg-white px-3.5 py-[13px] text-[#344054] outline-none;
+    @apply w-full rounded-md border border-slate-200 bg-white px-3.5 py-[13px] text-[#1d2733] outline-none;
   }
 
   .field textarea {
@@ -1286,7 +1286,7 @@
   }
 
   .footer {
-    @apply relative overflow-hidden border-t border-slate-200/90 bg-white/95 py-14 pb-6 text-[#344054];
+    @apply relative overflow-hidden border-t border-slate-200/90 bg-white/95 py-14 pb-6 text-[#1d2733];
   }
 
   .footer > .container {
@@ -1309,7 +1309,7 @@
 
   .footer p,
   .footer a {
-    @apply text-sm leading-[1.7] text-nexora-muted;
+    @apply text-sm leading-[1.7] text-[#344054];
   }
 
   .footer a:hover {
@@ -1362,7 +1362,7 @@
   }
 
   .footer-bottom {
-    @apply mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-[18px] text-sm text-nexora-muted;
+    @apply mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 pt-[18px] text-sm text-[#344054];
   }
 
   .section-action {
