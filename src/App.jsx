@@ -1856,6 +1856,13 @@ function getManagementTags(name, language) {
 }
 
 function TeamSection({ language, text }) {
+  const [activeMember, setActiveMember] = useState(0);
+  const member = teamMembers[activeMember];
+
+  function moveMember(direction) {
+    setActiveMember((current) => (current + direction + teamMembers.length) % teamMembers.length);
+  }
+
   return (
     <section className="relative overflow-hidden bg-[#eef5fb] py-20 sm:py-24">
       <div className="pointer-events-none absolute -right-28 top-10 h-[360px] w-[360px] rounded-full border border-[#cfe0f5] opacity-50" />
@@ -1866,41 +1873,57 @@ function TeamSection({ language, text }) {
           <p className="mx-auto mt-4 max-w-[650px] text-[16px] leading-7 text-nexora-muted sm:text-[18px]">{text.managementCopy}</p>
         </div>
 
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-8 lg:grid-cols-2">
-          {teamMembers.map((member) => (
-            <article
-              className="interactive-card group overflow-hidden rounded-[18px] border border-nexora-line bg-white shadow-nexora transition duration-200 hover:-translate-y-1 hover:border-[#b8d5f4] hover:shadow-[0_30px_64px_rgba(0,66,126,0.16)]"
-              key={member.name}
-            >
-              <div className="relative overflow-hidden bg-[#eaf4ff]">
-                <img
-                  className="h-[320px] w-full object-cover object-center transition duration-300 group-hover:scale-[1.03] sm:h-[380px]"
-                  src={member.photo}
-                  alt={member.name}
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#003966]/55 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 flex flex-wrap items-center justify-between gap-3">
-                  <span className="rounded-full border border-white/70 bg-white px-4 py-2 text-[12px] font-bold uppercase tracking-[0.14em] text-nexora-blue shadow-[0_12px_24px_rgba(0,66,126,0.12)]">
-                    {member.role.split('/').pop().trim()}
-                  </span>
-                  <span className="grid h-11 w-11 place-items-center rounded-full bg-nexora-navy text-lg font-extrabold text-white shadow-[0_12px_24px_rgba(0,47,89,0.22)]">
-                    {member.name.charAt(0)}
-                  </span>
-                </div>
+        <div className="mx-auto max-w-[1180px]">
+          <article className="interactive-card group grid overflow-hidden rounded-[24px] border border-nexora-line bg-white shadow-[0_28px_68px_rgba(0,66,126,0.14)] lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="team-carousel-photo relative min-h-[520px] overflow-hidden bg-[#eaf4ff]">
+              <img
+                className="h-full min-h-[520px] w-full object-cover object-center transition duration-500 group-hover:scale-[1.025]"
+                src={member.photo}
+                alt={member.name}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#003966]/70 via-[#003966]/10 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-3">
+                <span className="rounded-full border border-white/70 bg-white px-4 py-2 text-[12px] font-extrabold uppercase tracking-[0.14em] text-nexora-blue shadow-[0_12px_24px_rgba(0,66,126,0.12)]">
+                  {member.role.split('/').pop().trim()}
+                </span>
+                <span className="grid h-12 w-12 place-items-center rounded-full bg-nexora-navy text-lg font-extrabold text-white shadow-[0_12px_24px_rgba(0,47,89,0.22)]">
+                  {member.name.charAt(0)}
+                </span>
               </div>
-              <div className="p-7 sm:p-8">
-                <p className="mb-3 text-sm font-bold uppercase tracking-[0.14em] text-nexora-blue">{member.role}</p>
-                <h3 className="mb-4 text-[28px] font-extrabold leading-tight text-nexora-navy sm:text-[34px]">{member.name}</h3>
-                <p className="mb-6 text-[15px] leading-7 text-nexora-muted">{member.expertise[language]}</p>
-                <div className="flex flex-wrap gap-2">
-                  {getManagementTags(member.name, language).map((tag) => (
-                    <span className="rounded-md bg-nexora-soft px-3 py-2 text-xs font-bold text-[#315b8a]" key={tag}>{tag}</span>
+            </div>
+            <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
+              <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.16em] text-nexora-blue">{member.role}</p>
+              <h3 className="mb-5 text-[34px] font-extrabold leading-tight text-nexora-navy sm:text-[48px]">{member.name}</h3>
+              <p className="mb-8 max-w-[640px] text-[16px] leading-8 text-[#344054] sm:text-[17px]">{member.expertise[language]}</p>
+              <div className="mb-10 flex flex-wrap gap-2.5">
+                {getManagementTags(member.name, language).map((tag) => (
+                  <span className="rounded-lg bg-nexora-soft px-4 py-2 text-xs font-extrabold text-nexora-blue" key={tag}>{tag}</span>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-5 border-t border-nexora-line pt-6">
+                <div className="flex gap-2">
+                  {teamMembers.map((item, index) => (
+                    <button
+                      aria-label={`Lihat ${item.name}`}
+                      className={`h-2.5 rounded-full transition-all ${activeMember === index ? 'w-10 bg-nexora-blue' : 'w-2.5 bg-[#cfe0f5]'}`}
+                      key={item.name}
+                      onClick={() => setActiveMember(index)}
+                      type="button"
+                    />
                   ))}
                 </div>
+                <div className="flex gap-3">
+                  <button className="grid h-12 w-12 place-items-center rounded-full border border-nexora-line bg-white text-nexora-blue shadow-[0_10px_22px_rgba(0,66,126,0.08)]" type="button" onClick={() => moveMember(-1)} aria-label="Sebelumnya">
+                    <span className="material-symbols-outlined">arrow_back</span>
+                  </button>
+                  <button className="grid h-12 w-12 place-items-center rounded-full bg-nexora-blue text-white shadow-[0_12px_24px_rgba(0,66,126,0.18)]" type="button" onClick={() => moveMember(1)} aria-label="Berikutnya">
+                    <span className="material-symbols-outlined">arrow_forward</span>
+                  </button>
+                </div>
               </div>
-            </article>
-          ))}
+            </div>
+          </article>
         </div>
 
         <div className="mt-20">

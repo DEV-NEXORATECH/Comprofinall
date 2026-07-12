@@ -1813,6 +1813,11 @@
     display: none;
   }
 
+  .team-carousel-photo,
+  .team-carousel-photo img {
+    min-height: 360px;
+  }
+
   .cta {
     padding: 42px 22px;
     border-radius: 16px;
