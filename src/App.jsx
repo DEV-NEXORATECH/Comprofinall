@@ -16,6 +16,7 @@ const copy = {
   id: {
     cta: 'Konsultasi Gratis',
     openMenu: 'Buka menu',
+    languageLabel: 'Pilih bahasa',
     aboutHeroTitle: 'Tentang Nexora Technology',
     aboutHeroCopy: 'Kami menggabungkan strategi, desain, dan engineering untuk membantu perusahaan membangun sistem digital yang lebih efisien.',
     aboutTitle: 'Mitra Teknologi untuk Bisnis yang Bertumbuh',
@@ -47,15 +48,19 @@ const copy = {
     experienceTitle: 'Kapabilitas Tim Nexora',
     experienceCopy: 'Nexora didukung oleh tim lintas fungsi yang memahami engineering, operasional, desain digital, governance, sales, dan proses bisnis.',
     techHighlight: 'Technology Highlight',
+    experienceEyebrow: 'Experience & Capability',
     coverageTitle: 'Cakupan Wilayah Layanan',
     coverageCopyOne: 'Kantor Nexora berada di Bandung, Jawa Barat, dan layanan kami dapat menjangkau UMKM, perusahaan menengah, enterprise, institusi pendidikan, dan organisasi di berbagai wilayah Indonesia.',
     coverageCopyTwo: 'Model kerja fleksibel: onsite, remote, hybrid, dan project-based. Nexora dapat mendampingi klien dari konsultasi, analisis kebutuhan, desain sistem, development, testing, deployment, hingga support pasca-rilis.',
+    coverageMapTitle: 'Cakupan layanan Nexora di Indonesia',
+    coverageMapButton: 'Lihat Peta Indonesia',
     whyTitle: 'Mengapa Nexora?',
     whyCopy: 'Kami memandang teknologi sebagai bagian dari strategi bisnis, bukan sekadar pekerjaan coding.',
     servicesPreviewTitle: 'Layanan Unggulan Kami',
     servicesPreviewCopy: 'Keahlian mendalam dalam berbagai domain teknologi untuk mendukung kebutuhan spesifik industri Anda.',
     productsPreviewCopy: 'Pilihan sistem siap-kembang untuk UMKM sampai perusahaan, dari operasional harian sampai dashboard manajemen.',
-    viewAllProducts: 'Lihat Semua Products',
+    productsTitle: 'Produk / Solusi Nexora',
+    viewAllProducts: 'Lihat Semua Produk',
     portfolioPreviewTitle: 'Karya Kami',
     portfolioPreviewCopy: 'Beberapa contoh proyek sukses yang telah kami selesaikan.',
     caseStudy: 'Lihat Studi Kasus',
@@ -85,6 +90,11 @@ const copy = {
     portfolioPageCopy: 'Transformasi digital nyata untuk berbagai industri. Jelajahi studi kasus bagaimana kami membantu perusahaan mencapai efisiensi dan skalabilitas.',
     portfolioCtaTitle: 'Ingin Dibantu Buat Sistem Seperti Ini?',
     portfolioCtaCopy: 'Kami bisa bantu mulai dari memahami masalah, menyusun alur kerja, sampai sistem siap digunakan.',
+    allFilter: 'Semua',
+    portfolioImpact: 'Dampak',
+    projectCategory: 'Project yang Pernah Dikerjakan',
+    productCategory: 'Produk',
+    companyProfileCategory: 'Company Profile',
     visionTitle: 'Menjadi Extended IT Partner strategis utama di Indonesia yang membantu pelaku bisnis mencapai keunggulan operasional, pengendalian risiko yang kuat, dan pertumbuhan bisnis berkelanjutan melalui transformasi digital yang berdampak nyata.',
     missionTitle: 'Misi Nexora',
     missionCopy: 'Lima komitmen utama dalam membangun solusi teknologi yang berdampak nyata untuk bisnis.',
@@ -116,10 +126,27 @@ const copy = {
     contactAddress: 'Alamat Kantor',
     contactHours: 'Jam Operasional',
     openMaps: 'Buka Lokasi di Google Maps',
+    statsProjects: 'Proyek Selesai',
+    statsClients: 'Klien Puas',
+    statsSupport: 'Dukungan',
+    statsExperience: 'Tahun Pengalaman',
+    popularBadge: 'Paling Populer',
+    previous: 'Sebelumnya',
+    next: 'Berikutnya',
+    viewMember: 'Lihat',
+    footerLocation: 'Bandung, Indonesia',
+    faqTitle: 'Pertanyaan yang Sering Diajukan',
+    faqPageTitle: 'FAQ Nexora Technology',
+    faqPageCopy: 'Jawaban singkat untuk pertanyaan yang paling sering muncul sebelum memulai proyek teknologi.',
+    faqCtaTitle: 'Masih Ada Pertanyaan?',
+    faqCtaCopy: 'Tim kami siap bantu jelaskan opsi teknologi yang paling sesuai untuk kebutuhan bisnis Anda.',
+    ctaDefaultTitle: 'Siap Bikin Sistem Lebih Rapi?',
+    ctaDefaultCopy: 'Ceritakan kebutuhan bisnis Anda. Kami bantu arahkan solusi yang paling mudah dimulai.',
   },
   en: {
     cta: 'Free Consultation',
     openMenu: 'Open menu',
+    languageLabel: 'Choose language',
     aboutHeroTitle: 'About Nexora Technology',
     aboutHeroCopy: 'We combine strategy, design, and engineering to help companies build more efficient digital systems.',
     aboutTitle: 'Technology Partner for Growing Businesses',
@@ -151,14 +178,18 @@ const copy = {
     experienceTitle: 'Nexora Team Capability',
     experienceCopy: 'Nexora is supported by a cross-functional team with experience in engineering, operations, digital design, governance, sales, and business processes.',
     techHighlight: 'Technology Highlight',
+    experienceEyebrow: 'Experience & Capability',
     coverageTitle: 'Service Coverage Area',
     coverageCopyOne: 'Nexora is based in Bandung, West Java, and our services can reach MSMEs, mid-sized companies, enterprises, educational institutions, and organizations across Indonesia.',
     coverageCopyTwo: 'Flexible work models: onsite, remote, hybrid, and project-based. Nexora can support clients from consultation, requirement analysis, system design, development, testing, deployment, to post-launch support.',
+    coverageMapTitle: 'Nexora service coverage across Indonesia',
+    coverageMapButton: 'View Indonesia Map',
     whyTitle: 'Why Nexora?',
     whyCopy: 'We see technology as part of business strategy, not merely coding work.',
     servicesPreviewTitle: 'Featured Services',
     servicesPreviewCopy: 'Deep expertise across technology domains to support your industry-specific needs.',
     productsPreviewCopy: 'Ready-to-evolve systems for MSMEs to enterprises, from daily operations to management dashboards.',
+    productsTitle: 'Products / Solutions Nexora',
     viewAllProducts: 'View All Products',
     portfolioPreviewTitle: 'Our Work',
     portfolioPreviewCopy: 'A few examples of successful projects we have delivered.',
@@ -189,6 +220,11 @@ const copy = {
     portfolioPageCopy: 'Real digital transformation across industries. Explore case studies on how we help companies achieve efficiency and scalability.',
     portfolioCtaTitle: 'Want Help Building a System Like This?',
     portfolioCtaCopy: 'We can help from understanding the problem, designing the workflow, to preparing the system for use.',
+    allFilter: 'All',
+    portfolioImpact: 'Impact',
+    projectCategory: 'Completed Projects',
+    productCategory: 'Products',
+    companyProfileCategory: 'Company Profile',
     visionTitle: 'To become Indonesia’s leading strategic Extended IT Partner that helps businesses achieve operational excellence, strong risk control, and sustainable growth through digital transformation with real impact.',
     missionTitle: 'Nexora Mission',
     missionCopy: 'Five core commitments in building technology solutions that create real business impact.',
@@ -220,6 +256,22 @@ const copy = {
     contactAddress: 'Office Address',
     contactHours: 'Business Hours',
     openMaps: 'Open Location in Google Maps',
+    statsProjects: 'Completed Projects',
+    statsClients: 'Satisfied Clients',
+    statsSupport: 'Support',
+    statsExperience: 'Years of Experience',
+    popularBadge: 'Most Popular',
+    previous: 'Previous',
+    next: 'Next',
+    viewMember: 'View',
+    footerLocation: 'Bandung, Indonesia',
+    faqTitle: 'Frequently Asked Questions',
+    faqPageTitle: 'Nexora Technology FAQ',
+    faqPageCopy: 'Short answers to common questions before starting a technology project.',
+    faqCtaTitle: 'Still Have Questions?',
+    faqCtaCopy: 'Our team can help explain the technology options that best fit your business needs.',
+    ctaDefaultTitle: 'Ready to Build a Cleaner System?',
+    ctaDefaultCopy: 'Tell us your business needs. We will help suggest the easiest solution to start with.',
   },
 };
 
@@ -488,7 +540,7 @@ const serviceApplications = [
       id: 'Aplikasi kasir untuk toko, retail, cafe, dan UMKM dengan fitur produk, stok, cabang, pembayaran, diskon, pajak, dan laporan penjualan.',
       en: 'A cashier app for stores, retail, cafes, and MSMEs with product, stock, branch, payment, discount, tax, and sales report features.',
     },
-    tags: ['Kasir', 'Stock', 'Sales'],
+    tags: [{ id: 'Kasir', en: 'Cashier' }, { id: 'Stok', en: 'Stock' }, 'Sales'],
   },
   {
     title: 'Mobile App (OCR)',
@@ -508,7 +560,7 @@ const serviceApplications = [
       id: 'Sistem kasir praktis untuk operasional penjualan harian, manajemen produk, pembayaran, stok, dan laporan sederhana.',
       en: 'A practical cashier system for daily sales operations, product management, payments, stock, and simple reports.',
     },
-    tags: ['Retail', 'Payment', 'Stock'],
+    tags: ['Retail', 'Payment', { id: 'Stok', en: 'Stock' }],
   },
 ];
 
@@ -557,10 +609,66 @@ const missionEnglish = [
 ];
 
 const portfolioEnglish = [
-  { title: 'Core Banking System Modernization', copy: 'Rebuilding monolithic architecture into microservices to improve transaction throughput and reduce downtime.' },
-  { title: 'National-Scale Telemedicine App', copy: 'A teleconsultation application with secure, fast, and easy-to-use electronic medical record integration.' },
-  { title: 'AI-Based Fleet Management System', copy: 'Route optimization and real-time tracking for logistics companies with complex operational needs.' },
-  { title: 'Enterprise E-Commerce Platform', copy: 'A headless e-commerce platform capable of handling high traffic and integrated with ERP/POS.' },
+  {
+    title: 'End-to-End Mining ERP',
+    copy: 'An ERP system for mining operations covering business processes, data, approvals, reporting, and end-to-end monitoring.',
+    result: 'Mining operations are more integrated',
+  },
+  {
+    title: 'Coding Learning LMS',
+    copy: 'A coding learning platform with materials, classes, learning progress, and a cleaner digital learning experience.',
+    result: 'Coding learning becomes more structured',
+  },
+  {
+    title: 'Hospital Web Application',
+    copy: 'A hospital web application with an informative interface, easier service processes, and better-organized data management.',
+    result: 'Hospital services are easier to manage',
+  },
+  {
+    title: 'Andalan Career Website',
+    copy: 'A career website for Andalan that supports vacancy publication, employer branding, and a more professional recruitment process.',
+    result: 'Recruitment is easier to monitor',
+  },
+  {
+    title: 'Andalan Form Builder & Ticketing',
+    copy: 'A form builder and ticketing system for digital submissions, request tracking, and internal request management.',
+    result: 'Internal forms are more flexible',
+  },
+  {
+    title: 'Cargo Gate Shipping Application',
+    copy: 'A shipping cargo application for shipment records, status tracking, and cleaner cargo process management.',
+    result: 'Shipping cargo processes are easier to monitor',
+  },
+  {
+    title: 'HRIS Product',
+    copy: 'An HRIS product for managing employee data, attendance, leave, payroll, approvals, contracts, and HR reports in one system.',
+    result: 'HR data is more centralized',
+  },
+  {
+    title: 'Moneyku Finance Application',
+    copy: 'A finance application that helps record, monitor, and report financial data in a more practical and readable way.',
+    result: 'Finance is easier to monitor',
+  },
+  {
+    title: 'Tax Calculator Application',
+    copy: 'An application for calculating multiple types of tax so estimation, simulation, and tax recap processes become easier.',
+    result: 'Tax calculation is more practical',
+  },
+  {
+    title: 'Point of Sale Application',
+    copy: 'A POS application for cashier transactions, products, stock, payments, discounts, tax, and daily sales reports.',
+    result: 'Store sales are more organized',
+  },
+  {
+    title: 'SOP Management Application',
+    copy: 'An SOP application that helps companies create, manage, and distribute work procedures digitally.',
+    result: 'SOPs are easier to follow',
+  },
+  {
+    title: 'Pasabar Tourism Company Profile',
+    copy: 'A tourism company profile website with informative pages, destination visuals, and clear contact paths.',
+    result: 'The tourism brand is easier to find',
+  },
 ];
 
 const industryEnglish = [
@@ -574,6 +682,16 @@ const industryEnglish = [
 
 function localText(value, language) {
   return typeof value === 'object' && value !== null ? value[language] || value.id : value;
+}
+
+function categoryLabel(category, language, text = copy[language]) {
+  const labels = {
+    'Project yang Pernah Dikerjakan': text.projectCategory,
+    Product: text.productCategory,
+    'Company Profile': text.companyProfileCategory,
+  };
+
+  return labels[category] || category;
 }
 
 const missions = [
@@ -717,20 +835,44 @@ const portfolios = [
 
 const faqs = [
   {
-    question: 'Berapa lama waktu pengerjaan proyek?',
-    answer: 'Waktu pengerjaan bergantung pada kompleksitas. Website standar biasanya 2-4 minggu, sedangkan sistem kustom kompleks bisa 2-6 bulan.',
+    question: {
+      id: 'Berapa lama waktu pengerjaan proyek?',
+      en: 'How long does a project usually take?',
+    },
+    answer: {
+      id: 'Waktu pengerjaan bergantung pada kompleksitas. Website standar biasanya 2-4 minggu, sedangkan sistem kustom kompleks bisa 2-6 bulan.',
+      en: 'Timeline depends on complexity. A standard website usually takes 2-4 weeks, while a complex custom system can take 2-6 months.',
+    },
   },
   {
-    question: 'Apakah ada layanan maintenance setelah proyek selesai?',
-    answer: 'Ada. Kami menyediakan pemeliharaan, monitoring, update keamanan, backup, dan pengembangan fitur lanjutan.',
+    question: {
+      id: 'Apakah ada layanan maintenance setelah proyek selesai?',
+      en: 'Do you provide maintenance after the project is completed?',
+    },
+    answer: {
+      id: 'Ada. Kami menyediakan pemeliharaan, monitoring, update keamanan, backup, dan pengembangan fitur lanjutan.',
+      en: 'Yes. We provide maintenance, monitoring, security updates, backups, and further feature development.',
+    },
   },
   {
-    question: 'Teknologi apa saja yang digunakan Nexora?',
-    answer: 'Kami memakai teknologi modern seperti React, Node.js, Go, Python, PostgreSQL, cloud infrastructure, Docker, dan CI/CD.',
+    question: {
+      id: 'Teknologi apa saja yang digunakan Nexora?',
+      en: 'What technologies does Nexora use?',
+    },
+    answer: {
+      id: 'Kami memakai teknologi modern seperti React, Node.js, Go, Python, PostgreSQL, cloud infrastructure, Docker, dan CI/CD.',
+      en: 'We use modern technologies such as React, Node.js, Go, Python, PostgreSQL, cloud infrastructure, Docker, and CI/CD.',
+    },
   },
   {
-    question: 'Apakah bisa integrasi dengan sistem lama?',
-    answer: 'Bisa. Kami bisa membuat API bridge, migrasi data bertahap, dan integrasi tanpa mengganggu operasional utama.',
+    question: {
+      id: 'Apakah bisa integrasi dengan sistem lama?',
+      en: 'Can Nexora integrate with existing legacy systems?',
+    },
+    answer: {
+      id: 'Bisa. Kami bisa membuat API bridge, migrasi data bertahap, dan integrasi tanpa mengganggu operasional utama.',
+      en: 'Yes. We can build API bridges, gradual data migration, and integrations without disrupting core operations.',
+    },
   },
 ];
 
@@ -955,7 +1097,7 @@ function Navbar({ language, menuOpen, onLanguageChange, onToggle, text }) {
         </nav>
 
         <div className="nav-actions">
-          <div className="language-toggle" aria-label="Pilih bahasa">
+          <div className="language-toggle" aria-label={text.languageLabel}>
             {['id', 'en'].map((item) => (
               <button
                 className={language === item ? 'is-active' : ''}
@@ -1150,7 +1292,7 @@ function ExperienceSection({ text }) {
       <div className="container">
         <div className="experience-grid">
           <div className="section-head left reveal is-visible">
-            <span className="eyebrow">Experience & Capability</span>
+            <span className="eyebrow">{text.experienceEyebrow}</span>
             <h2 className="section-title">{text.experienceTitle}</h2>
             <p className="section-copy">{text.experienceCopy}</p>
           </div>
@@ -1179,13 +1321,13 @@ function CoverageSection({ text }) {
         <div className="container coverage-grid">
           <div className="coverage-map reveal is-visible" aria-hidden="true">
             <iframe
-              title="Cakupan layanan Nexora di Indonesia"
+              title={text.coverageMapTitle}
               src="https://www.google.com/maps?q=Indonesia&z=5&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
             <a className="map-label google-map-link" href="https://www.google.com/maps/place/Indonesia" target="_blank" rel="noreferrer">
-              {text.openMaps}
+              {text.coverageMapButton}
             </a>
           </div>
         <div className="reveal is-visible">
@@ -1219,13 +1361,13 @@ function WhyNexoraSection({ language, text }) {
   );
 }
 
-function StatsCard() {
+function StatsCard({ text }) {
   return (
     <div className="stats-card reveal is-visible">
-      <Stat value="50+" label="Proyek Selesai" />
-      <Stat value="99%" label="Klien Puas" />
-      <Stat value="24/7" label="Dukungan" />
-      <Stat value="5+" label="Tahun Pengalaman" />
+      <Stat value="50+" label={text.statsProjects} />
+      <Stat value="99%" label={text.statsClients} />
+      <Stat value="24/7" label={text.statsSupport} />
+      <Stat value="5+" label={text.statsExperience} />
     </div>
   );
 }
@@ -1298,7 +1440,7 @@ function ProductsPreview({ language, text }) {
     <section className="section pattern-section">
       <AbstractPattern className="section-line-pattern" />
       <div className="container">
-        <SectionHead title="Products / Solutions" copy={text.productsPreviewCopy} />
+        <SectionHead title={text.productsTitle} copy={text.productsPreviewCopy} />
         <div className="grid three">{products.slice(0, 6).map((item, index) => <ProductCard item={item} index={index} language={language} compact key={item.title} />)}</div>
         <div className="section-action">
           <Link className="button secondary" to="/products">{text.viewAllProducts}</Link>
@@ -1332,13 +1474,20 @@ function ServiceCard({ item, index = 0, language = 'id' }) {
       <div className="icon-box"><span className="material-symbols-outlined">{item.icon}</span></div>
       <h3>{item.title}</h3>
       <p>{translated?.copy || item.copy}</p>
-      <Tags items={item.tags} />
+      <Tags items={item.tags} language={language} />
     </article>
   );
 }
 
-function Tags({ items }) {
-  return <div className="tags">{items.map((item) => <span className="tag" key={item}>{item}</span>)}</div>;
+function Tags({ items, language = 'id' }) {
+  return (
+    <div className="tags">
+      {items.map((item) => {
+        const label = localText(item, language);
+        return <span className="tag" key={label}>{label}</span>;
+      })}
+    </div>
+  );
 }
 
 function WhySection() {
@@ -1385,16 +1534,16 @@ function PortfolioCard({ item, index = 0, language = 'id', text = copy.id }) {
     <article className="card portfolio-card reveal is-visible">
       <div className="portfolio-image">
         <img src={item.image} alt={translated?.title || item.title} loading="lazy" />
-        <span className="portfolio-category"><span className="material-symbols-outlined">{item.icon || 'work'}</span>{item.category}</span>
+        <span className="portfolio-category"><span className="material-symbols-outlined">{item.icon || 'work'}</span>{categoryLabel(item.category, language, text)}</span>
       </div>
       <div className="portfolio-content">
-        <Tags items={item.tags} />
+        <Tags items={item.tags} language={language} />
         <h3>{translated?.title || item.title}</h3>
         <p>{translated?.copy || item.copy}</p>
         <div className="portfolio-result">
           <span className="material-symbols-outlined">trending_up</span>
-          <strong>{language === 'en' ? 'Impact' : 'Dampak'}</strong>
-          <span>{item.result}</span>
+          <strong>{text.portfolioImpact}</strong>
+          <span>{translated?.result || item.result}</span>
         </div>
         <Link className="link-arrow" to="/portfolio">{text.caseStudy} <span className="material-symbols-outlined">arrow_forward</span></Link>
       </div>
@@ -1408,7 +1557,7 @@ function FeaturedPortfolioCard({ item, index = 0, language = 'id', text = copy.i
   return (
     <article className="portfolio-featured interactive-card reveal is-visible">
       <div className="portfolio-featured-copy">
-        <span className="portfolio-kicker"><span className="material-symbols-outlined">{item.icon}</span>{item.category}</span>
+        <span className="portfolio-kicker"><span className="material-symbols-outlined">{item.icon}</span>{categoryLabel(item.category, language, text)}</span>
         <h2>{translated?.title || item.title}</h2>
         <p>{translated?.copy || item.copy}</p>
         <div className="portfolio-featured-tags">
@@ -1481,29 +1630,29 @@ function Testimonials() {
   );
 }
 
-function FaqSection({ compact = false }) {
+function FaqSection({ compact = false, language = 'id', text = copy.id }) {
   return (
     <section className="section pattern-section">
       <AbstractPattern className="section-line-pattern" />
       <div className="container">
-        {compact && <SectionHead title="Pertanyaan yang Sering Diajukan" />}
-        <FaqList />
+        {compact && <SectionHead title={text.faqTitle} />}
+        <FaqList language={language} />
       </div>
     </section>
   );
 }
 
-function FaqList() {
+function FaqList({ language = 'id' }) {
   const [open, setOpen] = useState(0);
   return (
     <div className="faq-list">
       {faqs.map((item, index) => (
-        <article className={`faq-item reveal is-visible ${open === index ? 'is-open' : ''}`} key={item.question}>
+        <article className={`faq-item reveal is-visible ${open === index ? 'is-open' : ''}`} key={localText(item.question, language)}>
           <button className="faq-question" type="button" onClick={() => setOpen(open === index ? -1 : index)}>
-            <span>{item.question}</span>
+            <span>{localText(item.question, language)}</span>
             <span className="material-symbols-outlined">expand_more</span>
           </button>
-          <div className="faq-answer">{item.answer}</div>
+          <div className="faq-answer">{localText(item.answer, language)}</div>
         </article>
       ))}
     </div>
@@ -1569,7 +1718,7 @@ function ServiceApplicationShowcase({ language, showDetails = false, text }) {
           <h3>{selected.title}</h3>
           <h4>{selected.subtitle}</h4>
           <p>{localText(selected.copy, language)}</p>
-          <Tags items={selected.tags} />
+          <Tags items={selected.tags} language={language} />
         </div>
         <div className="service-feature-visual with-image">
           <img src={selected.image} alt={`${selected.title} preview`} loading="lazy" />
@@ -1653,7 +1802,7 @@ function ServicePricingPlans({ language, text }) {
       <div className="grid three service-pricing-grid">
         {plans.map((plan) => (
           <article className={`card service-pricing-card ${plan.featured ? 'is-featured' : ''}`} key={plan.name}>
-            {plan.featured && <span className="pricing-badge">Most Popular</span>}
+            {plan.featured && <span className="pricing-badge">{text.popularBadge}</span>}
             <h3>{plan.name}</h3>
             <div className="service-price">
               <strong>{plan.price}</strong>
@@ -1696,7 +1845,7 @@ function ServiceActionBar({ text }) {
 function ProductsPage({ language, text }) {
   return (
     <>
-      <PageHero title="Products / Solutions Nexora" copy={text.productsPageCopy} primary />
+      <PageHero title={text.productsTitle} copy={text.productsPageCopy} primary />
       <section className="section page-section pattern-section">
         <AbstractPattern className="section-line-pattern" />
         <div className="container">
@@ -1724,7 +1873,7 @@ function PortfolioPage({ language, text }) {
           <div className="filter-row">
             {filters.map((item) => (
               <button className={`filter-button ${filter === item ? 'is-active' : ''}`} type="button" onClick={() => setFilter(item)} key={item}>
-                <span>{item}</span>
+                <span>{item === 'All' ? text.allFilter : categoryLabel(item, language, text)}</span>
                 <small>{item === 'All' ? portfolios.length : portfolios.filter((portfolio) => portfolio.category === item).length}</small>
               </button>
             ))}
@@ -1752,7 +1901,7 @@ function AboutPage({ language, text }) {
             <p className="section-copy">{text.aboutCopyOne}</p>
             <p className="section-copy">{text.aboutCopyTwo}</p>
           </div>
-          <StatsCard />
+          <StatsCard text={text} />
         </div>
       </section>
       <VisionMissionSection language={language} text={text} />
@@ -1786,19 +1935,19 @@ function VisionMissionSection({ language, text }) {
               </div>
               <div className="system-node system-node-top">
                 <span className="material-symbols-outlined">verified_user</span>
-                <span>Tata Kelola</span>
+                <span>{language === 'en' ? 'Governance' : 'Tata Kelola'}</span>
               </div>
               <div className="system-node system-node-right">
                 <span className="material-symbols-outlined">trending_up</span>
-                <span>Pertumbuhan</span>
+                <span>{language === 'en' ? 'Growth' : 'Pertumbuhan'}</span>
               </div>
               <div className="system-node system-node-bottom">
                 <span className="material-symbols-outlined">monitoring</span>
-                <span>Kontrol</span>
+                <span>{language === 'en' ? 'Control' : 'Kontrol'}</span>
               </div>
               <div className="system-node system-node-left">
                 <span className="material-symbols-outlined">automation</span>
-                <span>Efisiensi</span>
+                <span>{language === 'en' ? 'Efficiency' : 'Efisiensi'}</span>
               </div>
               <span className="system-flow flow-a" />
               <span className="system-flow flow-b" />
@@ -1905,7 +2054,7 @@ function TeamSection({ language, text }) {
                 <div className="flex gap-2">
                   {teamMembers.map((item, index) => (
                     <button
-                      aria-label={`Lihat ${item.name}`}
+                      aria-label={`${text.viewMember} ${item.name}`}
                       className={`h-2.5 rounded-full transition-all ${activeMember === index ? 'w-10 bg-nexora-blue' : 'w-2.5 bg-[#cfe0f5]'}`}
                       key={item.name}
                       onClick={() => setActiveMember(index)}
@@ -1914,10 +2063,10 @@ function TeamSection({ language, text }) {
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <button className="grid h-12 w-12 place-items-center rounded-full border border-nexora-line bg-white text-nexora-blue shadow-[0_10px_22px_rgba(0,66,126,0.08)]" type="button" onClick={() => moveMember(-1)} aria-label="Sebelumnya">
+                  <button className="grid h-12 w-12 place-items-center rounded-full border border-nexora-line bg-white text-nexora-blue shadow-[0_10px_22px_rgba(0,66,126,0.08)]" type="button" onClick={() => moveMember(-1)} aria-label={text.previous}>
                     <span className="material-symbols-outlined">arrow_back</span>
                   </button>
-                  <button className="grid h-12 w-12 place-items-center rounded-full bg-nexora-blue text-white shadow-[0_12px_24px_rgba(0,66,126,0.18)]" type="button" onClick={() => moveMember(1)} aria-label="Berikutnya">
+                  <button className="grid h-12 w-12 place-items-center rounded-full bg-nexora-blue text-white shadow-[0_12px_24px_rgba(0,66,126,0.18)]" type="button" onClick={() => moveMember(1)} aria-label={text.next}>
                     <span className="material-symbols-outlined">arrow_forward</span>
                   </button>
                 </div>
@@ -1984,12 +2133,12 @@ function IndustryPage({ language, text }) {
   );
 }
 
-function FaqPage() {
+function FaqPage({ language = 'id', text = copy.id }) {
   return (
     <>
-      <PageHero title="FAQ Nexora Technology" copy="Jawaban singkat untuk pertanyaan yang paling sering muncul sebelum memulai proyek teknologi." primary />
-      <FaqSection />
-      <Cta title="Masih Ada Pertanyaan?" copy="Tim kami siap bantu jelaskan opsi teknologi yang paling sesuai untuk kebutuhan bisnis Anda." />
+      <PageHero title={text.faqPageTitle} copy={text.faqPageCopy} primary />
+      <FaqSection language={language} text={text} />
+      <Cta title={text.faqCtaTitle} copy={text.faqCtaCopy} buttonLabel={text.cta} />
     </>
   );
 }
@@ -2100,7 +2249,7 @@ function SectionHead({ title, copy = '' }) {
   );
 }
 
-function Cta({ title = 'Siap Bikin Sistem Lebih Rapi?', copy = 'Ceritakan kebutuhan bisnis Anda. Kami bantu arahkan solusi yang paling mudah dimulai.', buttonLabel = 'Konsultasi Gratis' }) {
+function Cta({ title = copy.id.ctaDefaultTitle, copy: ctaCopy = copy.id.ctaDefaultCopy, buttonLabel = copy.id.cta }) {
   return (
     <section className="section pattern-section">
       <AbstractPattern className="global-line-pattern" />
@@ -2108,7 +2257,7 @@ function Cta({ title = 'Siap Bikin Sistem Lebih Rapi?', copy = 'Ceritakan kebutu
         <div className="cta reveal is-visible">
           <AbstractPattern className="cta-line-pattern" />
           <h2>{title}</h2>
-          <p>{copy}</p>
+          <p>{ctaCopy}</p>
           <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">{buttonLabel}</a>
         </div>
       </div>
@@ -2152,7 +2301,7 @@ function Footer({ language, text }) {
           </div>
 
           <div className="footer-card footer-products">
-            <h4>Products / Solutions</h4>
+            <h4>{text.productsTitle}</h4>
             <div className="footer-links">
               {products.slice(0, 6).map((item) => <Link to="/products" key={item.title}>{item.title.replace(' / Business Management System', '').replace(' / Employee Management', '').replace(' / Customer Management', '')}</Link>)}
             </div>
@@ -2172,7 +2321,7 @@ function Footer({ language, text }) {
         </div>
         <div className="footer-bottom">
           <span>© 2026 Nexora Technology. All rights reserved.</span>
-          <span>Jakarta, Indonesia</span>
+          <span>{text.footerLocation}</span>
         </div>
       </div>
     </footer>
