@@ -39,8 +39,12 @@ const copy = {
     homeHeroKicker: 'Solusi IT Enterprise',
     homeHeroTitle: 'Bangun Sistem. Percepat Bisnis.',
     homeHeroCopy: 'Nexora Technology adalah extended IT partner yang membantu bisnis membangun sistem digital, meningkatkan efisiensi operasional, memperkuat tata kelola, dan mempercepat transformasi digital secara aman, terukur, dan berkelanjutan.',
+    dashboardThroughput: 'Throughput',
+    dashboardUptime: 'Uptime',
+    dashboardSupport: 'Dukungan',
     consultNow: 'Ceritakan Kebutuhan Anda',
     viewServices: 'Lihat Layanan',
+    mindsetEyebrow: 'Mindset Nexora',
     ideologyTitle: 'Ideologi Nexora',
     ideologyCopy: 'Kami percaya teknologi bukan hanya alat operasional, tetapi fondasi untuk pertumbuhan bisnis yang aman, scalable, dan berdampak nyata.',
     playgroundTitle: 'Ruang Main Nexora',
@@ -96,6 +100,15 @@ const copy = {
     productCategory: 'Produk',
     companyProfileCategory: 'Company Profile',
     visionTitle: 'Menjadi Extended IT Partner strategis utama di Indonesia yang membantu pelaku bisnis mencapai keunggulan operasional, pengendalian risiko yang kuat, dan pertumbuhan bisnis berkelanjutan melalui transformasi digital yang berdampak nyata.',
+    visionLabel: 'Visi Nexora',
+    visionHeadline: 'Extended IT Partner untuk Pertumbuhan Bisnis Berkelanjutan.',
+    operationalExcellence: 'Keunggulan Operasional',
+    riskControl: 'Kontrol Risiko',
+    realImpact: 'Dampak Nyata',
+    governanceNode: 'Tata Kelola',
+    growthNode: 'Pertumbuhan',
+    controlNode: 'Kontrol',
+    efficiencyNode: 'Efisiensi',
     missionTitle: 'Misi Nexora',
     missionCopy: 'Lima komitmen utama dalam membangun solusi teknologi yang berdampak nyata untuk bisnis.',
     leadershipTitle: 'Strategi, teknologi, operasional, dan growth dalam satu koordinasi.',
@@ -169,8 +182,12 @@ const copy = {
     homeHeroKicker: 'Enterprise IT Solutions',
     homeHeroTitle: 'Build Systems. Accelerate Business.',
     homeHeroCopy: 'Nexora Technology is an extended IT partner that helps businesses build digital systems, improve operational efficiency, strengthen governance, and accelerate secure, measurable, and sustainable digital transformation.',
+    dashboardThroughput: 'Throughput',
+    dashboardUptime: 'Uptime',
+    dashboardSupport: 'Support',
     consultNow: 'Tell Us Your Needs',
     viewServices: 'View Services',
+    mindsetEyebrow: 'Nexora Mindset',
     ideologyTitle: 'Nexora Ideology',
     ideologyCopy: 'We believe technology is not only an operational tool, but a foundation for secure, scalable, and meaningful business growth.',
     playgroundTitle: 'Nexora Business Scope',
@@ -226,6 +243,15 @@ const copy = {
     productCategory: 'Products',
     companyProfileCategory: 'Company Profile',
     visionTitle: 'To become Indonesia’s leading strategic Extended IT Partner that helps businesses achieve operational excellence, strong risk control, and sustainable growth through digital transformation with real impact.',
+    visionLabel: 'Nexora Vision',
+    visionHeadline: 'Extended IT Partner for Sustainable Business Growth.',
+    operationalExcellence: 'Operational Excellence',
+    riskControl: 'Risk Control',
+    realImpact: 'Real Impact',
+    governanceNode: 'Governance',
+    growthNode: 'Growth',
+    controlNode: 'Control',
+    efficiencyNode: 'Efficiency',
     missionTitle: 'Nexora Mission',
     missionCopy: 'Five core commitments in building technology solutions that create real business impact.',
     leadershipTitle: 'Strategy, technology, operations, and growth in one coordination flow.',
@@ -380,22 +406,22 @@ const products = [
 const ideologyValues = [
   {
     icon: 'verified_user',
-    title: 'Integrity & Governance',
+    title: { id: 'Integritas & Tata Kelola', en: 'Integrity & Governance' },
     copy: 'Solusi digital harus dibangun dengan tata kelola yang jelas, transparan, aman, dan dapat dipertanggungjawabkan.',
   },
   {
     icon: 'engineering',
-    title: 'Engineering Excellence',
+    title: { id: 'Engineering Excellence', en: 'Engineering Excellence' },
     copy: 'Kami mengutamakan arsitektur sistem yang rapi, scalable, mudah dirawat, dan siap berkembang mengikuti kebutuhan bisnis.',
   },
   {
     icon: 'tips_and_updates',
-    title: 'Business-Driven Innovation',
+    title: { id: 'Inovasi Berbasis Bisnis', en: 'Business-Driven Innovation' },
     copy: 'Inovasi teknologi harus menjawab masalah bisnis nyata: efisiensi, kontrol, akurasi data, keamanan, dan pertumbuhan.',
   },
   {
     icon: 'task_alt',
-    title: 'Operational Ownership',
+    title: { id: 'Kepemilikan Operasional', en: 'Operational Ownership' },
     copy: 'Nexora hadir sebagai partner jangka panjang yang ikut memahami proses, risiko, dan kebutuhan operasional klien.',
   },
 ];
@@ -403,17 +429,17 @@ const ideologyValues = [
 const playgroundPillars = [
   {
     icon: 'storefront',
-    title: 'SaaS untuk UMKM',
+    title: { id: 'SaaS untuk UMKM', en: 'SaaS for MSMEs' },
     copy: 'POS, inventory, akuntansi sederhana, CRM ringan, absensi, dan dashboard bisnis untuk membantu operasional harian lebih tertata.',
   },
   {
     icon: 'developer_board',
-    title: 'Produk Kustom',
+    title: { id: 'Produk Kustom', en: 'Custom Products' },
     copy: 'Aplikasi web, mobile, ERP, workflow system, dashboard BI, API, backend, dan sistem enterprise yang dibangun sesuai flow bisnis.',
   },
   {
     icon: 'forum',
-    title: 'IT Consulting, Training & Discussion',
+    title: { id: 'Konsultasi, Training & Diskusi IT', en: 'IT Consulting, Training & Discussion' },
     copy: 'Roadmap transformasi digital, onboarding sistem, data analytics, automation, governance, dan cyber security dasar.',
   },
 ];
@@ -493,7 +519,7 @@ const productEnglish = [
 
 const serviceApplications = [
   {
-    title: 'HRIS',
+    title: { id: 'HRIS', en: 'HRIS' },
     subtitle: 'Human Resources Information System',
     image: '/hris.png',
     copy: {
@@ -503,8 +529,8 @@ const serviceApplications = [
     tags: ['Employee Data', 'Attendance', 'Payroll'],
   },
   {
-    title: 'Accounting',
-    subtitle: 'Finance & Accounting System',
+    title: { id: 'Accounting', en: 'Accounting' },
+    subtitle: { id: 'Sistem Keuangan & Akuntansi', en: 'Finance & Accounting System' },
     image: '/moneyku.png',
     copy: {
       id: 'Solusi pembukuan, pencatatan transaksi, invoice, laporan keuangan, dan monitoring cashflow untuk operasional bisnis yang lebih rapi.',
@@ -513,7 +539,7 @@ const serviceApplications = [
     tags: ['Invoice', 'Cashflow', 'Report'],
   },
   {
-    title: 'CRM',
+    title: { id: 'CRM', en: 'CRM' },
     subtitle: 'Customer Relationship Management',
     image: '/bisa-platform.png',
     copy: {
@@ -523,8 +549,8 @@ const serviceApplications = [
     tags: ['Lead Pipeline', 'Follow Up', 'Sales Report'],
   },
   {
-    title: 'Project Management',
-    subtitle: 'Task, Workflow & Team Tracking',
+    title: { id: 'Project Management', en: 'Project Management' },
+    subtitle: { id: 'Task, Workflow & Team Tracking', en: 'Task, Workflow & Team Tracking' },
     image: '/sop.png',
     copy: {
       id: 'Platform untuk mengatur task, timeline, PIC, approval, progress pekerjaan, dokumentasi, dan monitoring delivery proyek.',
@@ -533,7 +559,7 @@ const serviceApplications = [
     tags: ['Task', 'Timeline', 'Approval'],
   },
   {
-    title: 'POS',
+    title: { id: 'POS', en: 'POS' },
     subtitle: 'Point of Sales System',
     image: '/pasabar.png',
     copy: {
@@ -543,7 +569,7 @@ const serviceApplications = [
     tags: [{ id: 'Kasir', en: 'Cashier' }, { id: 'Stok', en: 'Stock' }, 'Sales'],
   },
   {
-    title: 'Mobile App (OCR)',
+    title: { id: 'Mobile App (OCR)', en: 'Mobile App (OCR)' },
     subtitle: 'Mobile Capture & Document Automation',
     image: '/all role ai.png',
     copy: {
@@ -553,8 +579,8 @@ const serviceApplications = [
     tags: ['OCR', 'Upload', 'Approval'],
   },
   {
-    title: 'Aplikasi Kasir',
-    subtitle: 'Retail Cashier Application',
+    title: { id: 'Aplikasi Kasir', en: 'Cashier Application' },
+    subtitle: { id: 'Aplikasi Kasir Retail', en: 'Retail Cashier Application' },
     image: '/gmm.png',
     copy: {
       id: 'Sistem kasir praktis untuk operasional penjualan harian, manajemen produk, pembayaran, stok, dan laporan sederhana.',
@@ -1155,7 +1181,7 @@ function HomePage({ language, text }) {
             <Suspense fallback={<div className="network-orb network-orb-fallback" aria-hidden="true" />}>
               <NetworkOrb />
             </Suspense>
-            <DashboardMockup />
+            <DashboardMockup text={text} />
           </div>
         </div>
       </section>
@@ -1177,7 +1203,7 @@ function HomePage({ language, text }) {
   );
 }
 
-function DashboardMockup() {
+function DashboardMockup({ text }) {
   const [style, setStyle] = useState({});
 
   function onMove(event) {
@@ -1201,9 +1227,9 @@ function DashboardMockup() {
               </svg>
             </div>
             <div className="metric-grid">
-              <Metric value="400%" label="Throughput" />
-              <Metric value="99%" label="Uptime" />
-              <Metric value="24/7" label="Support" />
+              <Metric value="400%" label={text.dashboardThroughput} />
+              <Metric value="99%" label={text.dashboardUptime} />
+              <Metric value="24/7" label={text.dashboardSupport} />
             </div>
           </div>
         </div>
@@ -1247,15 +1273,15 @@ function IdeologySection({ language, text }) {
       <AbstractPattern className="section-line-pattern" />
       <div className="container">
         <div className="section-head reveal is-visible">
-          <span className="eyebrow">Nexora Mindset</span>
+          <span className="eyebrow">{text.mindsetEyebrow}</span>
           <h2 className="section-title">{text.ideologyTitle}</h2>
           <p className="section-copy">{text.ideologyCopy}</p>
         </div>
         <div className="grid four">
           {ideologyValues.map((item, index) => (
-            <article className="card value-card reveal is-visible" key={item.title}>
+            <article className="card value-card reveal is-visible" key={localText(item.title, language)}>
               <div className="icon-box"><span className="material-symbols-outlined">{item.icon}</span></div>
-              <h3>{item.title}</h3>
+              <h3>{localText(item.title, language)}</h3>
               <p>{language === 'en' ? ideologyEnglish[index] : item.copy}</p>
             </article>
           ))}
@@ -1273,9 +1299,9 @@ function PlaygroundSection({ language, text }) {
         <SectionHead title={text.playgroundTitle} copy={text.playgroundCopy} />
         <div className="grid three">
           {playgroundPillars.map((item, index) => (
-            <article className="card pillar-card reveal is-visible" key={item.title}>
+            <article className="card pillar-card reveal is-visible" key={localText(item.title, language)}>
               <div className="icon-box"><span className="material-symbols-outlined">{item.icon}</span></div>
-              <h3>{item.title}</h3>
+              <h3>{localText(item.title, language)}</h3>
               <p>{language === 'en' ? playgroundEnglish[index] : item.copy}</p>
             </article>
           ))}
@@ -1694,6 +1720,7 @@ function ServicesPage({ language, text }) {
 function ServiceApplicationShowcase({ language, showDetails = false, text }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selected = serviceApplications[selectedIndex];
+  const selectedTitle = localText(selected.title, language);
   const details = getApplicationDetails(selected, language);
 
   return (
@@ -1704,24 +1731,24 @@ function ServiceApplicationShowcase({ language, showDetails = false, text }) {
           {serviceApplications.map((item, index) => (
             <button
               className={selectedIndex === index ? 'is-active' : ''}
-              key={item.title}
+              key={localText(item.title, 'id')}
               type="button"
               onClick={() => setSelectedIndex(index)}
             >
-              <span>{item.title}</span>
+              <span>{localText(item.title, language)}</span>
               {selectedIndex === index && <span className="material-symbols-outlined">arrow_forward</span>}
             </button>
           ))}
         </div>
         <div className="service-feature-copy">
           <div className="icon-box"><span className="material-symbols-outlined">apps</span></div>
-          <h3>{selected.title}</h3>
-          <h4>{selected.subtitle}</h4>
+          <h3>{selectedTitle}</h3>
+          <h4>{localText(selected.subtitle, language)}</h4>
           <p>{localText(selected.copy, language)}</p>
           <Tags items={selected.tags} language={language} />
         </div>
         <div className="service-feature-visual with-image">
-          <img src={selected.image} alt={`${selected.title} preview`} loading="lazy" />
+          <img src={selected.image} alt={`${selectedTitle} preview`} loading="lazy" />
         </div>
       </article>
       {showDetails && (
@@ -1729,7 +1756,7 @@ function ServiceApplicationShowcase({ language, showDetails = false, text }) {
           {details.map((detail, index) => (
             <article className="card service-app-detail-card" key={detail.title}>
               <div className="service-detail-image">
-                <img src={selected.image} alt={`${selected.title} ${detail.title}`} loading="lazy" />
+                <img src={selected.image} alt={`${selectedTitle} ${detail.title}`} loading="lazy" />
               </div>
               <span className="service-detail-number">{String(index + 1).padStart(2, '0')}</span>
               <h3>{detail.title}</h3>
@@ -1743,15 +1770,16 @@ function ServiceApplicationShowcase({ language, showDetails = false, text }) {
 }
 
 function getApplicationDetails(application, language) {
+  const applicationTitle = localText(application.title, language);
   const fallback = {
     id: [
-      ['Dashboard Utama', `Pantau ringkasan ${application.title}, status terbaru, dan data penting dari satu tampilan.`],
-      ['Alur Kerja Harian', `Bantu tim menjalankan proses ${application.title} dengan langkah yang lebih rapi dan mudah diikuti.`],
+      ['Dashboard Utama', `Pantau ringkasan ${applicationTitle}, status terbaru, dan data penting dari satu tampilan.`],
+      ['Alur Kerja Harian', `Bantu tim menjalankan proses ${applicationTitle} dengan langkah yang lebih rapi dan mudah diikuti.`],
       ['Laporan & Monitoring', `Lihat laporan penting agar keputusan bisnis bisa dibuat lebih cepat dan berdasarkan data.`],
     ],
     en: [
-      ['Main Dashboard', `Monitor ${application.title} summaries, latest status, and important data from one view.`],
-      ['Daily Workflow', `Help teams run ${application.title} processes with cleaner and easier-to-follow steps.`],
+      ['Main Dashboard', `Monitor ${applicationTitle} summaries, latest status, and important data from one view.`],
+      ['Daily Workflow', `Help teams run ${applicationTitle} processes with cleaner and easier-to-follow steps.`],
       ['Reports & Monitoring', `View important reports so business decisions can be made faster and based on data.`],
     ],
   };
@@ -1769,7 +1797,7 @@ function getApplicationDetails(application, language) {
     ],
   };
 
-  const source = application.title === 'HRIS' ? hris : fallback;
+  const source = localText(application.title, 'id') === 'HRIS' ? hris : fallback;
   return source[language].map(([title, copy]) => ({ title, copy }));
 }
 
@@ -1919,13 +1947,13 @@ function VisionMissionSection({ language, text }) {
         <div className="container">
           <div className="vision-highlight reveal is-visible">
             <div className="vision-copy">
-              <span className="vision-label">{language === 'en' ? 'Nexora Vision' : 'Visi Nexora'}</span>
-              <h2>{language === 'en' ? 'Extended IT Partner for Sustainable Business Growth.' : 'Extended IT Partner untuk Pertumbuhan Bisnis Berkelanjutan.'}</h2>
+              <span className="vision-label">{text.visionLabel}</span>
+              <h2>{text.visionHeadline}</h2>
               <p>{text.visionTitle}</p>
               <div className="vision-points">
-                <span>{language === 'en' ? 'Operational Excellence' : 'Keunggulan Operasional'}</span>
-                <span>{language === 'en' ? 'Risk Control' : 'Kontrol Risiko'}</span>
-                <span>{language === 'en' ? 'Real Impact' : 'Dampak Nyata'}</span>
+                <span>{text.operationalExcellence}</span>
+                <span>{text.riskControl}</span>
+                <span>{text.realImpact}</span>
               </div>
             </div>
             <div className="vision-visual" aria-hidden="true">
@@ -1935,19 +1963,19 @@ function VisionMissionSection({ language, text }) {
               </div>
               <div className="system-node system-node-top">
                 <span className="material-symbols-outlined">verified_user</span>
-                <span>{language === 'en' ? 'Governance' : 'Tata Kelola'}</span>
+                <span>{text.governanceNode}</span>
               </div>
               <div className="system-node system-node-right">
                 <span className="material-symbols-outlined">trending_up</span>
-                <span>{language === 'en' ? 'Growth' : 'Pertumbuhan'}</span>
+                <span>{text.growthNode}</span>
               </div>
               <div className="system-node system-node-bottom">
                 <span className="material-symbols-outlined">monitoring</span>
-                <span>{language === 'en' ? 'Control' : 'Kontrol'}</span>
+                <span>{text.controlNode}</span>
               </div>
               <div className="system-node system-node-left">
                 <span className="material-symbols-outlined">automation</span>
-                <span>{language === 'en' ? 'Efficiency' : 'Efisiensi'}</span>
+                <span>{text.efficiencyNode}</span>
               </div>
               <span className="system-flow flow-a" />
               <span className="system-flow flow-b" />
