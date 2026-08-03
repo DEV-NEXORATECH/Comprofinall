@@ -1823,3 +1823,94 @@
     border-radius: 16px;
   }
 }
+
+.pricing-note {
+  margin: -22px auto 34px;
+  max-width: 760px;
+  border: 1px solid rgba(0, 103, 189, 0.18);
+  border-radius: 14px;
+  background: rgba(232, 242, 255, 0.82);
+  padding: 14px 18px;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.maps-button,
+.maps-button:visited,
+.footer-map-button,
+.footer-map-button:visited {
+  border-color: #0067bd !important;
+  background: #0067bd !important;
+  color: #ffffff !important;
+}
+
+.maps-button .material-symbols-outlined,
+.footer-map-button .material-symbols-outlined {
+  color: inherit !important;
+}
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.whatsapp-button,
+.whatsapp-button:visited {
+  background: #0067bd !important;
+  border-color: #0067bd !important;
+  color: #ffffff !important;
+}
+
+.whatsapp-button .material-symbols-outlined {
+  color: inherit !important;
+}
+.floating-whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 26px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 103, 189, 0.18);
+  background: #0067bd;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 18px 36px rgba(0, 66, 126, 0.24);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px);
+  background: #004f91;
+  color: #ffffff !important;
+  box-shadow: 0 22px 44px rgba(0, 66, 126, 0.30);
+}
+
+.floating-whatsapp .material-symbols-outlined {
+  color: inherit;
+  font-size: 22px;
+}
+
+@media (max-width: 640px) {
+  .floating-whatsapp {
+    right: 16px;
+    bottom: 18px;
+    min-height: 48px;
+    width: 48px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .floating-whatsapp span:last-child {
+    display: none;
+  }
+}
